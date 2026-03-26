@@ -1,6 +1,6 @@
 # Golang FHIR Models
 
-This repository contains a FHIR® R4 models for Go. The models consist of Go structs for each resource and data type. The structs are suitable for JSON encoding/decoding. 
+This repository contains FHIR® R4 models for Go. The models consist of Go structs for each resource and data type, suitable for JSON encoding/decoding.
 
 ## Features
 
@@ -8,6 +8,45 @@ This repository contains a FHIR® R4 models for Go. The models consist of Go str
 * unmarshal functions are provided for every resource
 * enums are provided for every ValueSet used in a [required binding][2], has a computer friendly name and refers only to one CodeSystem
 * enums implement `Code()`, `Display()` and `Definition()` methods
+* polymorphic (`value[x]`) fields are always generated as optional pointers — only the chosen variant is marshaled, preventing non-compliant JSON with zero-value entries for unused types
+* primitive type extensions are fully supported: every primitive field is accompanied by a `{Field}Element *PrimitiveElement` (or `[]*PrimitiveElement` for arrays) that carries the FHIR `_fieldName` companion object (element id and extensions)
+
+## Primitive Type Extensions
+
+The [FHIR JSON spec][3] allows primitive values to carry an `id` and `extension` via an underscore-prefixed companion field. This library represents those companions as `PrimitiveElement` siblings:
+
+```go
+// scalar primitive
+BirthDate        *string           `json:"birthDate,omitempty"`
+BirthDateElement *PrimitiveElement `json:"_birthDate,omitempty"`
+
+// array primitive — parallel slice, nil entries where no extension is present
+Given        []string            `json:"given,omitempty"`
+GivenElement []*PrimitiveElement `json:"_given,omitempty"`
+```
+
+`PrimitiveElement` is defined as:
+
+```go
+type PrimitiveElement struct {
+    Id        *string     `json:"id,omitempty"`
+    Extension []Extension `json:"extension,omitempty"`
+}
+```
+
+Companion fields are always `omitempty`, so existing code that does not use primitive extensions is unaffected.
+
+## Polymorphic Fields
+
+FHIR `value[x]` elements are expanded into one field per allowed type, all generated as optional pointers regardless of the element's `min` cardinality. This ensures that only the populated variant is written to JSON:
+
+```go
+// Observation.value[x]
+ValueQuantity        *Quantity        `json:"valueQuantity,omitempty"`
+ValueCodeableConcept *CodeableConcept `json:"valueCodeableConcept,omitempty"`
+ValueString          *string          `json:"valueString,omitempty"`
+// ...
+```
 
 ## Usage
 
@@ -33,3 +72,4 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 [1]: <https://golang.org/pkg/encoding/json/#Marshaler>
 [2]: <https://www.hl7.org/fhir/terminologies.html#strength>
+[3]: <https://www.hl7.org/fhir/json.html#primitive>
