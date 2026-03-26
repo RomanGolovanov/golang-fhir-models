@@ -21,63 +21,89 @@ import "encoding/json"
 
 // Bundle is documented here http://hl7.org/fhir/StructureDefinition/Bundle
 type Bundle struct {
-	Id            *string       `bson:"id,omitempty" json:"id,omitempty"`
-	Meta          *Meta         `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules *string       `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language      *string       `bson:"language,omitempty" json:"language,omitempty"`
-	Identifier    *Identifier   `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Type          BundleType    `bson:"type" json:"type"`
-	Timestamp     *string       `bson:"timestamp,omitempty" json:"timestamp,omitempty"`
-	Total         *int          `bson:"total,omitempty" json:"total,omitempty"`
-	Link          []BundleLink  `bson:"link,omitempty" json:"link,omitempty"`
-	Entry         []BundleEntry `bson:"entry,omitempty" json:"entry,omitempty"`
-	Signature     *Signature    `bson:"signature,omitempty" json:"signature,omitempty"`
+	Id                   *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string           `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement `bson:"_language,omitempty" json:"_language,omitempty"`
+	Identifier           *Identifier       `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Type                 BundleType        `bson:"type" json:"type"`
+	TypeElement          *PrimitiveElement `bson:"_type,omitempty" json:"_type,omitempty"`
+	Timestamp            *string           `bson:"timestamp,omitempty" json:"timestamp,omitempty"`
+	TimestampElement     *PrimitiveElement `bson:"_timestamp,omitempty" json:"_timestamp,omitempty"`
+	Total                *int              `bson:"total,omitempty" json:"total,omitempty"`
+	TotalElement         *PrimitiveElement `bson:"_total,omitempty" json:"_total,omitempty"`
+	Link                 []BundleLink      `bson:"link,omitempty" json:"link,omitempty"`
+	Entry                []BundleEntry     `bson:"entry,omitempty" json:"entry,omitempty"`
+	Signature            *Signature        `bson:"signature,omitempty" json:"signature,omitempty"`
 }
 type BundleLink struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Relation          string      `bson:"relation" json:"relation"`
-	Url               string      `bson:"url" json:"url"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Relation          string            `bson:"relation" json:"relation"`
+	RelationElement   *PrimitiveElement `bson:"_relation,omitempty" json:"_relation,omitempty"`
+	Url               string            `bson:"url" json:"url"`
+	UrlElement        *PrimitiveElement `bson:"_url,omitempty" json:"_url,omitempty"`
 }
 type BundleEntry struct {
 	Id                *string              `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement    `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension          `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Link              []BundleLink         `bson:"link,omitempty" json:"link,omitempty"`
 	FullUrl           *string              `bson:"fullUrl,omitempty" json:"fullUrl,omitempty"`
+	FullUrlElement    *PrimitiveElement    `bson:"_fullUrl,omitempty" json:"_fullUrl,omitempty"`
 	Resource          json.RawMessage      `bson:"resource,omitempty" json:"resource,omitempty"`
 	Search            *BundleEntrySearch   `bson:"search,omitempty" json:"search,omitempty"`
 	Request           *BundleEntryRequest  `bson:"request,omitempty" json:"request,omitempty"`
 	Response          *BundleEntryResponse `bson:"response,omitempty" json:"response,omitempty"`
 }
 type BundleEntrySearch struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Mode              *SearchEntryMode `bson:"mode,omitempty" json:"mode,omitempty"`
-	Score             *json.Number     `bson:"score,omitempty" json:"score,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Mode              *SearchEntryMode  `bson:"mode,omitempty" json:"mode,omitempty"`
+	ModeElement       *PrimitiveElement `bson:"_mode,omitempty" json:"_mode,omitempty"`
+	Score             *json.Number      `bson:"score,omitempty" json:"score,omitempty"`
+	ScoreElement      *PrimitiveElement `bson:"_score,omitempty" json:"_score,omitempty"`
 }
 type BundleEntryRequest struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Method            HTTPVerb    `bson:"method" json:"method"`
-	Url               string      `bson:"url" json:"url"`
-	IfNoneMatch       *string     `bson:"ifNoneMatch,omitempty" json:"ifNoneMatch,omitempty"`
-	IfModifiedSince   *string     `bson:"ifModifiedSince,omitempty" json:"ifModifiedSince,omitempty"`
-	IfMatch           *string     `bson:"ifMatch,omitempty" json:"ifMatch,omitempty"`
-	IfNoneExist       *string     `bson:"ifNoneExist,omitempty" json:"ifNoneExist,omitempty"`
+	Id                     *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement              *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension              []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension      []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Method                 HTTPVerb          `bson:"method" json:"method"`
+	MethodElement          *PrimitiveElement `bson:"_method,omitempty" json:"_method,omitempty"`
+	Url                    string            `bson:"url" json:"url"`
+	UrlElement             *PrimitiveElement `bson:"_url,omitempty" json:"_url,omitempty"`
+	IfNoneMatch            *string           `bson:"ifNoneMatch,omitempty" json:"ifNoneMatch,omitempty"`
+	IfNoneMatchElement     *PrimitiveElement `bson:"_ifNoneMatch,omitempty" json:"_ifNoneMatch,omitempty"`
+	IfModifiedSince        *string           `bson:"ifModifiedSince,omitempty" json:"ifModifiedSince,omitempty"`
+	IfModifiedSinceElement *PrimitiveElement `bson:"_ifModifiedSince,omitempty" json:"_ifModifiedSince,omitempty"`
+	IfMatch                *string           `bson:"ifMatch,omitempty" json:"ifMatch,omitempty"`
+	IfMatchElement         *PrimitiveElement `bson:"_ifMatch,omitempty" json:"_ifMatch,omitempty"`
+	IfNoneExist            *string           `bson:"ifNoneExist,omitempty" json:"ifNoneExist,omitempty"`
+	IfNoneExistElement     *PrimitiveElement `bson:"_ifNoneExist,omitempty" json:"_ifNoneExist,omitempty"`
 }
 type BundleEntryResponse struct {
-	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Status            string          `bson:"status" json:"status"`
-	Location          *string         `bson:"location,omitempty" json:"location,omitempty"`
-	Etag              *string         `bson:"etag,omitempty" json:"etag,omitempty"`
-	LastModified      *string         `bson:"lastModified,omitempty" json:"lastModified,omitempty"`
-	Outcome           json.RawMessage `bson:"outcome,omitempty" json:"outcome,omitempty"`
+	Id                  *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement           *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension           []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension   []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Status              string            `bson:"status" json:"status"`
+	StatusElement       *PrimitiveElement `bson:"_status,omitempty" json:"_status,omitempty"`
+	Location            *string           `bson:"location,omitempty" json:"location,omitempty"`
+	LocationElement     *PrimitiveElement `bson:"_location,omitempty" json:"_location,omitempty"`
+	Etag                *string           `bson:"etag,omitempty" json:"etag,omitempty"`
+	EtagElement         *PrimitiveElement `bson:"_etag,omitempty" json:"_etag,omitempty"`
+	LastModified        *string           `bson:"lastModified,omitempty" json:"lastModified,omitempty"`
+	LastModifiedElement *PrimitiveElement `bson:"_lastModified,omitempty" json:"_lastModified,omitempty"`
+	Outcome             json.RawMessage   `bson:"outcome,omitempty" json:"outcome,omitempty"`
 }
 type OtherBundle Bundle
 

@@ -21,13 +21,20 @@ import "encoding/json"
 
 // SampledData is documented here http://hl7.org/fhir/StructureDefinition/SampledData
 type SampledData struct {
-	Id         *string      `bson:"id,omitempty" json:"id,omitempty"`
-	Extension  []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
-	Origin     Quantity     `bson:"origin" json:"origin"`
-	Period     json.Number  `bson:"period" json:"period"`
-	Factor     *json.Number `bson:"factor,omitempty" json:"factor,omitempty"`
-	LowerLimit *json.Number `bson:"lowerLimit,omitempty" json:"lowerLimit,omitempty"`
-	UpperLimit *json.Number `bson:"upperLimit,omitempty" json:"upperLimit,omitempty"`
-	Dimensions int          `bson:"dimensions" json:"dimensions"`
-	Data       *string      `bson:"data,omitempty" json:"data,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Origin            Quantity          `bson:"origin" json:"origin"`
+	Period            json.Number       `bson:"period" json:"period"`
+	PeriodElement     *PrimitiveElement `bson:"_period,omitempty" json:"_period,omitempty"`
+	Factor            *json.Number      `bson:"factor,omitempty" json:"factor,omitempty"`
+	FactorElement     *PrimitiveElement `bson:"_factor,omitempty" json:"_factor,omitempty"`
+	LowerLimit        *json.Number      `bson:"lowerLimit,omitempty" json:"lowerLimit,omitempty"`
+	LowerLimitElement *PrimitiveElement `bson:"_lowerLimit,omitempty" json:"_lowerLimit,omitempty"`
+	UpperLimit        *json.Number      `bson:"upperLimit,omitempty" json:"upperLimit,omitempty"`
+	UpperLimitElement *PrimitiveElement `bson:"_upperLimit,omitempty" json:"_upperLimit,omitempty"`
+	Dimensions        int               `bson:"dimensions" json:"dimensions"`
+	DimensionsElement *PrimitiveElement `bson:"_dimensions,omitempty" json:"_dimensions,omitempty"`
+	Data              *string           `bson:"data,omitempty" json:"data,omitempty"`
+	DataElement       *PrimitiveElement `bson:"_data,omitempty" json:"_data,omitempty"`
 }

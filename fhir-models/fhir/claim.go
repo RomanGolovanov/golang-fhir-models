@@ -22,20 +22,26 @@ import "encoding/json"
 // Claim is documented here http://hl7.org/fhir/StructureDefinition/Claim
 type Claim struct {
 	Id                   *string                      `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement            `bson:"_id,omitempty" json:"_id,omitempty"`
 	Meta                 *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
 	ImplicitRules        *string                      `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement            `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
 	Language             *string                      `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement            `bson:"_language,omitempty" json:"_language,omitempty"`
 	Text                 *Narrative                   `bson:"text,omitempty" json:"text,omitempty"`
 	Extension            []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension    []Extension                  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier           []Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
 	Status               FinancialResourceStatusCodes `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement            `bson:"_status,omitempty" json:"_status,omitempty"`
 	Type                 CodeableConcept              `bson:"type" json:"type"`
 	SubType              *CodeableConcept             `bson:"subType,omitempty" json:"subType,omitempty"`
 	Use                  Use                          `bson:"use" json:"use"`
+	UseElement           *PrimitiveElement            `bson:"_use,omitempty" json:"_use,omitempty"`
 	Patient              Reference                    `bson:"patient" json:"patient"`
 	BillablePeriod       *Period                      `bson:"billablePeriod,omitempty" json:"billablePeriod,omitempty"`
 	Created              string                       `bson:"created" json:"created"`
+	CreatedElement       *PrimitiveElement            `bson:"_created,omitempty" json:"_created,omitempty"`
 	Enterer              *Reference                   `bson:"enterer,omitempty" json:"enterer,omitempty"`
 	Insurer              *Reference                   `bson:"insurer,omitempty" json:"insurer,omitempty"`
 	Provider             Reference                    `bson:"provider" json:"provider"`
@@ -57,51 +63,63 @@ type Claim struct {
 	Total                *Money                       `bson:"total,omitempty" json:"total,omitempty"`
 }
 type ClaimRelated struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Claim             *Reference       `bson:"claim,omitempty" json:"claim,omitempty"`
-	Relationship      *CodeableConcept `bson:"relationship,omitempty" json:"relationship,omitempty"`
-	Reference         *Identifier      `bson:"reference,omitempty" json:"reference,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Claim             *Reference        `bson:"claim,omitempty" json:"claim,omitempty"`
+	Relationship      *CodeableConcept  `bson:"relationship,omitempty" json:"relationship,omitempty"`
+	Reference         *Identifier       `bson:"reference,omitempty" json:"reference,omitempty"`
 }
 type ClaimPayee struct {
-	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Type              CodeableConcept `bson:"type" json:"type"`
-	Party             *Reference      `bson:"party,omitempty" json:"party,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Type              CodeableConcept   `bson:"type" json:"type"`
+	Party             *Reference        `bson:"party,omitempty" json:"party,omitempty"`
 }
 type ClaimCareTeam struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Sequence          int              `bson:"sequence" json:"sequence"`
-	Provider          Reference        `bson:"provider" json:"provider"`
-	Responsible       *bool            `bson:"responsible,omitempty" json:"responsible,omitempty"`
-	Role              *CodeableConcept `bson:"role,omitempty" json:"role,omitempty"`
-	Qualification     *CodeableConcept `bson:"qualification,omitempty" json:"qualification,omitempty"`
+	Id                 *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension  []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Sequence           int               `bson:"sequence" json:"sequence"`
+	SequenceElement    *PrimitiveElement `bson:"_sequence,omitempty" json:"_sequence,omitempty"`
+	Provider           Reference         `bson:"provider" json:"provider"`
+	Responsible        *bool             `bson:"responsible,omitempty" json:"responsible,omitempty"`
+	ResponsibleElement *PrimitiveElement `bson:"_responsible,omitempty" json:"_responsible,omitempty"`
+	Role               *CodeableConcept  `bson:"role,omitempty" json:"role,omitempty"`
+	Qualification      *CodeableConcept  `bson:"qualification,omitempty" json:"qualification,omitempty"`
 }
 type ClaimSupportingInfo struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Sequence          int              `bson:"sequence" json:"sequence"`
-	Category          CodeableConcept  `bson:"category" json:"category"`
-	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
-	TimingDate        *string          `bson:"timingDate,omitempty" json:"timingDate,omitempty"`
-	TimingPeriod      *Period          `bson:"timingPeriod,omitempty" json:"timingPeriod,omitempty"`
-	ValueBoolean      *bool            `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
-	ValueString       *string          `bson:"valueString,omitempty" json:"valueString,omitempty"`
-	ValueQuantity     *Quantity        `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
-	ValueAttachment   *Attachment      `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty"`
-	ValueReference    *Reference       `bson:"valueReference,omitempty" json:"valueReference,omitempty"`
-	Reason            *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty"`
+	Id                  *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement           *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension           []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension   []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Sequence            int               `bson:"sequence" json:"sequence"`
+	SequenceElement     *PrimitiveElement `bson:"_sequence,omitempty" json:"_sequence,omitempty"`
+	Category            CodeableConcept   `bson:"category" json:"category"`
+	Code                *CodeableConcept  `bson:"code,omitempty" json:"code,omitempty"`
+	TimingDate          *string           `bson:"timingDate,omitempty" json:"timingDate,omitempty"`
+	TimingDateElement   *PrimitiveElement `bson:"_timingDate,omitempty" json:"_timingDate,omitempty"`
+	TimingPeriod        *Period           `bson:"timingPeriod,omitempty" json:"timingPeriod,omitempty"`
+	ValueBoolean        *bool             `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBooleanElement *PrimitiveElement `bson:"_valueBoolean,omitempty" json:"_valueBoolean,omitempty"`
+	ValueString         *string           `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueStringElement  *PrimitiveElement `bson:"_valueString,omitempty" json:"_valueString,omitempty"`
+	ValueQuantity       *Quantity         `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
+	ValueAttachment     *Attachment       `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty"`
+	ValueReference      *Reference        `bson:"valueReference,omitempty" json:"valueReference,omitempty"`
+	Reason              *CodeableConcept  `bson:"reason,omitempty" json:"reason,omitempty"`
 }
 type ClaimDiagnosis struct {
 	Id                       *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension                []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension        []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Sequence                 int               `bson:"sequence" json:"sequence"`
+	SequenceElement          *PrimitiveElement `bson:"_sequence,omitempty" json:"_sequence,omitempty"`
 	DiagnosisCodeableConcept *CodeableConcept  `bson:"diagnosisCodeableConcept,omitempty" json:"diagnosisCodeableConcept,omitempty"`
 	DiagnosisReference       *Reference        `bson:"diagnosisReference,omitempty" json:"diagnosisReference,omitempty"`
 	Type                     []CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
@@ -110,70 +128,90 @@ type ClaimDiagnosis struct {
 }
 type ClaimProcedure struct {
 	Id                       *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension                []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension        []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Sequence                 int               `bson:"sequence" json:"sequence"`
+	SequenceElement          *PrimitiveElement `bson:"_sequence,omitempty" json:"_sequence,omitempty"`
 	Type                     []CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
 	Date                     *string           `bson:"date,omitempty" json:"date,omitempty"`
+	DateElement              *PrimitiveElement `bson:"_date,omitempty" json:"_date,omitempty"`
 	ProcedureCodeableConcept *CodeableConcept  `bson:"procedureCodeableConcept,omitempty" json:"procedureCodeableConcept,omitempty"`
 	ProcedureReference       *Reference        `bson:"procedureReference,omitempty" json:"procedureReference,omitempty"`
 	Udi                      []Reference       `bson:"udi,omitempty" json:"udi,omitempty"`
 }
 type ClaimInsurance struct {
-	Id                  *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension           []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension   []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Sequence            int         `bson:"sequence" json:"sequence"`
-	Focal               bool        `bson:"focal" json:"focal"`
-	Identifier          *Identifier `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Coverage            Reference   `bson:"coverage" json:"coverage"`
-	BusinessArrangement *string     `bson:"businessArrangement,omitempty" json:"businessArrangement,omitempty"`
-	PreAuthRef          []string    `bson:"preAuthRef,omitempty" json:"preAuthRef,omitempty"`
-	ClaimResponse       *Reference  `bson:"claimResponse,omitempty" json:"claimResponse,omitempty"`
+	Id                         *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                  *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension                  []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension          []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Sequence                   int                 `bson:"sequence" json:"sequence"`
+	SequenceElement            *PrimitiveElement   `bson:"_sequence,omitempty" json:"_sequence,omitempty"`
+	Focal                      bool                `bson:"focal" json:"focal"`
+	FocalElement               *PrimitiveElement   `bson:"_focal,omitempty" json:"_focal,omitempty"`
+	Identifier                 *Identifier         `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Coverage                   Reference           `bson:"coverage" json:"coverage"`
+	BusinessArrangement        *string             `bson:"businessArrangement,omitempty" json:"businessArrangement,omitempty"`
+	BusinessArrangementElement *PrimitiveElement   `bson:"_businessArrangement,omitempty" json:"_businessArrangement,omitempty"`
+	PreAuthRef                 []string            `bson:"preAuthRef,omitempty" json:"preAuthRef,omitempty"`
+	PreAuthRefElement          []*PrimitiveElement `bson:"_preAuthRef,omitempty" json:"_preAuthRef,omitempty"`
+	ClaimResponse              *Reference          `bson:"claimResponse,omitempty" json:"claimResponse,omitempty"`
 }
 type ClaimAccident struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Date              string           `bson:"date" json:"date"`
-	Type              *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
-	LocationAddress   *Address         `bson:"locationAddress,omitempty" json:"locationAddress,omitempty"`
-	LocationReference *Reference       `bson:"locationReference,omitempty" json:"locationReference,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Date              string            `bson:"date" json:"date"`
+	DateElement       *PrimitiveElement `bson:"_date,omitempty" json:"_date,omitempty"`
+	Type              *CodeableConcept  `bson:"type,omitempty" json:"type,omitempty"`
+	LocationAddress   *Address          `bson:"locationAddress,omitempty" json:"locationAddress,omitempty"`
+	LocationReference *Reference        `bson:"locationReference,omitempty" json:"locationReference,omitempty"`
 }
 type ClaimItem struct {
-	Id                      *string           `bson:"id,omitempty" json:"id,omitempty"`
-	Extension               []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension       []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Sequence                int               `bson:"sequence" json:"sequence"`
-	CareTeamSequence        []int             `bson:"careTeamSequence,omitempty" json:"careTeamSequence,omitempty"`
-	DiagnosisSequence       []int             `bson:"diagnosisSequence,omitempty" json:"diagnosisSequence,omitempty"`
-	ProcedureSequence       []int             `bson:"procedureSequence,omitempty" json:"procedureSequence,omitempty"`
-	InformationSequence     []int             `bson:"informationSequence,omitempty" json:"informationSequence,omitempty"`
-	Revenue                 *CodeableConcept  `bson:"revenue,omitempty" json:"revenue,omitempty"`
-	Category                *CodeableConcept  `bson:"category,omitempty" json:"category,omitempty"`
-	ProductOrService        CodeableConcept   `bson:"productOrService" json:"productOrService"`
-	Modifier                []CodeableConcept `bson:"modifier,omitempty" json:"modifier,omitempty"`
-	ProgramCode             []CodeableConcept `bson:"programCode,omitempty" json:"programCode,omitempty"`
-	ServicedDate            *string           `bson:"servicedDate,omitempty" json:"servicedDate,omitempty"`
-	ServicedPeriod          *Period           `bson:"servicedPeriod,omitempty" json:"servicedPeriod,omitempty"`
-	LocationCodeableConcept *CodeableConcept  `bson:"locationCodeableConcept,omitempty" json:"locationCodeableConcept,omitempty"`
-	LocationAddress         *Address          `bson:"locationAddress,omitempty" json:"locationAddress,omitempty"`
-	LocationReference       *Reference        `bson:"locationReference,omitempty" json:"locationReference,omitempty"`
-	Quantity                *Quantity         `bson:"quantity,omitempty" json:"quantity,omitempty"`
-	UnitPrice               *Money            `bson:"unitPrice,omitempty" json:"unitPrice,omitempty"`
-	Factor                  *json.Number      `bson:"factor,omitempty" json:"factor,omitempty"`
-	Net                     *Money            `bson:"net,omitempty" json:"net,omitempty"`
-	Udi                     []Reference       `bson:"udi,omitempty" json:"udi,omitempty"`
-	BodySite                *CodeableConcept  `bson:"bodySite,omitempty" json:"bodySite,omitempty"`
-	SubSite                 []CodeableConcept `bson:"subSite,omitempty" json:"subSite,omitempty"`
-	Encounter               []Reference       `bson:"encounter,omitempty" json:"encounter,omitempty"`
-	Detail                  []ClaimItemDetail `bson:"detail,omitempty" json:"detail,omitempty"`
+	Id                         *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                  *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension                  []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension          []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Sequence                   int                 `bson:"sequence" json:"sequence"`
+	SequenceElement            *PrimitiveElement   `bson:"_sequence,omitempty" json:"_sequence,omitempty"`
+	CareTeamSequence           []int               `bson:"careTeamSequence,omitempty" json:"careTeamSequence,omitempty"`
+	CareTeamSequenceElement    []*PrimitiveElement `bson:"_careTeamSequence,omitempty" json:"_careTeamSequence,omitempty"`
+	DiagnosisSequence          []int               `bson:"diagnosisSequence,omitempty" json:"diagnosisSequence,omitempty"`
+	DiagnosisSequenceElement   []*PrimitiveElement `bson:"_diagnosisSequence,omitempty" json:"_diagnosisSequence,omitempty"`
+	ProcedureSequence          []int               `bson:"procedureSequence,omitempty" json:"procedureSequence,omitempty"`
+	ProcedureSequenceElement   []*PrimitiveElement `bson:"_procedureSequence,omitempty" json:"_procedureSequence,omitempty"`
+	InformationSequence        []int               `bson:"informationSequence,omitempty" json:"informationSequence,omitempty"`
+	InformationSequenceElement []*PrimitiveElement `bson:"_informationSequence,omitempty" json:"_informationSequence,omitempty"`
+	Revenue                    *CodeableConcept    `bson:"revenue,omitempty" json:"revenue,omitempty"`
+	Category                   *CodeableConcept    `bson:"category,omitempty" json:"category,omitempty"`
+	ProductOrService           CodeableConcept     `bson:"productOrService" json:"productOrService"`
+	Modifier                   []CodeableConcept   `bson:"modifier,omitempty" json:"modifier,omitempty"`
+	ProgramCode                []CodeableConcept   `bson:"programCode,omitempty" json:"programCode,omitempty"`
+	ServicedDate               *string             `bson:"servicedDate,omitempty" json:"servicedDate,omitempty"`
+	ServicedDateElement        *PrimitiveElement   `bson:"_servicedDate,omitempty" json:"_servicedDate,omitempty"`
+	ServicedPeriod             *Period             `bson:"servicedPeriod,omitempty" json:"servicedPeriod,omitempty"`
+	LocationCodeableConcept    *CodeableConcept    `bson:"locationCodeableConcept,omitempty" json:"locationCodeableConcept,omitempty"`
+	LocationAddress            *Address            `bson:"locationAddress,omitempty" json:"locationAddress,omitempty"`
+	LocationReference          *Reference          `bson:"locationReference,omitempty" json:"locationReference,omitempty"`
+	Quantity                   *Quantity           `bson:"quantity,omitempty" json:"quantity,omitempty"`
+	UnitPrice                  *Money              `bson:"unitPrice,omitempty" json:"unitPrice,omitempty"`
+	Factor                     *json.Number        `bson:"factor,omitempty" json:"factor,omitempty"`
+	FactorElement              *PrimitiveElement   `bson:"_factor,omitempty" json:"_factor,omitempty"`
+	Net                        *Money              `bson:"net,omitempty" json:"net,omitempty"`
+	Udi                        []Reference         `bson:"udi,omitempty" json:"udi,omitempty"`
+	BodySite                   *CodeableConcept    `bson:"bodySite,omitempty" json:"bodySite,omitempty"`
+	SubSite                    []CodeableConcept   `bson:"subSite,omitempty" json:"subSite,omitempty"`
+	Encounter                  []Reference         `bson:"encounter,omitempty" json:"encounter,omitempty"`
+	Detail                     []ClaimItemDetail   `bson:"detail,omitempty" json:"detail,omitempty"`
 }
 type ClaimItemDetail struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement          `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension                `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Sequence          int                        `bson:"sequence" json:"sequence"`
+	SequenceElement   *PrimitiveElement          `bson:"_sequence,omitempty" json:"_sequence,omitempty"`
 	Revenue           *CodeableConcept           `bson:"revenue,omitempty" json:"revenue,omitempty"`
 	Category          *CodeableConcept           `bson:"category,omitempty" json:"category,omitempty"`
 	ProductOrService  CodeableConcept            `bson:"productOrService" json:"productOrService"`
@@ -182,15 +220,18 @@ type ClaimItemDetail struct {
 	Quantity          *Quantity                  `bson:"quantity,omitempty" json:"quantity,omitempty"`
 	UnitPrice         *Money                     `bson:"unitPrice,omitempty" json:"unitPrice,omitempty"`
 	Factor            *json.Number               `bson:"factor,omitempty" json:"factor,omitempty"`
+	FactorElement     *PrimitiveElement          `bson:"_factor,omitempty" json:"_factor,omitempty"`
 	Net               *Money                     `bson:"net,omitempty" json:"net,omitempty"`
 	Udi               []Reference                `bson:"udi,omitempty" json:"udi,omitempty"`
 	SubDetail         []ClaimItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty"`
 }
 type ClaimItemDetailSubDetail struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Sequence          int               `bson:"sequence" json:"sequence"`
+	SequenceElement   *PrimitiveElement `bson:"_sequence,omitempty" json:"_sequence,omitempty"`
 	Revenue           *CodeableConcept  `bson:"revenue,omitempty" json:"revenue,omitempty"`
 	Category          *CodeableConcept  `bson:"category,omitempty" json:"category,omitempty"`
 	ProductOrService  CodeableConcept   `bson:"productOrService" json:"productOrService"`
@@ -199,6 +240,7 @@ type ClaimItemDetailSubDetail struct {
 	Quantity          *Quantity         `bson:"quantity,omitempty" json:"quantity,omitempty"`
 	UnitPrice         *Money            `bson:"unitPrice,omitempty" json:"unitPrice,omitempty"`
 	Factor            *json.Number      `bson:"factor,omitempty" json:"factor,omitempty"`
+	FactorElement     *PrimitiveElement `bson:"_factor,omitempty" json:"_factor,omitempty"`
 	Net               *Money            `bson:"net,omitempty" json:"net,omitempty"`
 	Udi               []Reference       `bson:"udi,omitempty" json:"udi,omitempty"`
 }

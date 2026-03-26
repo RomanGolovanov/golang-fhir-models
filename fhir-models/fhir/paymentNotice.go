@@ -21,25 +21,31 @@ import "encoding/json"
 
 // PaymentNotice is documented here http://hl7.org/fhir/StructureDefinition/PaymentNotice
 type PaymentNotice struct {
-	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                      `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                      `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative                   `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status            FinancialResourceStatusCodes `bson:"status" json:"status"`
-	Request           *Reference                   `bson:"request,omitempty" json:"request,omitempty"`
-	Response          *Reference                   `bson:"response,omitempty" json:"response,omitempty"`
-	Created           string                       `bson:"created" json:"created"`
-	Provider          *Reference                   `bson:"provider,omitempty" json:"provider,omitempty"`
-	Payment           Reference                    `bson:"payment" json:"payment"`
-	PaymentDate       *string                      `bson:"paymentDate,omitempty" json:"paymentDate,omitempty"`
-	Payee             *Reference                   `bson:"payee,omitempty" json:"payee,omitempty"`
-	Recipient         Reference                    `bson:"recipient" json:"recipient"`
-	Amount            Money                        `bson:"amount" json:"amount"`
-	PaymentStatus     *CodeableConcept             `bson:"paymentStatus,omitempty" json:"paymentStatus,omitempty"`
+	Id                   *string                      `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement            `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string                      `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement            `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string                      `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement            `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative                   `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension                  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           []Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status               FinancialResourceStatusCodes `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement            `bson:"_status,omitempty" json:"_status,omitempty"`
+	Request              *Reference                   `bson:"request,omitempty" json:"request,omitempty"`
+	Response             *Reference                   `bson:"response,omitempty" json:"response,omitempty"`
+	Created              string                       `bson:"created" json:"created"`
+	CreatedElement       *PrimitiveElement            `bson:"_created,omitempty" json:"_created,omitempty"`
+	Provider             *Reference                   `bson:"provider,omitempty" json:"provider,omitempty"`
+	Payment              Reference                    `bson:"payment" json:"payment"`
+	PaymentDate          *string                      `bson:"paymentDate,omitempty" json:"paymentDate,omitempty"`
+	PaymentDateElement   *PrimitiveElement            `bson:"_paymentDate,omitempty" json:"_paymentDate,omitempty"`
+	Payee                *Reference                   `bson:"payee,omitempty" json:"payee,omitempty"`
+	Recipient            Reference                    `bson:"recipient" json:"recipient"`
+	Amount               Money                        `bson:"amount" json:"amount"`
+	PaymentStatus        *CodeableConcept             `bson:"paymentStatus,omitempty" json:"paymentStatus,omitempty"`
 }
 type OtherPaymentNotice PaymentNotice
 

@@ -19,14 +19,23 @@ package fhir
 
 // Attachment is documented here http://hl7.org/fhir/StructureDefinition/Attachment
 type Attachment struct {
-	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension   []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ContentType *string     `bson:"contentType,omitempty" json:"contentType,omitempty"`
-	Language    *string     `bson:"language,omitempty" json:"language,omitempty"`
-	Data        *string     `bson:"data,omitempty" json:"data,omitempty"`
-	Url         *string     `bson:"url,omitempty" json:"url,omitempty"`
-	Size        *int        `bson:"size,omitempty" json:"size,omitempty"`
-	Hash        *string     `bson:"hash,omitempty" json:"hash,omitempty"`
-	Title       *string     `bson:"title,omitempty" json:"title,omitempty"`
-	Creation    *string     `bson:"creation,omitempty" json:"creation,omitempty"`
+	Id                 *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ContentType        *string           `bson:"contentType,omitempty" json:"contentType,omitempty"`
+	ContentTypeElement *PrimitiveElement `bson:"_contentType,omitempty" json:"_contentType,omitempty"`
+	Language           *string           `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement    *PrimitiveElement `bson:"_language,omitempty" json:"_language,omitempty"`
+	Data               *string           `bson:"data,omitempty" json:"data,omitempty"`
+	DataElement        *PrimitiveElement `bson:"_data,omitempty" json:"_data,omitempty"`
+	Url                *string           `bson:"url,omitempty" json:"url,omitempty"`
+	UrlElement         *PrimitiveElement `bson:"_url,omitempty" json:"_url,omitempty"`
+	Size               *int              `bson:"size,omitempty" json:"size,omitempty"`
+	SizeElement        *PrimitiveElement `bson:"_size,omitempty" json:"_size,omitempty"`
+	Hash               *string           `bson:"hash,omitempty" json:"hash,omitempty"`
+	HashElement        *PrimitiveElement `bson:"_hash,omitempty" json:"_hash,omitempty"`
+	Title              *string           `bson:"title,omitempty" json:"title,omitempty"`
+	TitleElement       *PrimitiveElement `bson:"_title,omitempty" json:"_title,omitempty"`
+	Creation           *string           `bson:"creation,omitempty" json:"creation,omitempty"`
+	CreationElement    *PrimitiveElement `bson:"_creation,omitempty" json:"_creation,omitempty"`
 }

@@ -22,28 +22,37 @@ import "encoding/json"
 // ClinicalImpression is documented here http://hl7.org/fhir/StructureDefinition/ClinicalImpression
 type ClinicalImpression struct {
 	Id                       *string                           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                *PrimitiveElement                 `bson:"_id,omitempty" json:"_id,omitempty"`
 	Meta                     *Meta                             `bson:"meta,omitempty" json:"meta,omitempty"`
 	ImplicitRules            *string                           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement     *PrimitiveElement                 `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
 	Language                 *string                           `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement          *PrimitiveElement                 `bson:"_language,omitempty" json:"_language,omitempty"`
 	Text                     *Narrative                        `bson:"text,omitempty" json:"text,omitempty"`
 	Extension                []Extension                       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension        []Extension                       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier               []Identifier                      `bson:"identifier,omitempty" json:"identifier,omitempty"`
 	Status                   ClinicalImpressionStatus          `bson:"status" json:"status"`
+	StatusElement            *PrimitiveElement                 `bson:"_status,omitempty" json:"_status,omitempty"`
 	StatusReason             *CodeableConcept                  `bson:"statusReason,omitempty" json:"statusReason,omitempty"`
 	Code                     *CodeableConcept                  `bson:"code,omitempty" json:"code,omitempty"`
 	Description              *string                           `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement       *PrimitiveElement                 `bson:"_description,omitempty" json:"_description,omitempty"`
 	Subject                  Reference                         `bson:"subject" json:"subject"`
 	Encounter                *Reference                        `bson:"encounter,omitempty" json:"encounter,omitempty"`
 	EffectiveDateTime        *string                           `bson:"effectiveDateTime,omitempty" json:"effectiveDateTime,omitempty"`
+	EffectiveDateTimeElement *PrimitiveElement                 `bson:"_effectiveDateTime,omitempty" json:"_effectiveDateTime,omitempty"`
 	EffectivePeriod          *Period                           `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty"`
 	Date                     *string                           `bson:"date,omitempty" json:"date,omitempty"`
+	DateElement              *PrimitiveElement                 `bson:"_date,omitempty" json:"_date,omitempty"`
 	Assessor                 *Reference                        `bson:"assessor,omitempty" json:"assessor,omitempty"`
 	Previous                 *Reference                        `bson:"previous,omitempty" json:"previous,omitempty"`
 	Problem                  []Reference                       `bson:"problem,omitempty" json:"problem,omitempty"`
 	Investigation            []ClinicalImpressionInvestigation `bson:"investigation,omitempty" json:"investigation,omitempty"`
 	Protocol                 []string                          `bson:"protocol,omitempty" json:"protocol,omitempty"`
+	ProtocolElement          []*PrimitiveElement               `bson:"_protocol,omitempty" json:"_protocol,omitempty"`
 	Summary                  *string                           `bson:"summary,omitempty" json:"summary,omitempty"`
+	SummaryElement           *PrimitiveElement                 `bson:"_summary,omitempty" json:"_summary,omitempty"`
 	Finding                  []ClinicalImpressionFinding       `bson:"finding,omitempty" json:"finding,omitempty"`
 	PrognosisCodeableConcept []CodeableConcept                 `bson:"prognosisCodeableConcept,omitempty" json:"prognosisCodeableConcept,omitempty"`
 	PrognosisReference       []Reference                       `bson:"prognosisReference,omitempty" json:"prognosisReference,omitempty"`
@@ -51,19 +60,22 @@ type ClinicalImpression struct {
 	Note                     []Annotation                      `bson:"note,omitempty" json:"note,omitempty"`
 }
 type ClinicalImpressionInvestigation struct {
-	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Code              CodeableConcept `bson:"code" json:"code"`
-	Item              []Reference     `bson:"item,omitempty" json:"item,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Code              CodeableConcept   `bson:"code" json:"code"`
+	Item              []Reference       `bson:"item,omitempty" json:"item,omitempty"`
 }
 type ClinicalImpressionFinding struct {
-	Id                  *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension           []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension   []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	ItemCodeableConcept *CodeableConcept `bson:"itemCodeableConcept,omitempty" json:"itemCodeableConcept,omitempty"`
-	ItemReference       *Reference       `bson:"itemReference,omitempty" json:"itemReference,omitempty"`
-	Basis               *string          `bson:"basis,omitempty" json:"basis,omitempty"`
+	Id                  *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement           *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension           []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension   []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	ItemCodeableConcept *CodeableConcept  `bson:"itemCodeableConcept,omitempty" json:"itemCodeableConcept,omitempty"`
+	ItemReference       *Reference        `bson:"itemReference,omitempty" json:"itemReference,omitempty"`
+	Basis               *string           `bson:"basis,omitempty" json:"basis,omitempty"`
+	BasisElement        *PrimitiveElement `bson:"_basis,omitempty" json:"_basis,omitempty"`
 }
 type OtherClinicalImpression ClinicalImpression
 

@@ -21,39 +21,47 @@ import "encoding/json"
 
 // InsurancePlan is documented here http://hl7.org/fhir/StructureDefinition/InsurancePlan
 type InsurancePlan struct {
-	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                 `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                 `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative              `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier            `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status            *PublicationStatus      `bson:"status,omitempty" json:"status,omitempty"`
-	Type              []CodeableConcept       `bson:"type,omitempty" json:"type,omitempty"`
-	Name              *string                 `bson:"name,omitempty" json:"name,omitempty"`
-	Alias             []string                `bson:"alias,omitempty" json:"alias,omitempty"`
-	Period            *Period                 `bson:"period,omitempty" json:"period,omitempty"`
-	OwnedBy           *Reference              `bson:"ownedBy,omitempty" json:"ownedBy,omitempty"`
-	AdministeredBy    *Reference              `bson:"administeredBy,omitempty" json:"administeredBy,omitempty"`
-	CoverageArea      []Reference             `bson:"coverageArea,omitempty" json:"coverageArea,omitempty"`
-	Contact           []InsurancePlanContact  `bson:"contact,omitempty" json:"contact,omitempty"`
-	Endpoint          []Reference             `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
-	Network           []Reference             `bson:"network,omitempty" json:"network,omitempty"`
-	Coverage          []InsurancePlanCoverage `bson:"coverage,omitempty" json:"coverage,omitempty"`
-	Plan              []InsurancePlanPlan     `bson:"plan,omitempty" json:"plan,omitempty"`
+	Id                   *string                 `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement       `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string                 `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement       `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string                 `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement       `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative              `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           []Identifier            `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status               *PublicationStatus      `bson:"status,omitempty" json:"status,omitempty"`
+	StatusElement        *PrimitiveElement       `bson:"_status,omitempty" json:"_status,omitempty"`
+	Type                 []CodeableConcept       `bson:"type,omitempty" json:"type,omitempty"`
+	Name                 *string                 `bson:"name,omitempty" json:"name,omitempty"`
+	NameElement          *PrimitiveElement       `bson:"_name,omitempty" json:"_name,omitempty"`
+	Alias                []string                `bson:"alias,omitempty" json:"alias,omitempty"`
+	AliasElement         []*PrimitiveElement     `bson:"_alias,omitempty" json:"_alias,omitempty"`
+	Period               *Period                 `bson:"period,omitempty" json:"period,omitempty"`
+	OwnedBy              *Reference              `bson:"ownedBy,omitempty" json:"ownedBy,omitempty"`
+	AdministeredBy       *Reference              `bson:"administeredBy,omitempty" json:"administeredBy,omitempty"`
+	CoverageArea         []Reference             `bson:"coverageArea,omitempty" json:"coverageArea,omitempty"`
+	Contact              []InsurancePlanContact  `bson:"contact,omitempty" json:"contact,omitempty"`
+	Endpoint             []Reference             `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
+	Network              []Reference             `bson:"network,omitempty" json:"network,omitempty"`
+	Coverage             []InsurancePlanCoverage `bson:"coverage,omitempty" json:"coverage,omitempty"`
+	Plan                 []InsurancePlanPlan     `bson:"plan,omitempty" json:"plan,omitempty"`
 }
 type InsurancePlanContact struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Purpose           *CodeableConcept `bson:"purpose,omitempty" json:"purpose,omitempty"`
-	Name              *HumanName       `bson:"name,omitempty" json:"name,omitempty"`
-	Telecom           []ContactPoint   `bson:"telecom,omitempty" json:"telecom,omitempty"`
-	Address           *Address         `bson:"address,omitempty" json:"address,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Purpose           *CodeableConcept  `bson:"purpose,omitempty" json:"purpose,omitempty"`
+	Name              *HumanName        `bson:"name,omitempty" json:"name,omitempty"`
+	Telecom           []ContactPoint    `bson:"telecom,omitempty" json:"telecom,omitempty"`
+	Address           *Address          `bson:"address,omitempty" json:"address,omitempty"`
 }
 type InsurancePlanCoverage struct {
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement              `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              CodeableConcept                `bson:"type" json:"type"`
@@ -61,22 +69,26 @@ type InsurancePlanCoverage struct {
 	Benefit           []InsurancePlanCoverageBenefit `bson:"benefit" json:"benefit"`
 }
 type InsurancePlanCoverageBenefit struct {
-	Id                *string                             `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension                         `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Type              CodeableConcept                     `bson:"type" json:"type"`
-	Requirement       *string                             `bson:"requirement,omitempty" json:"requirement,omitempty"`
-	Limit             []InsurancePlanCoverageBenefitLimit `bson:"limit,omitempty" json:"limit,omitempty"`
+	Id                 *string                             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement                   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension                         `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension  []Extension                         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Type               CodeableConcept                     `bson:"type" json:"type"`
+	Requirement        *string                             `bson:"requirement,omitempty" json:"requirement,omitempty"`
+	RequirementElement *PrimitiveElement                   `bson:"_requirement,omitempty" json:"_requirement,omitempty"`
+	Limit              []InsurancePlanCoverageBenefitLimit `bson:"limit,omitempty" json:"limit,omitempty"`
 }
 type InsurancePlanCoverageBenefitLimit struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Value             *Quantity        `bson:"value,omitempty" json:"value,omitempty"`
-	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Value             *Quantity         `bson:"value,omitempty" json:"value,omitempty"`
+	Code              *CodeableConcept  `bson:"code,omitempty" json:"code,omitempty"`
 }
 type InsurancePlanPlan struct {
 	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement               `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier        []Identifier                    `bson:"identifier,omitempty" json:"identifier,omitempty"`
@@ -87,16 +99,20 @@ type InsurancePlanPlan struct {
 	SpecificCost      []InsurancePlanPlanSpecificCost `bson:"specificCost,omitempty" json:"specificCost,omitempty"`
 }
 type InsurancePlanPlanGeneralCost struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Type              *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
-	GroupSize         *int             `bson:"groupSize,omitempty" json:"groupSize,omitempty"`
-	Cost              *Money           `bson:"cost,omitempty" json:"cost,omitempty"`
-	Comment           *string          `bson:"comment,omitempty" json:"comment,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Type              *CodeableConcept  `bson:"type,omitempty" json:"type,omitempty"`
+	GroupSize         *int              `bson:"groupSize,omitempty" json:"groupSize,omitempty"`
+	GroupSizeElement  *PrimitiveElement `bson:"_groupSize,omitempty" json:"_groupSize,omitempty"`
+	Cost              *Money            `bson:"cost,omitempty" json:"cost,omitempty"`
+	Comment           *string           `bson:"comment,omitempty" json:"comment,omitempty"`
+	CommentElement    *PrimitiveElement `bson:"_comment,omitempty" json:"_comment,omitempty"`
 }
 type InsurancePlanPlanSpecificCost struct {
 	Id                *string                                `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement                      `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension                            `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Category          CodeableConcept                        `bson:"category" json:"category"`
@@ -104,6 +120,7 @@ type InsurancePlanPlanSpecificCost struct {
 }
 type InsurancePlanPlanSpecificCostBenefit struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement                          `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension                                `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                                `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              CodeableConcept                            `bson:"type" json:"type"`
@@ -111,6 +128,7 @@ type InsurancePlanPlanSpecificCostBenefit struct {
 }
 type InsurancePlanPlanSpecificCostBenefitCost struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              CodeableConcept   `bson:"type" json:"type"`

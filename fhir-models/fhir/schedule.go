@@ -21,21 +21,26 @@ import "encoding/json"
 
 // Schedule is documented here http://hl7.org/fhir/StructureDefinition/Schedule
 type Schedule struct {
-	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string           `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Active            *bool             `bson:"active,omitempty" json:"active,omitempty"`
-	ServiceCategory   []CodeableConcept `bson:"serviceCategory,omitempty" json:"serviceCategory,omitempty"`
-	ServiceType       []CodeableConcept `bson:"serviceType,omitempty" json:"serviceType,omitempty"`
-	Specialty         []CodeableConcept `bson:"specialty,omitempty" json:"specialty,omitempty"`
-	Actor             []Reference       `bson:"actor" json:"actor"`
-	PlanningHorizon   *Period           `bson:"planningHorizon,omitempty" json:"planningHorizon,omitempty"`
-	Comment           *string           `bson:"comment,omitempty" json:"comment,omitempty"`
+	Id                   *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string           `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Active               *bool             `bson:"active,omitempty" json:"active,omitempty"`
+	ActiveElement        *PrimitiveElement `bson:"_active,omitempty" json:"_active,omitempty"`
+	ServiceCategory      []CodeableConcept `bson:"serviceCategory,omitempty" json:"serviceCategory,omitempty"`
+	ServiceType          []CodeableConcept `bson:"serviceType,omitempty" json:"serviceType,omitempty"`
+	Specialty            []CodeableConcept `bson:"specialty,omitempty" json:"specialty,omitempty"`
+	Actor                []Reference       `bson:"actor" json:"actor"`
+	PlanningHorizon      *Period           `bson:"planningHorizon,omitempty" json:"planningHorizon,omitempty"`
+	Comment              *string           `bson:"comment,omitempty" json:"comment,omitempty"`
+	CommentElement       *PrimitiveElement `bson:"_comment,omitempty" json:"_comment,omitempty"`
 }
 type OtherSchedule Schedule
 

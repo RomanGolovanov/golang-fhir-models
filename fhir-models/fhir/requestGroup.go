@@ -21,76 +21,102 @@ import "encoding/json"
 
 // RequestGroup is documented here http://hl7.org/fhir/StructureDefinition/RequestGroup
 type RequestGroup struct {
-	Id                    *string              `bson:"id,omitempty" json:"id,omitempty"`
-	Meta                  *Meta                `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules         *string              `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language              *string              `bson:"language,omitempty" json:"language,omitempty"`
-	Text                  *Narrative           `bson:"text,omitempty" json:"text,omitempty"`
-	Extension             []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension     []Extension          `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier            []Identifier         `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	InstantiatesCanonical []string             `bson:"instantiatesCanonical,omitempty" json:"instantiatesCanonical,omitempty"`
-	InstantiatesUri       []string             `bson:"instantiatesUri,omitempty" json:"instantiatesUri,omitempty"`
-	BasedOn               []Reference          `bson:"basedOn,omitempty" json:"basedOn,omitempty"`
-	Replaces              []Reference          `bson:"replaces,omitempty" json:"replaces,omitempty"`
-	GroupIdentifier       *Identifier          `bson:"groupIdentifier,omitempty" json:"groupIdentifier,omitempty"`
-	Status                RequestStatus        `bson:"status" json:"status"`
-	Intent                RequestIntent        `bson:"intent" json:"intent"`
-	Priority              *RequestPriority     `bson:"priority,omitempty" json:"priority,omitempty"`
-	Code                  *CodeableConcept     `bson:"code,omitempty" json:"code,omitempty"`
-	Subject               *Reference           `bson:"subject,omitempty" json:"subject,omitempty"`
-	Encounter             *Reference           `bson:"encounter,omitempty" json:"encounter,omitempty"`
-	AuthoredOn            *string              `bson:"authoredOn,omitempty" json:"authoredOn,omitempty"`
-	Author                *Reference           `bson:"author,omitempty" json:"author,omitempty"`
-	ReasonCode            []CodeableConcept    `bson:"reasonCode,omitempty" json:"reasonCode,omitempty"`
-	ReasonReference       []Reference          `bson:"reasonReference,omitempty" json:"reasonReference,omitempty"`
-	Note                  []Annotation         `bson:"note,omitempty" json:"note,omitempty"`
-	Action                []RequestGroupAction `bson:"action,omitempty" json:"action,omitempty"`
+	Id                           *string              `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                    *PrimitiveElement    `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                         *Meta                `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules                *string              `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement         *PrimitiveElement    `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language                     *string              `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement              *PrimitiveElement    `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                         *Narrative           `bson:"text,omitempty" json:"text,omitempty"`
+	Extension                    []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension            []Extension          `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier                   []Identifier         `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	InstantiatesCanonical        []string             `bson:"instantiatesCanonical,omitempty" json:"instantiatesCanonical,omitempty"`
+	InstantiatesCanonicalElement []*PrimitiveElement  `bson:"_instantiatesCanonical,omitempty" json:"_instantiatesCanonical,omitempty"`
+	InstantiatesUri              []string             `bson:"instantiatesUri,omitempty" json:"instantiatesUri,omitempty"`
+	InstantiatesUriElement       []*PrimitiveElement  `bson:"_instantiatesUri,omitempty" json:"_instantiatesUri,omitempty"`
+	BasedOn                      []Reference          `bson:"basedOn,omitempty" json:"basedOn,omitempty"`
+	Replaces                     []Reference          `bson:"replaces,omitempty" json:"replaces,omitempty"`
+	GroupIdentifier              *Identifier          `bson:"groupIdentifier,omitempty" json:"groupIdentifier,omitempty"`
+	Status                       RequestStatus        `bson:"status" json:"status"`
+	StatusElement                *PrimitiveElement    `bson:"_status,omitempty" json:"_status,omitempty"`
+	Intent                       RequestIntent        `bson:"intent" json:"intent"`
+	IntentElement                *PrimitiveElement    `bson:"_intent,omitempty" json:"_intent,omitempty"`
+	Priority                     *RequestPriority     `bson:"priority,omitempty" json:"priority,omitempty"`
+	PriorityElement              *PrimitiveElement    `bson:"_priority,omitempty" json:"_priority,omitempty"`
+	Code                         *CodeableConcept     `bson:"code,omitempty" json:"code,omitempty"`
+	Subject                      *Reference           `bson:"subject,omitempty" json:"subject,omitempty"`
+	Encounter                    *Reference           `bson:"encounter,omitempty" json:"encounter,omitempty"`
+	AuthoredOn                   *string              `bson:"authoredOn,omitempty" json:"authoredOn,omitempty"`
+	AuthoredOnElement            *PrimitiveElement    `bson:"_authoredOn,omitempty" json:"_authoredOn,omitempty"`
+	Author                       *Reference           `bson:"author,omitempty" json:"author,omitempty"`
+	ReasonCode                   []CodeableConcept    `bson:"reasonCode,omitempty" json:"reasonCode,omitempty"`
+	ReasonReference              []Reference          `bson:"reasonReference,omitempty" json:"reasonReference,omitempty"`
+	Note                         []Annotation         `bson:"note,omitempty" json:"note,omitempty"`
+	Action                       []RequestGroupAction `bson:"action,omitempty" json:"action,omitempty"`
 }
 type RequestGroupAction struct {
-	Id                  *string                           `bson:"id,omitempty" json:"id,omitempty"`
-	Extension           []Extension                       `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension   []Extension                       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Prefix              *string                           `bson:"prefix,omitempty" json:"prefix,omitempty"`
-	Title               *string                           `bson:"title,omitempty" json:"title,omitempty"`
-	Description         *string                           `bson:"description,omitempty" json:"description,omitempty"`
-	TextEquivalent      *string                           `bson:"textEquivalent,omitempty" json:"textEquivalent,omitempty"`
-	Priority            *RequestPriority                  `bson:"priority,omitempty" json:"priority,omitempty"`
-	Code                []CodeableConcept                 `bson:"code,omitempty" json:"code,omitempty"`
-	Documentation       []RelatedArtifact                 `bson:"documentation,omitempty" json:"documentation,omitempty"`
-	Condition           []RequestGroupActionCondition     `bson:"condition,omitempty" json:"condition,omitempty"`
-	RelatedAction       []RequestGroupActionRelatedAction `bson:"relatedAction,omitempty" json:"relatedAction,omitempty"`
-	TimingDateTime      *string                           `bson:"timingDateTime,omitempty" json:"timingDateTime,omitempty"`
-	TimingAge           *Age                              `bson:"timingAge,omitempty" json:"timingAge,omitempty"`
-	TimingPeriod        *Period                           `bson:"timingPeriod,omitempty" json:"timingPeriod,omitempty"`
-	TimingDuration      *Duration                         `bson:"timingDuration,omitempty" json:"timingDuration,omitempty"`
-	TimingRange         *Range                            `bson:"timingRange,omitempty" json:"timingRange,omitempty"`
-	TimingTiming        *Timing                           `bson:"timingTiming,omitempty" json:"timingTiming,omitempty"`
-	Participant         []Reference                       `bson:"participant,omitempty" json:"participant,omitempty"`
-	Type                *CodeableConcept                  `bson:"type,omitempty" json:"type,omitempty"`
-	GroupingBehavior    *ActionGroupingBehavior           `bson:"groupingBehavior,omitempty" json:"groupingBehavior,omitempty"`
-	SelectionBehavior   *ActionSelectionBehavior          `bson:"selectionBehavior,omitempty" json:"selectionBehavior,omitempty"`
-	RequiredBehavior    *ActionRequiredBehavior           `bson:"requiredBehavior,omitempty" json:"requiredBehavior,omitempty"`
-	PrecheckBehavior    *ActionPrecheckBehavior           `bson:"precheckBehavior,omitempty" json:"precheckBehavior,omitempty"`
-	CardinalityBehavior *ActionCardinalityBehavior        `bson:"cardinalityBehavior,omitempty" json:"cardinalityBehavior,omitempty"`
-	Resource            *Reference                        `bson:"resource,omitempty" json:"resource,omitempty"`
-	Action              []RequestGroupAction              `bson:"action,omitempty" json:"action,omitempty"`
+	Id                         *string                           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                  *PrimitiveElement                 `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension                  []Extension                       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension          []Extension                       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Prefix                     *string                           `bson:"prefix,omitempty" json:"prefix,omitempty"`
+	PrefixElement              *PrimitiveElement                 `bson:"_prefix,omitempty" json:"_prefix,omitempty"`
+	Title                      *string                           `bson:"title,omitempty" json:"title,omitempty"`
+	TitleElement               *PrimitiveElement                 `bson:"_title,omitempty" json:"_title,omitempty"`
+	Description                *string                           `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement         *PrimitiveElement                 `bson:"_description,omitempty" json:"_description,omitempty"`
+	TextEquivalent             *string                           `bson:"textEquivalent,omitempty" json:"textEquivalent,omitempty"`
+	TextEquivalentElement      *PrimitiveElement                 `bson:"_textEquivalent,omitempty" json:"_textEquivalent,omitempty"`
+	Priority                   *RequestPriority                  `bson:"priority,omitempty" json:"priority,omitempty"`
+	PriorityElement            *PrimitiveElement                 `bson:"_priority,omitempty" json:"_priority,omitempty"`
+	Code                       []CodeableConcept                 `bson:"code,omitempty" json:"code,omitempty"`
+	Documentation              []RelatedArtifact                 `bson:"documentation,omitempty" json:"documentation,omitempty"`
+	Condition                  []RequestGroupActionCondition     `bson:"condition,omitempty" json:"condition,omitempty"`
+	RelatedAction              []RequestGroupActionRelatedAction `bson:"relatedAction,omitempty" json:"relatedAction,omitempty"`
+	TimingDateTime             *string                           `bson:"timingDateTime,omitempty" json:"timingDateTime,omitempty"`
+	TimingDateTimeElement      *PrimitiveElement                 `bson:"_timingDateTime,omitempty" json:"_timingDateTime,omitempty"`
+	TimingAge                  *Age                              `bson:"timingAge,omitempty" json:"timingAge,omitempty"`
+	TimingPeriod               *Period                           `bson:"timingPeriod,omitempty" json:"timingPeriod,omitempty"`
+	TimingDuration             *Duration                         `bson:"timingDuration,omitempty" json:"timingDuration,omitempty"`
+	TimingRange                *Range                            `bson:"timingRange,omitempty" json:"timingRange,omitempty"`
+	TimingTiming               *Timing                           `bson:"timingTiming,omitempty" json:"timingTiming,omitempty"`
+	Participant                []Reference                       `bson:"participant,omitempty" json:"participant,omitempty"`
+	Type                       *CodeableConcept                  `bson:"type,omitempty" json:"type,omitempty"`
+	GroupingBehavior           *ActionGroupingBehavior           `bson:"groupingBehavior,omitempty" json:"groupingBehavior,omitempty"`
+	GroupingBehaviorElement    *PrimitiveElement                 `bson:"_groupingBehavior,omitempty" json:"_groupingBehavior,omitempty"`
+	SelectionBehavior          *ActionSelectionBehavior          `bson:"selectionBehavior,omitempty" json:"selectionBehavior,omitempty"`
+	SelectionBehaviorElement   *PrimitiveElement                 `bson:"_selectionBehavior,omitempty" json:"_selectionBehavior,omitempty"`
+	RequiredBehavior           *ActionRequiredBehavior           `bson:"requiredBehavior,omitempty" json:"requiredBehavior,omitempty"`
+	RequiredBehaviorElement    *PrimitiveElement                 `bson:"_requiredBehavior,omitempty" json:"_requiredBehavior,omitempty"`
+	PrecheckBehavior           *ActionPrecheckBehavior           `bson:"precheckBehavior,omitempty" json:"precheckBehavior,omitempty"`
+	PrecheckBehaviorElement    *PrimitiveElement                 `bson:"_precheckBehavior,omitempty" json:"_precheckBehavior,omitempty"`
+	CardinalityBehavior        *ActionCardinalityBehavior        `bson:"cardinalityBehavior,omitempty" json:"cardinalityBehavior,omitempty"`
+	CardinalityBehaviorElement *PrimitiveElement                 `bson:"_cardinalityBehavior,omitempty" json:"_cardinalityBehavior,omitempty"`
+	Resource                   *Reference                        `bson:"resource,omitempty" json:"resource,omitempty"`
+	Action                     []RequestGroupAction              `bson:"action,omitempty" json:"action,omitempty"`
 }
 type RequestGroupActionCondition struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Kind              ActionConditionKind `bson:"kind" json:"kind"`
+	KindElement       *PrimitiveElement   `bson:"_kind,omitempty" json:"_kind,omitempty"`
 	Expression        *Expression         `bson:"expression,omitempty" json:"expression,omitempty"`
 }
 type RequestGroupActionRelatedAction struct {
-	Id                *string                `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	ActionId          string                 `bson:"actionId" json:"actionId"`
-	Relationship      ActionRelationshipType `bson:"relationship" json:"relationship"`
-	OffsetDuration    *Duration              `bson:"offsetDuration,omitempty" json:"offsetDuration,omitempty"`
-	OffsetRange       *Range                 `bson:"offsetRange,omitempty" json:"offsetRange,omitempty"`
+	Id                  *string                `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement           *PrimitiveElement      `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension           []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension   []Extension            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	ActionId            string                 `bson:"actionId" json:"actionId"`
+	ActionIdElement     *PrimitiveElement      `bson:"_actionId,omitempty" json:"_actionId,omitempty"`
+	Relationship        ActionRelationshipType `bson:"relationship" json:"relationship"`
+	RelationshipElement *PrimitiveElement      `bson:"_relationship,omitempty" json:"_relationship,omitempty"`
+	OffsetDuration      *Duration              `bson:"offsetDuration,omitempty" json:"offsetDuration,omitempty"`
+	OffsetRange         *Range                 `bson:"offsetRange,omitempty" json:"offsetRange,omitempty"`
 }
 type OtherRequestGroup RequestGroup
 

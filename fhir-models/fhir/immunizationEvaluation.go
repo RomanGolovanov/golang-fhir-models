@@ -21,28 +21,39 @@ import "encoding/json"
 
 // ImmunizationEvaluation is documented here http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation
 type ImmunizationEvaluation struct {
-	Id                     *string                           `bson:"id,omitempty" json:"id,omitempty"`
-	Meta                   *Meta                             `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules          *string                           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language               *string                           `bson:"language,omitempty" json:"language,omitempty"`
-	Text                   *Narrative                        `bson:"text,omitempty" json:"text,omitempty"`
-	Extension              []Extension                       `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension      []Extension                       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier             []Identifier                      `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status                 ImmunizationEvaluationStatusCodes `bson:"status" json:"status"`
-	Patient                Reference                         `bson:"patient" json:"patient"`
-	Date                   *string                           `bson:"date,omitempty" json:"date,omitempty"`
-	Authority              *Reference                        `bson:"authority,omitempty" json:"authority,omitempty"`
-	TargetDisease          CodeableConcept                   `bson:"targetDisease" json:"targetDisease"`
-	ImmunizationEvent      Reference                         `bson:"immunizationEvent" json:"immunizationEvent"`
-	DoseStatus             CodeableConcept                   `bson:"doseStatus" json:"doseStatus"`
-	DoseStatusReason       []CodeableConcept                 `bson:"doseStatusReason,omitempty" json:"doseStatusReason,omitempty"`
-	Description            *string                           `bson:"description,omitempty" json:"description,omitempty"`
-	Series                 *string                           `bson:"series,omitempty" json:"series,omitempty"`
-	DoseNumberPositiveInt  *int                              `bson:"doseNumberPositiveInt,omitempty" json:"doseNumberPositiveInt,omitempty"`
-	DoseNumberString       *string                           `bson:"doseNumberString,omitempty" json:"doseNumberString,omitempty"`
-	SeriesDosesPositiveInt *int                              `bson:"seriesDosesPositiveInt,omitempty" json:"seriesDosesPositiveInt,omitempty"`
-	SeriesDosesString      *string                           `bson:"seriesDosesString,omitempty" json:"seriesDosesString,omitempty"`
+	Id                            *string                           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                     *PrimitiveElement                 `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                          *Meta                             `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules                 *string                           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement          *PrimitiveElement                 `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language                      *string                           `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement               *PrimitiveElement                 `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                          *Narrative                        `bson:"text,omitempty" json:"text,omitempty"`
+	Extension                     []Extension                       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension             []Extension                       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier                    []Identifier                      `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status                        ImmunizationEvaluationStatusCodes `bson:"status" json:"status"`
+	StatusElement                 *PrimitiveElement                 `bson:"_status,omitempty" json:"_status,omitempty"`
+	Patient                       Reference                         `bson:"patient" json:"patient"`
+	Date                          *string                           `bson:"date,omitempty" json:"date,omitempty"`
+	DateElement                   *PrimitiveElement                 `bson:"_date,omitempty" json:"_date,omitempty"`
+	Authority                     *Reference                        `bson:"authority,omitempty" json:"authority,omitempty"`
+	TargetDisease                 CodeableConcept                   `bson:"targetDisease" json:"targetDisease"`
+	ImmunizationEvent             Reference                         `bson:"immunizationEvent" json:"immunizationEvent"`
+	DoseStatus                    CodeableConcept                   `bson:"doseStatus" json:"doseStatus"`
+	DoseStatusReason              []CodeableConcept                 `bson:"doseStatusReason,omitempty" json:"doseStatusReason,omitempty"`
+	Description                   *string                           `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement            *PrimitiveElement                 `bson:"_description,omitempty" json:"_description,omitempty"`
+	Series                        *string                           `bson:"series,omitempty" json:"series,omitempty"`
+	SeriesElement                 *PrimitiveElement                 `bson:"_series,omitempty" json:"_series,omitempty"`
+	DoseNumberPositiveInt         *int                              `bson:"doseNumberPositiveInt,omitempty" json:"doseNumberPositiveInt,omitempty"`
+	DoseNumberPositiveIntElement  *PrimitiveElement                 `bson:"_doseNumberPositiveInt,omitempty" json:"_doseNumberPositiveInt,omitempty"`
+	DoseNumberString              *string                           `bson:"doseNumberString,omitempty" json:"doseNumberString,omitempty"`
+	DoseNumberStringElement       *PrimitiveElement                 `bson:"_doseNumberString,omitempty" json:"_doseNumberString,omitempty"`
+	SeriesDosesPositiveInt        *int                              `bson:"seriesDosesPositiveInt,omitempty" json:"seriesDosesPositiveInt,omitempty"`
+	SeriesDosesPositiveIntElement *PrimitiveElement                 `bson:"_seriesDosesPositiveInt,omitempty" json:"_seriesDosesPositiveInt,omitempty"`
+	SeriesDosesString             *string                           `bson:"seriesDosesString,omitempty" json:"seriesDosesString,omitempty"`
+	SeriesDosesStringElement      *PrimitiveElement                 `bson:"_seriesDosesString,omitempty" json:"_seriesDosesString,omitempty"`
 }
 type OtherImmunizationEvaluation ImmunizationEvaluation
 

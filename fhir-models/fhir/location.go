@@ -21,47 +21,65 @@ import "encoding/json"
 
 // Location is documented here http://hl7.org/fhir/StructureDefinition/Location
 type Location struct {
-	Id                     *string                    `bson:"id,omitempty" json:"id,omitempty"`
-	Meta                   *Meta                      `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules          *string                    `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language               *string                    `bson:"language,omitempty" json:"language,omitempty"`
-	Text                   *Narrative                 `bson:"text,omitempty" json:"text,omitempty"`
-	Extension              []Extension                `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension      []Extension                `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier             []Identifier               `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status                 *LocationStatus            `bson:"status,omitempty" json:"status,omitempty"`
-	OperationalStatus      *Coding                    `bson:"operationalStatus,omitempty" json:"operationalStatus,omitempty"`
-	Name                   *string                    `bson:"name,omitempty" json:"name,omitempty"`
-	Alias                  []string                   `bson:"alias,omitempty" json:"alias,omitempty"`
-	Description            *string                    `bson:"description,omitempty" json:"description,omitempty"`
-	Mode                   *LocationMode              `bson:"mode,omitempty" json:"mode,omitempty"`
-	Type                   []CodeableConcept          `bson:"type,omitempty" json:"type,omitempty"`
-	Telecom                []ContactPoint             `bson:"telecom,omitempty" json:"telecom,omitempty"`
-	Address                *Address                   `bson:"address,omitempty" json:"address,omitempty"`
-	PhysicalType           *CodeableConcept           `bson:"physicalType,omitempty" json:"physicalType,omitempty"`
-	Position               *LocationPosition          `bson:"position,omitempty" json:"position,omitempty"`
-	ManagingOrganization   *Reference                 `bson:"managingOrganization,omitempty" json:"managingOrganization,omitempty"`
-	PartOf                 *Reference                 `bson:"partOf,omitempty" json:"partOf,omitempty"`
-	HoursOfOperation       []LocationHoursOfOperation `bson:"hoursOfOperation,omitempty" json:"hoursOfOperation,omitempty"`
-	AvailabilityExceptions *string                    `bson:"availabilityExceptions,omitempty" json:"availabilityExceptions,omitempty"`
-	Endpoint               []Reference                `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
+	Id                            *string                    `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                     *PrimitiveElement          `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                          *Meta                      `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules                 *string                    `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement          *PrimitiveElement          `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language                      *string                    `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement               *PrimitiveElement          `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                          *Narrative                 `bson:"text,omitempty" json:"text,omitempty"`
+	Extension                     []Extension                `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension             []Extension                `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier                    []Identifier               `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status                        *LocationStatus            `bson:"status,omitempty" json:"status,omitempty"`
+	StatusElement                 *PrimitiveElement          `bson:"_status,omitempty" json:"_status,omitempty"`
+	OperationalStatus             *Coding                    `bson:"operationalStatus,omitempty" json:"operationalStatus,omitempty"`
+	Name                          *string                    `bson:"name,omitempty" json:"name,omitempty"`
+	NameElement                   *PrimitiveElement          `bson:"_name,omitempty" json:"_name,omitempty"`
+	Alias                         []string                   `bson:"alias,omitempty" json:"alias,omitempty"`
+	AliasElement                  []*PrimitiveElement        `bson:"_alias,omitempty" json:"_alias,omitempty"`
+	Description                   *string                    `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement            *PrimitiveElement          `bson:"_description,omitempty" json:"_description,omitempty"`
+	Mode                          *LocationMode              `bson:"mode,omitempty" json:"mode,omitempty"`
+	ModeElement                   *PrimitiveElement          `bson:"_mode,omitempty" json:"_mode,omitempty"`
+	Type                          []CodeableConcept          `bson:"type,omitempty" json:"type,omitempty"`
+	Telecom                       []ContactPoint             `bson:"telecom,omitempty" json:"telecom,omitempty"`
+	Address                       *Address                   `bson:"address,omitempty" json:"address,omitempty"`
+	PhysicalType                  *CodeableConcept           `bson:"physicalType,omitempty" json:"physicalType,omitempty"`
+	Position                      *LocationPosition          `bson:"position,omitempty" json:"position,omitempty"`
+	ManagingOrganization          *Reference                 `bson:"managingOrganization,omitempty" json:"managingOrganization,omitempty"`
+	PartOf                        *Reference                 `bson:"partOf,omitempty" json:"partOf,omitempty"`
+	HoursOfOperation              []LocationHoursOfOperation `bson:"hoursOfOperation,omitempty" json:"hoursOfOperation,omitempty"`
+	AvailabilityExceptions        *string                    `bson:"availabilityExceptions,omitempty" json:"availabilityExceptions,omitempty"`
+	AvailabilityExceptionsElement *PrimitiveElement          `bson:"_availabilityExceptions,omitempty" json:"_availabilityExceptions,omitempty"`
+	Endpoint                      []Reference                `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
 }
 type LocationPosition struct {
-	Id                *string      `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Longitude         json.Number  `bson:"longitude" json:"longitude"`
-	Latitude          json.Number  `bson:"latitude" json:"latitude"`
-	Altitude          *json.Number `bson:"altitude,omitempty" json:"altitude,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Longitude         json.Number       `bson:"longitude" json:"longitude"`
+	LongitudeElement  *PrimitiveElement `bson:"_longitude,omitempty" json:"_longitude,omitempty"`
+	Latitude          json.Number       `bson:"latitude" json:"latitude"`
+	LatitudeElement   *PrimitiveElement `bson:"_latitude,omitempty" json:"_latitude,omitempty"`
+	Altitude          *json.Number      `bson:"altitude,omitempty" json:"altitude,omitempty"`
+	AltitudeElement   *PrimitiveElement `bson:"_altitude,omitempty" json:"_altitude,omitempty"`
 }
 type LocationHoursOfOperation struct {
-	Id                *string      `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	DaysOfWeek        []DaysOfWeek `bson:"daysOfWeek,omitempty" json:"daysOfWeek,omitempty"`
-	AllDay            *bool        `bson:"allDay,omitempty" json:"allDay,omitempty"`
-	OpeningTime       *string      `bson:"openingTime,omitempty" json:"openingTime,omitempty"`
-	ClosingTime       *string      `bson:"closingTime,omitempty" json:"closingTime,omitempty"`
+	Id                 *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension  []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	DaysOfWeek         []DaysOfWeek        `bson:"daysOfWeek,omitempty" json:"daysOfWeek,omitempty"`
+	DaysOfWeekElement  []*PrimitiveElement `bson:"_daysOfWeek,omitempty" json:"_daysOfWeek,omitempty"`
+	AllDay             *bool               `bson:"allDay,omitempty" json:"allDay,omitempty"`
+	AllDayElement      *PrimitiveElement   `bson:"_allDay,omitempty" json:"_allDay,omitempty"`
+	OpeningTime        *string             `bson:"openingTime,omitempty" json:"openingTime,omitempty"`
+	OpeningTimeElement *PrimitiveElement   `bson:"_openingTime,omitempty" json:"_openingTime,omitempty"`
+	ClosingTime        *string             `bson:"closingTime,omitempty" json:"closingTime,omitempty"`
+	ClosingTimeElement *PrimitiveElement   `bson:"_closingTime,omitempty" json:"_closingTime,omitempty"`
 }
 type OtherLocation Location
 

@@ -21,21 +21,28 @@ import "encoding/json"
 
 // AppointmentResponse is documented here http://hl7.org/fhir/StructureDefinition/AppointmentResponse
 type AppointmentResponse struct {
-	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string             `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string             `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative          `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier        `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Appointment       Reference           `bson:"appointment" json:"appointment"`
-	Start             *string             `bson:"start,omitempty" json:"start,omitempty"`
-	End               *string             `bson:"end,omitempty" json:"end,omitempty"`
-	ParticipantType   []CodeableConcept   `bson:"participantType,omitempty" json:"participantType,omitempty"`
-	Actor             *Reference          `bson:"actor,omitempty" json:"actor,omitempty"`
-	ParticipantStatus ParticipationStatus `bson:"participantStatus" json:"participantStatus"`
-	Comment           *string             `bson:"comment,omitempty" json:"comment,omitempty"`
+	Id                       *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                     *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules            *string             `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement     *PrimitiveElement   `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language                 *string             `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement          *PrimitiveElement   `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                     *Narrative          `bson:"text,omitempty" json:"text,omitempty"`
+	Extension                []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension        []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier               []Identifier        `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Appointment              Reference           `bson:"appointment" json:"appointment"`
+	Start                    *string             `bson:"start,omitempty" json:"start,omitempty"`
+	StartElement             *PrimitiveElement   `bson:"_start,omitempty" json:"_start,omitempty"`
+	End                      *string             `bson:"end,omitempty" json:"end,omitempty"`
+	EndElement               *PrimitiveElement   `bson:"_end,omitempty" json:"_end,omitempty"`
+	ParticipantType          []CodeableConcept   `bson:"participantType,omitempty" json:"participantType,omitempty"`
+	Actor                    *Reference          `bson:"actor,omitempty" json:"actor,omitempty"`
+	ParticipantStatus        ParticipationStatus `bson:"participantStatus" json:"participantStatus"`
+	ParticipantStatusElement *PrimitiveElement   `bson:"_participantStatus,omitempty" json:"_participantStatus,omitempty"`
+	Comment                  *string             `bson:"comment,omitempty" json:"comment,omitempty"`
+	CommentElement           *PrimitiveElement   `bson:"_comment,omitempty" json:"_comment,omitempty"`
 }
 type OtherAppointmentResponse AppointmentResponse
 

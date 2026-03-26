@@ -19,13 +19,20 @@ package fhir
 
 // HumanName is documented here http://hl7.org/fhir/StructureDefinition/HumanName
 type HumanName struct {
-	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Use       *NameUse    `bson:"use,omitempty" json:"use,omitempty"`
-	Text      *string     `bson:"text,omitempty" json:"text,omitempty"`
-	Family    *string     `bson:"family,omitempty" json:"family,omitempty"`
-	Given     []string    `bson:"given,omitempty" json:"given,omitempty"`
-	Prefix    []string    `bson:"prefix,omitempty" json:"prefix,omitempty"`
-	Suffix    []string    `bson:"suffix,omitempty" json:"suffix,omitempty"`
-	Period    *Period     `bson:"period,omitempty" json:"period,omitempty"`
+	Id            *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement     *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension     []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	Use           *NameUse            `bson:"use,omitempty" json:"use,omitempty"`
+	UseElement    *PrimitiveElement   `bson:"_use,omitempty" json:"_use,omitempty"`
+	Text          *string             `bson:"text,omitempty" json:"text,omitempty"`
+	TextElement   *PrimitiveElement   `bson:"_text,omitempty" json:"_text,omitempty"`
+	Family        *string             `bson:"family,omitempty" json:"family,omitempty"`
+	FamilyElement *PrimitiveElement   `bson:"_family,omitempty" json:"_family,omitempty"`
+	Given         []string            `bson:"given,omitempty" json:"given,omitempty"`
+	GivenElement  []*PrimitiveElement `bson:"_given,omitempty" json:"_given,omitempty"`
+	Prefix        []string            `bson:"prefix,omitempty" json:"prefix,omitempty"`
+	PrefixElement []*PrimitiveElement `bson:"_prefix,omitempty" json:"_prefix,omitempty"`
+	Suffix        []string            `bson:"suffix,omitempty" json:"suffix,omitempty"`
+	SuffixElement []*PrimitiveElement `bson:"_suffix,omitempty" json:"_suffix,omitempty"`
+	Period        *Period             `bson:"period,omitempty" json:"period,omitempty"`
 }

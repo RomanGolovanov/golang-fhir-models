@@ -21,29 +21,42 @@ import "encoding/json"
 
 // Subscription is documented here http://hl7.org/fhir/StructureDefinition/Subscription
 type Subscription struct {
-	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string             `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string             `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative          `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Status            SubscriptionStatus  `bson:"status" json:"status"`
-	Contact           []ContactPoint      `bson:"contact,omitempty" json:"contact,omitempty"`
-	End               *string             `bson:"end,omitempty" json:"end,omitempty"`
-	Reason            string              `bson:"reason" json:"reason"`
-	Criteria          string              `bson:"criteria" json:"criteria"`
-	Error             *string             `bson:"error,omitempty" json:"error,omitempty"`
-	Channel           SubscriptionChannel `bson:"channel" json:"channel"`
+	Id                   *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string             `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement   `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string             `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement   `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative          `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Status               SubscriptionStatus  `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement   `bson:"_status,omitempty" json:"_status,omitempty"`
+	Contact              []ContactPoint      `bson:"contact,omitempty" json:"contact,omitempty"`
+	End                  *string             `bson:"end,omitempty" json:"end,omitempty"`
+	EndElement           *PrimitiveElement   `bson:"_end,omitempty" json:"_end,omitempty"`
+	Reason               string              `bson:"reason" json:"reason"`
+	ReasonElement        *PrimitiveElement   `bson:"_reason,omitempty" json:"_reason,omitempty"`
+	Criteria             string              `bson:"criteria" json:"criteria"`
+	CriteriaElement      *PrimitiveElement   `bson:"_criteria,omitempty" json:"_criteria,omitempty"`
+	Error                *string             `bson:"error,omitempty" json:"error,omitempty"`
+	ErrorElement         *PrimitiveElement   `bson:"_error,omitempty" json:"_error,omitempty"`
+	Channel              SubscriptionChannel `bson:"channel" json:"channel"`
 }
 type SubscriptionChannel struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement       `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              SubscriptionChannelType `bson:"type" json:"type"`
+	TypeElement       *PrimitiveElement       `bson:"_type,omitempty" json:"_type,omitempty"`
 	Endpoint          *string                 `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
+	EndpointElement   *PrimitiveElement       `bson:"_endpoint,omitempty" json:"_endpoint,omitempty"`
 	Payload           *string                 `bson:"payload,omitempty" json:"payload,omitempty"`
+	PayloadElement    *PrimitiveElement       `bson:"_payload,omitempty" json:"_payload,omitempty"`
 	Header            []string                `bson:"header,omitempty" json:"header,omitempty"`
+	HeaderElement     []*PrimitiveElement     `bson:"_header,omitempty" json:"_header,omitempty"`
 }
 type OtherSubscription Subscription
 

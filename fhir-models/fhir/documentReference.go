@@ -21,46 +21,57 @@ import "encoding/json"
 
 // DocumentReference is documented here http://hl7.org/fhir/StructureDefinition/DocumentReference
 type DocumentReference struct {
-	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                      `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                      `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative                   `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	MasterIdentifier  *Identifier                  `bson:"masterIdentifier,omitempty" json:"masterIdentifier,omitempty"`
-	Identifier        []Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status            DocumentReferenceStatus      `bson:"status" json:"status"`
-	DocStatus         *CompositionStatus           `bson:"docStatus,omitempty" json:"docStatus,omitempty"`
-	Type              *CodeableConcept             `bson:"type,omitempty" json:"type,omitempty"`
-	Category          []CodeableConcept            `bson:"category,omitempty" json:"category,omitempty"`
-	Subject           *Reference                   `bson:"subject,omitempty" json:"subject,omitempty"`
-	Date              *string                      `bson:"date,omitempty" json:"date,omitempty"`
-	Author            []Reference                  `bson:"author,omitempty" json:"author,omitempty"`
-	Authenticator     *Reference                   `bson:"authenticator,omitempty" json:"authenticator,omitempty"`
-	Custodian         *Reference                   `bson:"custodian,omitempty" json:"custodian,omitempty"`
-	RelatesTo         []DocumentReferenceRelatesTo `bson:"relatesTo,omitempty" json:"relatesTo,omitempty"`
-	Description       *string                      `bson:"description,omitempty" json:"description,omitempty"`
-	SecurityLabel     []CodeableConcept            `bson:"securityLabel,omitempty" json:"securityLabel,omitempty"`
-	Content           []DocumentReferenceContent   `bson:"content" json:"content"`
-	Context           *DocumentReferenceContext    `bson:"context,omitempty" json:"context,omitempty"`
+	Id                   *string                      `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement            `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string                      `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement            `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string                      `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement            `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative                   `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension                  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	MasterIdentifier     *Identifier                  `bson:"masterIdentifier,omitempty" json:"masterIdentifier,omitempty"`
+	Identifier           []Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status               DocumentReferenceStatus      `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement            `bson:"_status,omitempty" json:"_status,omitempty"`
+	DocStatus            *CompositionStatus           `bson:"docStatus,omitempty" json:"docStatus,omitempty"`
+	DocStatusElement     *PrimitiveElement            `bson:"_docStatus,omitempty" json:"_docStatus,omitempty"`
+	Type                 *CodeableConcept             `bson:"type,omitempty" json:"type,omitempty"`
+	Category             []CodeableConcept            `bson:"category,omitempty" json:"category,omitempty"`
+	Subject              *Reference                   `bson:"subject,omitempty" json:"subject,omitempty"`
+	Date                 *string                      `bson:"date,omitempty" json:"date,omitempty"`
+	DateElement          *PrimitiveElement            `bson:"_date,omitempty" json:"_date,omitempty"`
+	Author               []Reference                  `bson:"author,omitempty" json:"author,omitempty"`
+	Authenticator        *Reference                   `bson:"authenticator,omitempty" json:"authenticator,omitempty"`
+	Custodian            *Reference                   `bson:"custodian,omitempty" json:"custodian,omitempty"`
+	RelatesTo            []DocumentReferenceRelatesTo `bson:"relatesTo,omitempty" json:"relatesTo,omitempty"`
+	Description          *string                      `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement   *PrimitiveElement            `bson:"_description,omitempty" json:"_description,omitempty"`
+	SecurityLabel        []CodeableConcept            `bson:"securityLabel,omitempty" json:"securityLabel,omitempty"`
+	Content              []DocumentReferenceContent   `bson:"content" json:"content"`
+	Context              *DocumentReferenceContext    `bson:"context,omitempty" json:"context,omitempty"`
 }
 type DocumentReferenceRelatesTo struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement        `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension              `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension              `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Code              DocumentRelationshipType `bson:"code" json:"code"`
+	CodeElement       *PrimitiveElement        `bson:"_code,omitempty" json:"_code,omitempty"`
 	Target            Reference                `bson:"target" json:"target"`
 }
 type DocumentReferenceContent struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Attachment        Attachment  `bson:"attachment" json:"attachment"`
-	Format            *Coding     `bson:"format,omitempty" json:"format,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Attachment        Attachment        `bson:"attachment" json:"attachment"`
+	Format            *Coding           `bson:"format,omitempty" json:"format,omitempty"`
 }
 type DocumentReferenceContext struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Encounter         []Reference       `bson:"encounter,omitempty" json:"encounter,omitempty"`

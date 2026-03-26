@@ -21,31 +21,41 @@ import "encoding/json"
 
 // DeviceMetric is documented here http://hl7.org/fhir/StructureDefinition/DeviceMetric
 type DeviceMetric struct {
-	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                          `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                        `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                        `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative                     `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier                   `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Type              CodeableConcept                `bson:"type" json:"type"`
-	Unit              *CodeableConcept               `bson:"unit,omitempty" json:"unit,omitempty"`
-	Source            *Reference                     `bson:"source,omitempty" json:"source,omitempty"`
-	Parent            *Reference                     `bson:"parent,omitempty" json:"parent,omitempty"`
-	OperationalStatus *DeviceMetricOperationalStatus `bson:"operationalStatus,omitempty" json:"operationalStatus,omitempty"`
-	Color             *DeviceMetricColor             `bson:"color,omitempty" json:"color,omitempty"`
-	Category          DeviceMetricCategory           `bson:"category" json:"category"`
-	MeasurementPeriod *Timing                        `bson:"measurementPeriod,omitempty" json:"measurementPeriod,omitempty"`
-	Calibration       []DeviceMetricCalibration      `bson:"calibration,omitempty" json:"calibration,omitempty"`
+	Id                       *string                        `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                *PrimitiveElement              `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                     *Meta                          `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules            *string                        `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement     *PrimitiveElement              `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language                 *string                        `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement          *PrimitiveElement              `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                     *Narrative                     `bson:"text,omitempty" json:"text,omitempty"`
+	Extension                []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension        []Extension                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier               []Identifier                   `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Type                     CodeableConcept                `bson:"type" json:"type"`
+	Unit                     *CodeableConcept               `bson:"unit,omitempty" json:"unit,omitempty"`
+	Source                   *Reference                     `bson:"source,omitempty" json:"source,omitempty"`
+	Parent                   *Reference                     `bson:"parent,omitempty" json:"parent,omitempty"`
+	OperationalStatus        *DeviceMetricOperationalStatus `bson:"operationalStatus,omitempty" json:"operationalStatus,omitempty"`
+	OperationalStatusElement *PrimitiveElement              `bson:"_operationalStatus,omitempty" json:"_operationalStatus,omitempty"`
+	Color                    *DeviceMetricColor             `bson:"color,omitempty" json:"color,omitempty"`
+	ColorElement             *PrimitiveElement              `bson:"_color,omitempty" json:"_color,omitempty"`
+	Category                 DeviceMetricCategory           `bson:"category" json:"category"`
+	CategoryElement          *PrimitiveElement              `bson:"_category,omitempty" json:"_category,omitempty"`
+	MeasurementPeriod        *Timing                        `bson:"measurementPeriod,omitempty" json:"measurementPeriod,omitempty"`
+	Calibration              []DeviceMetricCalibration      `bson:"calibration,omitempty" json:"calibration,omitempty"`
 }
 type DeviceMetricCalibration struct {
 	Id                *string                       `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement             `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension                   `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                   `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              *DeviceMetricCalibrationType  `bson:"type,omitempty" json:"type,omitempty"`
+	TypeElement       *PrimitiveElement             `bson:"_type,omitempty" json:"_type,omitempty"`
 	State             *DeviceMetricCalibrationState `bson:"state,omitempty" json:"state,omitempty"`
+	StateElement      *PrimitiveElement             `bson:"_state,omitempty" json:"_state,omitempty"`
 	Time              *string                       `bson:"time,omitempty" json:"time,omitempty"`
+	TimeElement       *PrimitiveElement             `bson:"_time,omitempty" json:"_time,omitempty"`
 }
 type OtherDeviceMetric DeviceMetric
 

@@ -21,8 +21,11 @@ import "encoding/json"
 
 // Money is documented here http://hl7.org/fhir/StructureDefinition/Money
 type Money struct {
-	Id        *string      `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
-	Value     *json.Number `bson:"value,omitempty" json:"value,omitempty"`
-	Currency  *string      `bson:"currency,omitempty" json:"currency,omitempty"`
+	Id              *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement       *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension       []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Value           *json.Number      `bson:"value,omitempty" json:"value,omitempty"`
+	ValueElement    *PrimitiveElement `bson:"_value,omitempty" json:"_value,omitempty"`
+	Currency        *string           `bson:"currency,omitempty" json:"currency,omitempty"`
+	CurrencyElement *PrimitiveElement `bson:"_currency,omitempty" json:"_currency,omitempty"`
 }

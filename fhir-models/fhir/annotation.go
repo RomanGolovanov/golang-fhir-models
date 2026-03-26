@@ -19,10 +19,14 @@ package fhir
 
 // Annotation is documented here http://hl7.org/fhir/StructureDefinition/Annotation
 type Annotation struct {
-	Id              *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension       []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	AuthorReference *Reference  `bson:"authorReference,omitempty" json:"authorReference,omitempty"`
-	AuthorString    *string     `bson:"authorString,omitempty" json:"authorString,omitempty"`
-	Time            *string     `bson:"time,omitempty" json:"time,omitempty"`
-	Text            string      `bson:"text" json:"text"`
+	Id                  *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement           *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension           []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	AuthorReference     *Reference        `bson:"authorReference,omitempty" json:"authorReference,omitempty"`
+	AuthorString        *string           `bson:"authorString,omitempty" json:"authorString,omitempty"`
+	AuthorStringElement *PrimitiveElement `bson:"_authorString,omitempty" json:"_authorString,omitempty"`
+	Time                *string           `bson:"time,omitempty" json:"time,omitempty"`
+	TimeElement         *PrimitiveElement `bson:"_time,omitempty" json:"_time,omitempty"`
+	Text                string            `bson:"text" json:"text"`
+	TextElement         *PrimitiveElement `bson:"_text,omitempty" json:"_text,omitempty"`
 }

@@ -22,44 +22,77 @@ import "encoding/json"
 // ElementDefinition is documented here http://hl7.org/fhir/StructureDefinition/ElementDefinition
 type ElementDefinition struct {
 	Id                              *string                       `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                       *PrimitiveElement             `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension                       []Extension                   `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension               []Extension                   `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Path                            string                        `bson:"path" json:"path"`
+	PathElement                     *PrimitiveElement             `bson:"_path,omitempty" json:"_path,omitempty"`
 	Representation                  []PropertyRepresentation      `bson:"representation,omitempty" json:"representation,omitempty"`
+	RepresentationElement           []*PrimitiveElement           `bson:"_representation,omitempty" json:"_representation,omitempty"`
 	SliceName                       *string                       `bson:"sliceName,omitempty" json:"sliceName,omitempty"`
+	SliceNameElement                *PrimitiveElement             `bson:"_sliceName,omitempty" json:"_sliceName,omitempty"`
 	SliceIsConstraining             *bool                         `bson:"sliceIsConstraining,omitempty" json:"sliceIsConstraining,omitempty"`
+	SliceIsConstrainingElement      *PrimitiveElement             `bson:"_sliceIsConstraining,omitempty" json:"_sliceIsConstraining,omitempty"`
 	Label                           *string                       `bson:"label,omitempty" json:"label,omitempty"`
+	LabelElement                    *PrimitiveElement             `bson:"_label,omitempty" json:"_label,omitempty"`
 	Code                            []Coding                      `bson:"code,omitempty" json:"code,omitempty"`
 	Slicing                         *ElementDefinitionSlicing     `bson:"slicing,omitempty" json:"slicing,omitempty"`
 	Short                           *string                       `bson:"short,omitempty" json:"short,omitempty"`
+	ShortElement                    *PrimitiveElement             `bson:"_short,omitempty" json:"_short,omitempty"`
 	Definition                      *string                       `bson:"definition,omitempty" json:"definition,omitempty"`
+	DefinitionElement               *PrimitiveElement             `bson:"_definition,omitempty" json:"_definition,omitempty"`
 	Comment                         *string                       `bson:"comment,omitempty" json:"comment,omitempty"`
+	CommentElement                  *PrimitiveElement             `bson:"_comment,omitempty" json:"_comment,omitempty"`
 	Requirements                    *string                       `bson:"requirements,omitempty" json:"requirements,omitempty"`
+	RequirementsElement             *PrimitiveElement             `bson:"_requirements,omitempty" json:"_requirements,omitempty"`
 	Alias                           []string                      `bson:"alias,omitempty" json:"alias,omitempty"`
+	AliasElement                    []*PrimitiveElement           `bson:"_alias,omitempty" json:"_alias,omitempty"`
 	Min                             *int                          `bson:"min,omitempty" json:"min,omitempty"`
+	MinElement                      *PrimitiveElement             `bson:"_min,omitempty" json:"_min,omitempty"`
 	Max                             *string                       `bson:"max,omitempty" json:"max,omitempty"`
+	MaxElement                      *PrimitiveElement             `bson:"_max,omitempty" json:"_max,omitempty"`
 	Base                            *ElementDefinitionBase        `bson:"base,omitempty" json:"base,omitempty"`
 	ContentReference                *string                       `bson:"contentReference,omitempty" json:"contentReference,omitempty"`
+	ContentReferenceElement         *PrimitiveElement             `bson:"_contentReference,omitempty" json:"_contentReference,omitempty"`
 	Type                            []ElementDefinitionType       `bson:"type,omitempty" json:"type,omitempty"`
 	DefaultValueBase64Binary        *string                       `bson:"defaultValueBase64Binary,omitempty" json:"defaultValueBase64Binary,omitempty"`
+	DefaultValueBase64BinaryElement *PrimitiveElement             `bson:"_defaultValueBase64Binary,omitempty" json:"_defaultValueBase64Binary,omitempty"`
 	DefaultValueBoolean             *bool                         `bson:"defaultValueBoolean,omitempty" json:"defaultValueBoolean,omitempty"`
+	DefaultValueBooleanElement      *PrimitiveElement             `bson:"_defaultValueBoolean,omitempty" json:"_defaultValueBoolean,omitempty"`
 	DefaultValueCanonical           *string                       `bson:"defaultValueCanonical,omitempty" json:"defaultValueCanonical,omitempty"`
+	DefaultValueCanonicalElement    *PrimitiveElement             `bson:"_defaultValueCanonical,omitempty" json:"_defaultValueCanonical,omitempty"`
 	DefaultValueCode                *string                       `bson:"defaultValueCode,omitempty" json:"defaultValueCode,omitempty"`
+	DefaultValueCodeElement         *PrimitiveElement             `bson:"_defaultValueCode,omitempty" json:"_defaultValueCode,omitempty"`
 	DefaultValueDate                *string                       `bson:"defaultValueDate,omitempty" json:"defaultValueDate,omitempty"`
+	DefaultValueDateElement         *PrimitiveElement             `bson:"_defaultValueDate,omitempty" json:"_defaultValueDate,omitempty"`
 	DefaultValueDateTime            *string                       `bson:"defaultValueDateTime,omitempty" json:"defaultValueDateTime,omitempty"`
+	DefaultValueDateTimeElement     *PrimitiveElement             `bson:"_defaultValueDateTime,omitempty" json:"_defaultValueDateTime,omitempty"`
 	DefaultValueDecimal             *json.Number                  `bson:"defaultValueDecimal,omitempty" json:"defaultValueDecimal,omitempty"`
+	DefaultValueDecimalElement      *PrimitiveElement             `bson:"_defaultValueDecimal,omitempty" json:"_defaultValueDecimal,omitempty"`
 	DefaultValueId                  *string                       `bson:"defaultValueId,omitempty" json:"defaultValueId,omitempty"`
+	DefaultValueIdElement           *PrimitiveElement             `bson:"_defaultValueId,omitempty" json:"_defaultValueId,omitempty"`
 	DefaultValueInstant             *string                       `bson:"defaultValueInstant,omitempty" json:"defaultValueInstant,omitempty"`
+	DefaultValueInstantElement      *PrimitiveElement             `bson:"_defaultValueInstant,omitempty" json:"_defaultValueInstant,omitempty"`
 	DefaultValueInteger             *int                          `bson:"defaultValueInteger,omitempty" json:"defaultValueInteger,omitempty"`
+	DefaultValueIntegerElement      *PrimitiveElement             `bson:"_defaultValueInteger,omitempty" json:"_defaultValueInteger,omitempty"`
 	DefaultValueMarkdown            *string                       `bson:"defaultValueMarkdown,omitempty" json:"defaultValueMarkdown,omitempty"`
+	DefaultValueMarkdownElement     *PrimitiveElement             `bson:"_defaultValueMarkdown,omitempty" json:"_defaultValueMarkdown,omitempty"`
 	DefaultValueOid                 *string                       `bson:"defaultValueOid,omitempty" json:"defaultValueOid,omitempty"`
+	DefaultValueOidElement          *PrimitiveElement             `bson:"_defaultValueOid,omitempty" json:"_defaultValueOid,omitempty"`
 	DefaultValuePositiveInt         *int                          `bson:"defaultValuePositiveInt,omitempty" json:"defaultValuePositiveInt,omitempty"`
+	DefaultValuePositiveIntElement  *PrimitiveElement             `bson:"_defaultValuePositiveInt,omitempty" json:"_defaultValuePositiveInt,omitempty"`
 	DefaultValueString              *string                       `bson:"defaultValueString,omitempty" json:"defaultValueString,omitempty"`
+	DefaultValueStringElement       *PrimitiveElement             `bson:"_defaultValueString,omitempty" json:"_defaultValueString,omitempty"`
 	DefaultValueTime                *string                       `bson:"defaultValueTime,omitempty" json:"defaultValueTime,omitempty"`
+	DefaultValueTimeElement         *PrimitiveElement             `bson:"_defaultValueTime,omitempty" json:"_defaultValueTime,omitempty"`
 	DefaultValueUnsignedInt         *int                          `bson:"defaultValueUnsignedInt,omitempty" json:"defaultValueUnsignedInt,omitempty"`
+	DefaultValueUnsignedIntElement  *PrimitiveElement             `bson:"_defaultValueUnsignedInt,omitempty" json:"_defaultValueUnsignedInt,omitempty"`
 	DefaultValueUri                 *string                       `bson:"defaultValueUri,omitempty" json:"defaultValueUri,omitempty"`
+	DefaultValueUriElement          *PrimitiveElement             `bson:"_defaultValueUri,omitempty" json:"_defaultValueUri,omitempty"`
 	DefaultValueUrl                 *string                       `bson:"defaultValueUrl,omitempty" json:"defaultValueUrl,omitempty"`
+	DefaultValueUrlElement          *PrimitiveElement             `bson:"_defaultValueUrl,omitempty" json:"_defaultValueUrl,omitempty"`
 	DefaultValueUuid                *string                       `bson:"defaultValueUuid,omitempty" json:"defaultValueUuid,omitempty"`
+	DefaultValueUuidElement         *PrimitiveElement             `bson:"_defaultValueUuid,omitempty" json:"_defaultValueUuid,omitempty"`
 	DefaultValueAddress             *Address                      `bson:"defaultValueAddress,omitempty" json:"defaultValueAddress,omitempty"`
 	DefaultValueAge                 *Age                          `bson:"defaultValueAge,omitempty" json:"defaultValueAge,omitempty"`
 	DefaultValueAnnotation          *Annotation                   `bson:"defaultValueAnnotation,omitempty" json:"defaultValueAnnotation,omitempty"`
@@ -92,26 +125,47 @@ type ElementDefinition struct {
 	DefaultValueDosage              *Dosage                       `bson:"defaultValueDosage,omitempty" json:"defaultValueDosage,omitempty"`
 	DefaultValueMeta                *Meta                         `bson:"defaultValueMeta,omitempty" json:"defaultValueMeta,omitempty"`
 	MeaningWhenMissing              *string                       `bson:"meaningWhenMissing,omitempty" json:"meaningWhenMissing,omitempty"`
+	MeaningWhenMissingElement       *PrimitiveElement             `bson:"_meaningWhenMissing,omitempty" json:"_meaningWhenMissing,omitempty"`
 	OrderMeaning                    *string                       `bson:"orderMeaning,omitempty" json:"orderMeaning,omitempty"`
+	OrderMeaningElement             *PrimitiveElement             `bson:"_orderMeaning,omitempty" json:"_orderMeaning,omitempty"`
 	FixedBase64Binary               *string                       `bson:"fixedBase64Binary,omitempty" json:"fixedBase64Binary,omitempty"`
+	FixedBase64BinaryElement        *PrimitiveElement             `bson:"_fixedBase64Binary,omitempty" json:"_fixedBase64Binary,omitempty"`
 	FixedBoolean                    *bool                         `bson:"fixedBoolean,omitempty" json:"fixedBoolean,omitempty"`
+	FixedBooleanElement             *PrimitiveElement             `bson:"_fixedBoolean,omitempty" json:"_fixedBoolean,omitempty"`
 	FixedCanonical                  *string                       `bson:"fixedCanonical,omitempty" json:"fixedCanonical,omitempty"`
+	FixedCanonicalElement           *PrimitiveElement             `bson:"_fixedCanonical,omitempty" json:"_fixedCanonical,omitempty"`
 	FixedCode                       *string                       `bson:"fixedCode,omitempty" json:"fixedCode,omitempty"`
+	FixedCodeElement                *PrimitiveElement             `bson:"_fixedCode,omitempty" json:"_fixedCode,omitempty"`
 	FixedDate                       *string                       `bson:"fixedDate,omitempty" json:"fixedDate,omitempty"`
+	FixedDateElement                *PrimitiveElement             `bson:"_fixedDate,omitempty" json:"_fixedDate,omitempty"`
 	FixedDateTime                   *string                       `bson:"fixedDateTime,omitempty" json:"fixedDateTime,omitempty"`
+	FixedDateTimeElement            *PrimitiveElement             `bson:"_fixedDateTime,omitempty" json:"_fixedDateTime,omitempty"`
 	FixedDecimal                    *json.Number                  `bson:"fixedDecimal,omitempty" json:"fixedDecimal,omitempty"`
+	FixedDecimalElement             *PrimitiveElement             `bson:"_fixedDecimal,omitempty" json:"_fixedDecimal,omitempty"`
 	FixedId                         *string                       `bson:"fixedId,omitempty" json:"fixedId,omitempty"`
+	FixedIdElement                  *PrimitiveElement             `bson:"_fixedId,omitempty" json:"_fixedId,omitempty"`
 	FixedInstant                    *string                       `bson:"fixedInstant,omitempty" json:"fixedInstant,omitempty"`
+	FixedInstantElement             *PrimitiveElement             `bson:"_fixedInstant,omitempty" json:"_fixedInstant,omitempty"`
 	FixedInteger                    *int                          `bson:"fixedInteger,omitempty" json:"fixedInteger,omitempty"`
+	FixedIntegerElement             *PrimitiveElement             `bson:"_fixedInteger,omitempty" json:"_fixedInteger,omitempty"`
 	FixedMarkdown                   *string                       `bson:"fixedMarkdown,omitempty" json:"fixedMarkdown,omitempty"`
+	FixedMarkdownElement            *PrimitiveElement             `bson:"_fixedMarkdown,omitempty" json:"_fixedMarkdown,omitempty"`
 	FixedOid                        *string                       `bson:"fixedOid,omitempty" json:"fixedOid,omitempty"`
+	FixedOidElement                 *PrimitiveElement             `bson:"_fixedOid,omitempty" json:"_fixedOid,omitempty"`
 	FixedPositiveInt                *int                          `bson:"fixedPositiveInt,omitempty" json:"fixedPositiveInt,omitempty"`
+	FixedPositiveIntElement         *PrimitiveElement             `bson:"_fixedPositiveInt,omitempty" json:"_fixedPositiveInt,omitempty"`
 	FixedString                     *string                       `bson:"fixedString,omitempty" json:"fixedString,omitempty"`
+	FixedStringElement              *PrimitiveElement             `bson:"_fixedString,omitempty" json:"_fixedString,omitempty"`
 	FixedTime                       *string                       `bson:"fixedTime,omitempty" json:"fixedTime,omitempty"`
+	FixedTimeElement                *PrimitiveElement             `bson:"_fixedTime,omitempty" json:"_fixedTime,omitempty"`
 	FixedUnsignedInt                *int                          `bson:"fixedUnsignedInt,omitempty" json:"fixedUnsignedInt,omitempty"`
+	FixedUnsignedIntElement         *PrimitiveElement             `bson:"_fixedUnsignedInt,omitempty" json:"_fixedUnsignedInt,omitempty"`
 	FixedUri                        *string                       `bson:"fixedUri,omitempty" json:"fixedUri,omitempty"`
+	FixedUriElement                 *PrimitiveElement             `bson:"_fixedUri,omitempty" json:"_fixedUri,omitempty"`
 	FixedUrl                        *string                       `bson:"fixedUrl,omitempty" json:"fixedUrl,omitempty"`
+	FixedUrlElement                 *PrimitiveElement             `bson:"_fixedUrl,omitempty" json:"_fixedUrl,omitempty"`
 	FixedUuid                       *string                       `bson:"fixedUuid,omitempty" json:"fixedUuid,omitempty"`
+	FixedUuidElement                *PrimitiveElement             `bson:"_fixedUuid,omitempty" json:"_fixedUuid,omitempty"`
 	FixedAddress                    *Address                      `bson:"fixedAddress,omitempty" json:"fixedAddress,omitempty"`
 	FixedAge                        *Age                          `bson:"fixedAge,omitempty" json:"fixedAge,omitempty"`
 	FixedAnnotation                 *Annotation                   `bson:"fixedAnnotation,omitempty" json:"fixedAnnotation,omitempty"`
@@ -144,24 +198,43 @@ type ElementDefinition struct {
 	FixedDosage                     *Dosage                       `bson:"fixedDosage,omitempty" json:"fixedDosage,omitempty"`
 	FixedMeta                       *Meta                         `bson:"fixedMeta,omitempty" json:"fixedMeta,omitempty"`
 	PatternBase64Binary             *string                       `bson:"patternBase64Binary,omitempty" json:"patternBase64Binary,omitempty"`
+	PatternBase64BinaryElement      *PrimitiveElement             `bson:"_patternBase64Binary,omitempty" json:"_patternBase64Binary,omitempty"`
 	PatternBoolean                  *bool                         `bson:"patternBoolean,omitempty" json:"patternBoolean,omitempty"`
+	PatternBooleanElement           *PrimitiveElement             `bson:"_patternBoolean,omitempty" json:"_patternBoolean,omitempty"`
 	PatternCanonical                *string                       `bson:"patternCanonical,omitempty" json:"patternCanonical,omitempty"`
+	PatternCanonicalElement         *PrimitiveElement             `bson:"_patternCanonical,omitempty" json:"_patternCanonical,omitempty"`
 	PatternCode                     *string                       `bson:"patternCode,omitempty" json:"patternCode,omitempty"`
+	PatternCodeElement              *PrimitiveElement             `bson:"_patternCode,omitempty" json:"_patternCode,omitempty"`
 	PatternDate                     *string                       `bson:"patternDate,omitempty" json:"patternDate,omitempty"`
+	PatternDateElement              *PrimitiveElement             `bson:"_patternDate,omitempty" json:"_patternDate,omitempty"`
 	PatternDateTime                 *string                       `bson:"patternDateTime,omitempty" json:"patternDateTime,omitempty"`
+	PatternDateTimeElement          *PrimitiveElement             `bson:"_patternDateTime,omitempty" json:"_patternDateTime,omitempty"`
 	PatternDecimal                  *json.Number                  `bson:"patternDecimal,omitempty" json:"patternDecimal,omitempty"`
+	PatternDecimalElement           *PrimitiveElement             `bson:"_patternDecimal,omitempty" json:"_patternDecimal,omitempty"`
 	PatternId                       *string                       `bson:"patternId,omitempty" json:"patternId,omitempty"`
+	PatternIdElement                *PrimitiveElement             `bson:"_patternId,omitempty" json:"_patternId,omitempty"`
 	PatternInstant                  *string                       `bson:"patternInstant,omitempty" json:"patternInstant,omitempty"`
+	PatternInstantElement           *PrimitiveElement             `bson:"_patternInstant,omitempty" json:"_patternInstant,omitempty"`
 	PatternInteger                  *int                          `bson:"patternInteger,omitempty" json:"patternInteger,omitempty"`
+	PatternIntegerElement           *PrimitiveElement             `bson:"_patternInteger,omitempty" json:"_patternInteger,omitempty"`
 	PatternMarkdown                 *string                       `bson:"patternMarkdown,omitempty" json:"patternMarkdown,omitempty"`
+	PatternMarkdownElement          *PrimitiveElement             `bson:"_patternMarkdown,omitempty" json:"_patternMarkdown,omitempty"`
 	PatternOid                      *string                       `bson:"patternOid,omitempty" json:"patternOid,omitempty"`
+	PatternOidElement               *PrimitiveElement             `bson:"_patternOid,omitempty" json:"_patternOid,omitempty"`
 	PatternPositiveInt              *int                          `bson:"patternPositiveInt,omitempty" json:"patternPositiveInt,omitempty"`
+	PatternPositiveIntElement       *PrimitiveElement             `bson:"_patternPositiveInt,omitempty" json:"_patternPositiveInt,omitempty"`
 	PatternString                   *string                       `bson:"patternString,omitempty" json:"patternString,omitempty"`
+	PatternStringElement            *PrimitiveElement             `bson:"_patternString,omitempty" json:"_patternString,omitempty"`
 	PatternTime                     *string                       `bson:"patternTime,omitempty" json:"patternTime,omitempty"`
+	PatternTimeElement              *PrimitiveElement             `bson:"_patternTime,omitempty" json:"_patternTime,omitempty"`
 	PatternUnsignedInt              *int                          `bson:"patternUnsignedInt,omitempty" json:"patternUnsignedInt,omitempty"`
+	PatternUnsignedIntElement       *PrimitiveElement             `bson:"_patternUnsignedInt,omitempty" json:"_patternUnsignedInt,omitempty"`
 	PatternUri                      *string                       `bson:"patternUri,omitempty" json:"patternUri,omitempty"`
+	PatternUriElement               *PrimitiveElement             `bson:"_patternUri,omitempty" json:"_patternUri,omitempty"`
 	PatternUrl                      *string                       `bson:"patternUrl,omitempty" json:"patternUrl,omitempty"`
+	PatternUrlElement               *PrimitiveElement             `bson:"_patternUrl,omitempty" json:"_patternUrl,omitempty"`
 	PatternUuid                     *string                       `bson:"patternUuid,omitempty" json:"patternUuid,omitempty"`
+	PatternUuidElement              *PrimitiveElement             `bson:"_patternUuid,omitempty" json:"_patternUuid,omitempty"`
 	PatternAddress                  *Address                      `bson:"patternAddress,omitempty" json:"patternAddress,omitempty"`
 	PatternAge                      *Age                          `bson:"patternAge,omitempty" json:"patternAge,omitempty"`
 	PatternAnnotation               *Annotation                   `bson:"patternAnnotation,omitempty" json:"patternAnnotation,omitempty"`
@@ -195,86 +268,146 @@ type ElementDefinition struct {
 	PatternMeta                     *Meta                         `bson:"patternMeta,omitempty" json:"patternMeta,omitempty"`
 	Example                         []ElementDefinitionExample    `bson:"example,omitempty" json:"example,omitempty"`
 	MinValueDate                    *string                       `bson:"minValueDate,omitempty" json:"minValueDate,omitempty"`
+	MinValueDateElement             *PrimitiveElement             `bson:"_minValueDate,omitempty" json:"_minValueDate,omitempty"`
 	MinValueDateTime                *string                       `bson:"minValueDateTime,omitempty" json:"minValueDateTime,omitempty"`
+	MinValueDateTimeElement         *PrimitiveElement             `bson:"_minValueDateTime,omitempty" json:"_minValueDateTime,omitempty"`
 	MinValueInstant                 *string                       `bson:"minValueInstant,omitempty" json:"minValueInstant,omitempty"`
+	MinValueInstantElement          *PrimitiveElement             `bson:"_minValueInstant,omitempty" json:"_minValueInstant,omitempty"`
 	MinValueTime                    *string                       `bson:"minValueTime,omitempty" json:"minValueTime,omitempty"`
+	MinValueTimeElement             *PrimitiveElement             `bson:"_minValueTime,omitempty" json:"_minValueTime,omitempty"`
 	MinValueDecimal                 *json.Number                  `bson:"minValueDecimal,omitempty" json:"minValueDecimal,omitempty"`
+	MinValueDecimalElement          *PrimitiveElement             `bson:"_minValueDecimal,omitempty" json:"_minValueDecimal,omitempty"`
 	MinValueInteger                 *int                          `bson:"minValueInteger,omitempty" json:"minValueInteger,omitempty"`
+	MinValueIntegerElement          *PrimitiveElement             `bson:"_minValueInteger,omitempty" json:"_minValueInteger,omitempty"`
 	MinValuePositiveInt             *int                          `bson:"minValuePositiveInt,omitempty" json:"minValuePositiveInt,omitempty"`
+	MinValuePositiveIntElement      *PrimitiveElement             `bson:"_minValuePositiveInt,omitempty" json:"_minValuePositiveInt,omitempty"`
 	MinValueUnsignedInt             *int                          `bson:"minValueUnsignedInt,omitempty" json:"minValueUnsignedInt,omitempty"`
+	MinValueUnsignedIntElement      *PrimitiveElement             `bson:"_minValueUnsignedInt,omitempty" json:"_minValueUnsignedInt,omitempty"`
 	MinValueQuantity                *Quantity                     `bson:"minValueQuantity,omitempty" json:"minValueQuantity,omitempty"`
 	MaxValueDate                    *string                       `bson:"maxValueDate,omitempty" json:"maxValueDate,omitempty"`
+	MaxValueDateElement             *PrimitiveElement             `bson:"_maxValueDate,omitempty" json:"_maxValueDate,omitempty"`
 	MaxValueDateTime                *string                       `bson:"maxValueDateTime,omitempty" json:"maxValueDateTime,omitempty"`
+	MaxValueDateTimeElement         *PrimitiveElement             `bson:"_maxValueDateTime,omitempty" json:"_maxValueDateTime,omitempty"`
 	MaxValueInstant                 *string                       `bson:"maxValueInstant,omitempty" json:"maxValueInstant,omitempty"`
+	MaxValueInstantElement          *PrimitiveElement             `bson:"_maxValueInstant,omitempty" json:"_maxValueInstant,omitempty"`
 	MaxValueTime                    *string                       `bson:"maxValueTime,omitempty" json:"maxValueTime,omitempty"`
+	MaxValueTimeElement             *PrimitiveElement             `bson:"_maxValueTime,omitempty" json:"_maxValueTime,omitempty"`
 	MaxValueDecimal                 *json.Number                  `bson:"maxValueDecimal,omitempty" json:"maxValueDecimal,omitempty"`
+	MaxValueDecimalElement          *PrimitiveElement             `bson:"_maxValueDecimal,omitempty" json:"_maxValueDecimal,omitempty"`
 	MaxValueInteger                 *int                          `bson:"maxValueInteger,omitempty" json:"maxValueInteger,omitempty"`
+	MaxValueIntegerElement          *PrimitiveElement             `bson:"_maxValueInteger,omitempty" json:"_maxValueInteger,omitempty"`
 	MaxValuePositiveInt             *int                          `bson:"maxValuePositiveInt,omitempty" json:"maxValuePositiveInt,omitempty"`
+	MaxValuePositiveIntElement      *PrimitiveElement             `bson:"_maxValuePositiveInt,omitempty" json:"_maxValuePositiveInt,omitempty"`
 	MaxValueUnsignedInt             *int                          `bson:"maxValueUnsignedInt,omitempty" json:"maxValueUnsignedInt,omitempty"`
+	MaxValueUnsignedIntElement      *PrimitiveElement             `bson:"_maxValueUnsignedInt,omitempty" json:"_maxValueUnsignedInt,omitempty"`
 	MaxValueQuantity                *Quantity                     `bson:"maxValueQuantity,omitempty" json:"maxValueQuantity,omitempty"`
 	MaxLength                       *int                          `bson:"maxLength,omitempty" json:"maxLength,omitempty"`
+	MaxLengthElement                *PrimitiveElement             `bson:"_maxLength,omitempty" json:"_maxLength,omitempty"`
 	Condition                       []string                      `bson:"condition,omitempty" json:"condition,omitempty"`
+	ConditionElement                []*PrimitiveElement           `bson:"_condition,omitempty" json:"_condition,omitempty"`
 	Constraint                      []ElementDefinitionConstraint `bson:"constraint,omitempty" json:"constraint,omitempty"`
 	MustSupport                     *bool                         `bson:"mustSupport,omitempty" json:"mustSupport,omitempty"`
+	MustSupportElement              *PrimitiveElement             `bson:"_mustSupport,omitempty" json:"_mustSupport,omitempty"`
 	IsModifier                      *bool                         `bson:"isModifier,omitempty" json:"isModifier,omitempty"`
+	IsModifierElement               *PrimitiveElement             `bson:"_isModifier,omitempty" json:"_isModifier,omitempty"`
 	IsModifierReason                *string                       `bson:"isModifierReason,omitempty" json:"isModifierReason,omitempty"`
+	IsModifierReasonElement         *PrimitiveElement             `bson:"_isModifierReason,omitempty" json:"_isModifierReason,omitempty"`
 	IsSummary                       *bool                         `bson:"isSummary,omitempty" json:"isSummary,omitempty"`
+	IsSummaryElement                *PrimitiveElement             `bson:"_isSummary,omitempty" json:"_isSummary,omitempty"`
 	Binding                         *ElementDefinitionBinding     `bson:"binding,omitempty" json:"binding,omitempty"`
 	Mapping                         []ElementDefinitionMapping    `bson:"mapping,omitempty" json:"mapping,omitempty"`
 }
 type ElementDefinitionSlicing struct {
-	Id            *string                                 `bson:"id,omitempty" json:"id,omitempty"`
-	Extension     []Extension                             `bson:"extension,omitempty" json:"extension,omitempty"`
-	Discriminator []ElementDefinitionSlicingDiscriminator `bson:"discriminator,omitempty" json:"discriminator,omitempty"`
-	Description   *string                                 `bson:"description,omitempty" json:"description,omitempty"`
-	Ordered       *bool                                   `bson:"ordered,omitempty" json:"ordered,omitempty"`
-	Rules         SlicingRules                            `bson:"rules" json:"rules"`
+	Id                 *string                                 `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement                       `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension                             `bson:"extension,omitempty" json:"extension,omitempty"`
+	Discriminator      []ElementDefinitionSlicingDiscriminator `bson:"discriminator,omitempty" json:"discriminator,omitempty"`
+	Description        *string                                 `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement *PrimitiveElement                       `bson:"_description,omitempty" json:"_description,omitempty"`
+	Ordered            *bool                                   `bson:"ordered,omitempty" json:"ordered,omitempty"`
+	OrderedElement     *PrimitiveElement                       `bson:"_ordered,omitempty" json:"_ordered,omitempty"`
+	Rules              SlicingRules                            `bson:"rules" json:"rules"`
+	RulesElement       *PrimitiveElement                       `bson:"_rules,omitempty" json:"_rules,omitempty"`
 }
 type ElementDefinitionSlicingDiscriminator struct {
-	Id        *string           `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
-	Type      DiscriminatorType `bson:"type" json:"type"`
-	Path      string            `bson:"path" json:"path"`
+	Id          *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement   *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension   []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Type        DiscriminatorType `bson:"type" json:"type"`
+	TypeElement *PrimitiveElement `bson:"_type,omitempty" json:"_type,omitempty"`
+	Path        string            `bson:"path" json:"path"`
+	PathElement *PrimitiveElement `bson:"_path,omitempty" json:"_path,omitempty"`
 }
 type ElementDefinitionBase struct {
-	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Path      string      `bson:"path" json:"path"`
-	Min       int         `bson:"min" json:"min"`
-	Max       string      `bson:"max" json:"max"`
+	Id          *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement   *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension   []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Path        string            `bson:"path" json:"path"`
+	PathElement *PrimitiveElement `bson:"_path,omitempty" json:"_path,omitempty"`
+	Min         int               `bson:"min" json:"min"`
+	MinElement  *PrimitiveElement `bson:"_min,omitempty" json:"_min,omitempty"`
+	Max         string            `bson:"max" json:"max"`
+	MaxElement  *PrimitiveElement `bson:"_max,omitempty" json:"_max,omitempty"`
 }
 type ElementDefinitionType struct {
-	Id            *string                `bson:"id,omitempty" json:"id,omitempty"`
-	Extension     []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
-	Code          string                 `bson:"code" json:"code"`
-	Profile       []string               `bson:"profile,omitempty" json:"profile,omitempty"`
-	TargetProfile []string               `bson:"targetProfile,omitempty" json:"targetProfile,omitempty"`
-	Aggregation   []AggregationMode      `bson:"aggregation,omitempty" json:"aggregation,omitempty"`
-	Versioning    *ReferenceVersionRules `bson:"versioning,omitempty" json:"versioning,omitempty"`
+	Id                   *string                `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement      `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension            []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Code                 string                 `bson:"code" json:"code"`
+	CodeElement          *PrimitiveElement      `bson:"_code,omitempty" json:"_code,omitempty"`
+	Profile              []string               `bson:"profile,omitempty" json:"profile,omitempty"`
+	ProfileElement       []*PrimitiveElement    `bson:"_profile,omitempty" json:"_profile,omitempty"`
+	TargetProfile        []string               `bson:"targetProfile,omitempty" json:"targetProfile,omitempty"`
+	TargetProfileElement []*PrimitiveElement    `bson:"_targetProfile,omitempty" json:"_targetProfile,omitempty"`
+	Aggregation          []AggregationMode      `bson:"aggregation,omitempty" json:"aggregation,omitempty"`
+	AggregationElement   []*PrimitiveElement    `bson:"_aggregation,omitempty" json:"_aggregation,omitempty"`
+	Versioning           *ReferenceVersionRules `bson:"versioning,omitempty" json:"versioning,omitempty"`
+	VersioningElement    *PrimitiveElement      `bson:"_versioning,omitempty" json:"_versioning,omitempty"`
 }
 type ElementDefinitionExample struct {
 	Id                       *string              `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                *PrimitiveElement    `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension                []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`
 	Label                    string               `bson:"label" json:"label"`
+	LabelElement             *PrimitiveElement    `bson:"_label,omitempty" json:"_label,omitempty"`
 	ValueBase64Binary        *string              `bson:"valueBase64Binary,omitempty" json:"valueBase64Binary,omitempty"`
+	ValueBase64BinaryElement *PrimitiveElement    `bson:"_valueBase64Binary,omitempty" json:"_valueBase64Binary,omitempty"`
 	ValueBoolean             *bool                `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBooleanElement      *PrimitiveElement    `bson:"_valueBoolean,omitempty" json:"_valueBoolean,omitempty"`
 	ValueCanonical           *string              `bson:"valueCanonical,omitempty" json:"valueCanonical,omitempty"`
+	ValueCanonicalElement    *PrimitiveElement    `bson:"_valueCanonical,omitempty" json:"_valueCanonical,omitempty"`
 	ValueCode                *string              `bson:"valueCode,omitempty" json:"valueCode,omitempty"`
+	ValueCodeElement         *PrimitiveElement    `bson:"_valueCode,omitempty" json:"_valueCode,omitempty"`
 	ValueDate                *string              `bson:"valueDate,omitempty" json:"valueDate,omitempty"`
+	ValueDateElement         *PrimitiveElement    `bson:"_valueDate,omitempty" json:"_valueDate,omitempty"`
 	ValueDateTime            *string              `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
+	ValueDateTimeElement     *PrimitiveElement    `bson:"_valueDateTime,omitempty" json:"_valueDateTime,omitempty"`
 	ValueDecimal             *json.Number         `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
+	ValueDecimalElement      *PrimitiveElement    `bson:"_valueDecimal,omitempty" json:"_valueDecimal,omitempty"`
 	ValueId                  *string              `bson:"valueId,omitempty" json:"valueId,omitempty"`
+	ValueIdElement           *PrimitiveElement    `bson:"_valueId,omitempty" json:"_valueId,omitempty"`
 	ValueInstant             *string              `bson:"valueInstant,omitempty" json:"valueInstant,omitempty"`
+	ValueInstantElement      *PrimitiveElement    `bson:"_valueInstant,omitempty" json:"_valueInstant,omitempty"`
 	ValueInteger             *int                 `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
+	ValueIntegerElement      *PrimitiveElement    `bson:"_valueInteger,omitempty" json:"_valueInteger,omitempty"`
 	ValueMarkdown            *string              `bson:"valueMarkdown,omitempty" json:"valueMarkdown,omitempty"`
+	ValueMarkdownElement     *PrimitiveElement    `bson:"_valueMarkdown,omitempty" json:"_valueMarkdown,omitempty"`
 	ValueOid                 *string              `bson:"valueOid,omitempty" json:"valueOid,omitempty"`
+	ValueOidElement          *PrimitiveElement    `bson:"_valueOid,omitempty" json:"_valueOid,omitempty"`
 	ValuePositiveInt         *int                 `bson:"valuePositiveInt,omitempty" json:"valuePositiveInt,omitempty"`
+	ValuePositiveIntElement  *PrimitiveElement    `bson:"_valuePositiveInt,omitempty" json:"_valuePositiveInt,omitempty"`
 	ValueString              *string              `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueStringElement       *PrimitiveElement    `bson:"_valueString,omitempty" json:"_valueString,omitempty"`
 	ValueTime                *string              `bson:"valueTime,omitempty" json:"valueTime,omitempty"`
+	ValueTimeElement         *PrimitiveElement    `bson:"_valueTime,omitempty" json:"_valueTime,omitempty"`
 	ValueUnsignedInt         *int                 `bson:"valueUnsignedInt,omitempty" json:"valueUnsignedInt,omitempty"`
+	ValueUnsignedIntElement  *PrimitiveElement    `bson:"_valueUnsignedInt,omitempty" json:"_valueUnsignedInt,omitempty"`
 	ValueUri                 *string              `bson:"valueUri,omitempty" json:"valueUri,omitempty"`
+	ValueUriElement          *PrimitiveElement    `bson:"_valueUri,omitempty" json:"_valueUri,omitempty"`
 	ValueUrl                 *string              `bson:"valueUrl,omitempty" json:"valueUrl,omitempty"`
+	ValueUrlElement          *PrimitiveElement    `bson:"_valueUrl,omitempty" json:"_valueUrl,omitempty"`
 	ValueUuid                *string              `bson:"valueUuid,omitempty" json:"valueUuid,omitempty"`
+	ValueUuidElement         *PrimitiveElement    `bson:"_valueUuid,omitempty" json:"_valueUuid,omitempty"`
 	ValueAddress             *Address             `bson:"valueAddress,omitempty" json:"valueAddress,omitempty"`
 	ValueAge                 *Age                 `bson:"valueAge,omitempty" json:"valueAge,omitempty"`
 	ValueAnnotation          *Annotation          `bson:"valueAnnotation,omitempty" json:"valueAnnotation,omitempty"`
@@ -308,28 +441,45 @@ type ElementDefinitionExample struct {
 	ValueMeta                *Meta                `bson:"valueMeta,omitempty" json:"valueMeta,omitempty"`
 }
 type ElementDefinitionConstraint struct {
-	Id           *string            `bson:"id,omitempty" json:"id,omitempty"`
-	Extension    []Extension        `bson:"extension,omitempty" json:"extension,omitempty"`
-	Key          string             `bson:"key" json:"key"`
-	Requirements *string            `bson:"requirements,omitempty" json:"requirements,omitempty"`
-	Severity     ConstraintSeverity `bson:"severity" json:"severity"`
-	Human        string             `bson:"human" json:"human"`
-	Expression   *string            `bson:"expression,omitempty" json:"expression,omitempty"`
-	Xpath        *string            `bson:"xpath,omitempty" json:"xpath,omitempty"`
-	Source       *string            `bson:"source,omitempty" json:"source,omitempty"`
+	Id                  *string            `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement           *PrimitiveElement  `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension           []Extension        `bson:"extension,omitempty" json:"extension,omitempty"`
+	Key                 string             `bson:"key" json:"key"`
+	KeyElement          *PrimitiveElement  `bson:"_key,omitempty" json:"_key,omitempty"`
+	Requirements        *string            `bson:"requirements,omitempty" json:"requirements,omitempty"`
+	RequirementsElement *PrimitiveElement  `bson:"_requirements,omitempty" json:"_requirements,omitempty"`
+	Severity            ConstraintSeverity `bson:"severity" json:"severity"`
+	SeverityElement     *PrimitiveElement  `bson:"_severity,omitempty" json:"_severity,omitempty"`
+	Human               string             `bson:"human" json:"human"`
+	HumanElement        *PrimitiveElement  `bson:"_human,omitempty" json:"_human,omitempty"`
+	Expression          *string            `bson:"expression,omitempty" json:"expression,omitempty"`
+	ExpressionElement   *PrimitiveElement  `bson:"_expression,omitempty" json:"_expression,omitempty"`
+	Xpath               *string            `bson:"xpath,omitempty" json:"xpath,omitempty"`
+	XpathElement        *PrimitiveElement  `bson:"_xpath,omitempty" json:"_xpath,omitempty"`
+	Source              *string            `bson:"source,omitempty" json:"source,omitempty"`
+	SourceElement       *PrimitiveElement  `bson:"_source,omitempty" json:"_source,omitempty"`
 }
 type ElementDefinitionBinding struct {
-	Id          *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension   []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	Strength    BindingStrength `bson:"strength" json:"strength"`
-	Description *string         `bson:"description,omitempty" json:"description,omitempty"`
-	ValueSet    *string         `bson:"valueSet,omitempty" json:"valueSet,omitempty"`
+	Id                 *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Strength           BindingStrength   `bson:"strength" json:"strength"`
+	StrengthElement    *PrimitiveElement `bson:"_strength,omitempty" json:"_strength,omitempty"`
+	Description        *string           `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement *PrimitiveElement `bson:"_description,omitempty" json:"_description,omitempty"`
+	ValueSet           *string           `bson:"valueSet,omitempty" json:"valueSet,omitempty"`
+	ValueSetElement    *PrimitiveElement `bson:"_valueSet,omitempty" json:"_valueSet,omitempty"`
 }
 type ElementDefinitionMapping struct {
-	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Identity  string      `bson:"identity" json:"identity"`
-	Language  *string     `bson:"language,omitempty" json:"language,omitempty"`
-	Map       string      `bson:"map" json:"map"`
-	Comment   *string     `bson:"comment,omitempty" json:"comment,omitempty"`
+	Id              *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement       *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension       []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Identity        string            `bson:"identity" json:"identity"`
+	IdentityElement *PrimitiveElement `bson:"_identity,omitempty" json:"_identity,omitempty"`
+	Language        *string           `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement *PrimitiveElement `bson:"_language,omitempty" json:"_language,omitempty"`
+	Map             string            `bson:"map" json:"map"`
+	MapElement      *PrimitiveElement `bson:"_map,omitempty" json:"_map,omitempty"`
+	Comment         *string           `bson:"comment,omitempty" json:"comment,omitempty"`
+	CommentElement  *PrimitiveElement `bson:"_comment,omitempty" json:"_comment,omitempty"`
 }

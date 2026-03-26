@@ -21,36 +21,60 @@ import "encoding/json"
 
 // Parameters is documented here http://hl7.org/fhir/StructureDefinition/Parameters
 type Parameters struct {
-	Id            *string               `bson:"id,omitempty" json:"id,omitempty"`
-	Meta          *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules *string               `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language      *string               `bson:"language,omitempty" json:"language,omitempty"`
-	Parameter     []ParametersParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
+	Id                   *string               `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement     `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string               `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement     `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string               `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement     `bson:"_language,omitempty" json:"_language,omitempty"`
+	Parameter            []ParametersParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
 }
 type ParametersParameter struct {
 	Id                       *string               `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                *PrimitiveElement     `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension                []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension        []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Name                     string                `bson:"name" json:"name"`
+	NameElement              *PrimitiveElement     `bson:"_name,omitempty" json:"_name,omitempty"`
 	ValueBase64Binary        *string               `bson:"valueBase64Binary,omitempty" json:"valueBase64Binary,omitempty"`
+	ValueBase64BinaryElement *PrimitiveElement     `bson:"_valueBase64Binary,omitempty" json:"_valueBase64Binary,omitempty"`
 	ValueBoolean             *bool                 `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBooleanElement      *PrimitiveElement     `bson:"_valueBoolean,omitempty" json:"_valueBoolean,omitempty"`
 	ValueCanonical           *string               `bson:"valueCanonical,omitempty" json:"valueCanonical,omitempty"`
+	ValueCanonicalElement    *PrimitiveElement     `bson:"_valueCanonical,omitempty" json:"_valueCanonical,omitempty"`
 	ValueCode                *string               `bson:"valueCode,omitempty" json:"valueCode,omitempty"`
+	ValueCodeElement         *PrimitiveElement     `bson:"_valueCode,omitempty" json:"_valueCode,omitempty"`
 	ValueDate                *string               `bson:"valueDate,omitempty" json:"valueDate,omitempty"`
+	ValueDateElement         *PrimitiveElement     `bson:"_valueDate,omitempty" json:"_valueDate,omitempty"`
 	ValueDateTime            *string               `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
+	ValueDateTimeElement     *PrimitiveElement     `bson:"_valueDateTime,omitempty" json:"_valueDateTime,omitempty"`
 	ValueDecimal             *json.Number          `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
+	ValueDecimalElement      *PrimitiveElement     `bson:"_valueDecimal,omitempty" json:"_valueDecimal,omitempty"`
 	ValueId                  *string               `bson:"valueId,omitempty" json:"valueId,omitempty"`
+	ValueIdElement           *PrimitiveElement     `bson:"_valueId,omitempty" json:"_valueId,omitempty"`
 	ValueInstant             *string               `bson:"valueInstant,omitempty" json:"valueInstant,omitempty"`
+	ValueInstantElement      *PrimitiveElement     `bson:"_valueInstant,omitempty" json:"_valueInstant,omitempty"`
 	ValueInteger             *int                  `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
+	ValueIntegerElement      *PrimitiveElement     `bson:"_valueInteger,omitempty" json:"_valueInteger,omitempty"`
 	ValueMarkdown            *string               `bson:"valueMarkdown,omitempty" json:"valueMarkdown,omitempty"`
+	ValueMarkdownElement     *PrimitiveElement     `bson:"_valueMarkdown,omitempty" json:"_valueMarkdown,omitempty"`
 	ValueOid                 *string               `bson:"valueOid,omitempty" json:"valueOid,omitempty"`
+	ValueOidElement          *PrimitiveElement     `bson:"_valueOid,omitempty" json:"_valueOid,omitempty"`
 	ValuePositiveInt         *int                  `bson:"valuePositiveInt,omitempty" json:"valuePositiveInt,omitempty"`
+	ValuePositiveIntElement  *PrimitiveElement     `bson:"_valuePositiveInt,omitempty" json:"_valuePositiveInt,omitempty"`
 	ValueString              *string               `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueStringElement       *PrimitiveElement     `bson:"_valueString,omitempty" json:"_valueString,omitempty"`
 	ValueTime                *string               `bson:"valueTime,omitempty" json:"valueTime,omitempty"`
+	ValueTimeElement         *PrimitiveElement     `bson:"_valueTime,omitempty" json:"_valueTime,omitempty"`
 	ValueUnsignedInt         *int                  `bson:"valueUnsignedInt,omitempty" json:"valueUnsignedInt,omitempty"`
+	ValueUnsignedIntElement  *PrimitiveElement     `bson:"_valueUnsignedInt,omitempty" json:"_valueUnsignedInt,omitempty"`
 	ValueUri                 *string               `bson:"valueUri,omitempty" json:"valueUri,omitempty"`
+	ValueUriElement          *PrimitiveElement     `bson:"_valueUri,omitempty" json:"_valueUri,omitempty"`
 	ValueUrl                 *string               `bson:"valueUrl,omitempty" json:"valueUrl,omitempty"`
+	ValueUrlElement          *PrimitiveElement     `bson:"_valueUrl,omitempty" json:"_valueUrl,omitempty"`
 	ValueUuid                *string               `bson:"valueUuid,omitempty" json:"valueUuid,omitempty"`
+	ValueUuidElement         *PrimitiveElement     `bson:"_valueUuid,omitempty" json:"_valueUuid,omitempty"`
 	ValueAddress             *Address              `bson:"valueAddress,omitempty" json:"valueAddress,omitempty"`
 	ValueAge                 *Age                  `bson:"valueAge,omitempty" json:"valueAge,omitempty"`
 	ValueAnnotation          *Annotation           `bson:"valueAnnotation,omitempty" json:"valueAnnotation,omitempty"`

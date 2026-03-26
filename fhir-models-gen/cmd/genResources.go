@@ -478,6 +478,25 @@ func addFieldStatement(
 		statement.Tag(map[string]string{"json": name, "bson": name})
 	}
 
+	// Add companion element field for FHIR primitive extensions.
+	// Skip for fields inside the Extension struct: per FHIR spec, value[x] of an
+	// Extension cannot itself carry extensions.
+	if isPrimitiveFhirType(elementType.Code) && parentName != "Extension" {
+		companionFieldName := fieldName + "Element"
+		companionJsonName := "_" + name
+		companion := fields.Id(companionFieldName)
+		if *element.Max == "*" {
+			companion.Op("[]").Op("*")
+		} else {
+			companion.Op("*")
+		}
+		companion.Id("PrimitiveElement")
+		companion.Tag(map[string]string{
+			"json": companionJsonName + ",omitempty",
+			"bson": companionJsonName + ",omitempty",
+		})
+	}
+
 	return elementIndex, err
 }
 
@@ -536,6 +555,17 @@ func typeCodeToTypeIdentifier(typeCode string) string {
 	default:
 		return typeCode
 	}
+}
+
+func isPrimitiveFhirType(typeCode string) bool {
+	switch typeCode {
+	case "base64Binary", "boolean", "canonical", "code", "date", "dateTime",
+		"decimal", "id", "instant", "integer", "markdown", "oid", "positiveInt",
+		"string", "time", "unsignedInt", "uri", "url", "uuid", "xhtml",
+		"http://hl7.org/fhirpath/System.String":
+		return true
+	}
+	return false
 }
 
 func init() {

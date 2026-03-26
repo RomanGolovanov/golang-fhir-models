@@ -21,99 +21,156 @@ import "encoding/json"
 
 // StructureMap is documented here http://hl7.org/fhir/StructureDefinition/StructureMap
 type StructureMap struct {
-	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                 `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                 `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative              `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Url               string                  `bson:"url" json:"url"`
-	Identifier        []Identifier            `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Version           *string                 `bson:"version,omitempty" json:"version,omitempty"`
-	Name              string                  `bson:"name" json:"name"`
-	Title             *string                 `bson:"title,omitempty" json:"title,omitempty"`
-	Status            PublicationStatus       `bson:"status" json:"status"`
-	Experimental      *bool                   `bson:"experimental,omitempty" json:"experimental,omitempty"`
-	Date              *string                 `bson:"date,omitempty" json:"date,omitempty"`
-	Publisher         *string                 `bson:"publisher,omitempty" json:"publisher,omitempty"`
-	Contact           []ContactDetail         `bson:"contact,omitempty" json:"contact,omitempty"`
-	Description       *string                 `bson:"description,omitempty" json:"description,omitempty"`
-	UseContext        []UsageContext          `bson:"useContext,omitempty" json:"useContext,omitempty"`
-	Jurisdiction      []CodeableConcept       `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty"`
-	Purpose           *string                 `bson:"purpose,omitempty" json:"purpose,omitempty"`
-	Copyright         *string                 `bson:"copyright,omitempty" json:"copyright,omitempty"`
-	Structure         []StructureMapStructure `bson:"structure,omitempty" json:"structure,omitempty"`
-	Import            []string                `bson:"import,omitempty" json:"import,omitempty"`
-	Group             []StructureMapGroup     `bson:"group" json:"group"`
+	Id                   *string                 `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement       `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string                 `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement       `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string                 `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement       `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative              `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Url                  string                  `bson:"url" json:"url"`
+	UrlElement           *PrimitiveElement       `bson:"_url,omitempty" json:"_url,omitempty"`
+	Identifier           []Identifier            `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Version              *string                 `bson:"version,omitempty" json:"version,omitempty"`
+	VersionElement       *PrimitiveElement       `bson:"_version,omitempty" json:"_version,omitempty"`
+	Name                 string                  `bson:"name" json:"name"`
+	NameElement          *PrimitiveElement       `bson:"_name,omitempty" json:"_name,omitempty"`
+	Title                *string                 `bson:"title,omitempty" json:"title,omitempty"`
+	TitleElement         *PrimitiveElement       `bson:"_title,omitempty" json:"_title,omitempty"`
+	Status               PublicationStatus       `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement       `bson:"_status,omitempty" json:"_status,omitempty"`
+	Experimental         *bool                   `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	ExperimentalElement  *PrimitiveElement       `bson:"_experimental,omitempty" json:"_experimental,omitempty"`
+	Date                 *string                 `bson:"date,omitempty" json:"date,omitempty"`
+	DateElement          *PrimitiveElement       `bson:"_date,omitempty" json:"_date,omitempty"`
+	Publisher            *string                 `bson:"publisher,omitempty" json:"publisher,omitempty"`
+	PublisherElement     *PrimitiveElement       `bson:"_publisher,omitempty" json:"_publisher,omitempty"`
+	Contact              []ContactDetail         `bson:"contact,omitempty" json:"contact,omitempty"`
+	Description          *string                 `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement   *PrimitiveElement       `bson:"_description,omitempty" json:"_description,omitempty"`
+	UseContext           []UsageContext          `bson:"useContext,omitempty" json:"useContext,omitempty"`
+	Jurisdiction         []CodeableConcept       `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty"`
+	Purpose              *string                 `bson:"purpose,omitempty" json:"purpose,omitempty"`
+	PurposeElement       *PrimitiveElement       `bson:"_purpose,omitempty" json:"_purpose,omitempty"`
+	Copyright            *string                 `bson:"copyright,omitempty" json:"copyright,omitempty"`
+	CopyrightElement     *PrimitiveElement       `bson:"_copyright,omitempty" json:"_copyright,omitempty"`
+	Structure            []StructureMapStructure `bson:"structure,omitempty" json:"structure,omitempty"`
+	Import               []string                `bson:"import,omitempty" json:"import,omitempty"`
+	ImportElement        []*PrimitiveElement     `bson:"_import,omitempty" json:"_import,omitempty"`
+	Group                []StructureMapGroup     `bson:"group" json:"group"`
 }
 type StructureMapStructure struct {
-	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Url               string                `bson:"url" json:"url"`
-	Mode              StructureMapModelMode `bson:"mode" json:"mode"`
-	Alias             *string               `bson:"alias,omitempty" json:"alias,omitempty"`
-	Documentation     *string               `bson:"documentation,omitempty" json:"documentation,omitempty"`
+	Id                   *string               `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement     `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension            []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Url                  string                `bson:"url" json:"url"`
+	UrlElement           *PrimitiveElement     `bson:"_url,omitempty" json:"_url,omitempty"`
+	Mode                 StructureMapModelMode `bson:"mode" json:"mode"`
+	ModeElement          *PrimitiveElement     `bson:"_mode,omitempty" json:"_mode,omitempty"`
+	Alias                *string               `bson:"alias,omitempty" json:"alias,omitempty"`
+	AliasElement         *PrimitiveElement     `bson:"_alias,omitempty" json:"_alias,omitempty"`
+	Documentation        *string               `bson:"documentation,omitempty" json:"documentation,omitempty"`
+	DocumentationElement *PrimitiveElement     `bson:"_documentation,omitempty" json:"_documentation,omitempty"`
 }
 type StructureMapGroup struct {
-	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension               `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension               `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Name              string                    `bson:"name" json:"name"`
-	Extends           *string                   `bson:"extends,omitempty" json:"extends,omitempty"`
-	TypeMode          StructureMapGroupTypeMode `bson:"typeMode" json:"typeMode"`
-	Documentation     *string                   `bson:"documentation,omitempty" json:"documentation,omitempty"`
-	Input             []StructureMapGroupInput  `bson:"input" json:"input"`
-	Rule              []StructureMapGroupRule   `bson:"rule" json:"rule"`
+	Id                   *string                   `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement         `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension            []Extension               `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension               `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Name                 string                    `bson:"name" json:"name"`
+	NameElement          *PrimitiveElement         `bson:"_name,omitempty" json:"_name,omitempty"`
+	Extends              *string                   `bson:"extends,omitempty" json:"extends,omitempty"`
+	ExtendsElement       *PrimitiveElement         `bson:"_extends,omitempty" json:"_extends,omitempty"`
+	TypeMode             StructureMapGroupTypeMode `bson:"typeMode" json:"typeMode"`
+	TypeModeElement      *PrimitiveElement         `bson:"_typeMode,omitempty" json:"_typeMode,omitempty"`
+	Documentation        *string                   `bson:"documentation,omitempty" json:"documentation,omitempty"`
+	DocumentationElement *PrimitiveElement         `bson:"_documentation,omitempty" json:"_documentation,omitempty"`
+	Input                []StructureMapGroupInput  `bson:"input" json:"input"`
+	Rule                 []StructureMapGroupRule   `bson:"rule" json:"rule"`
 }
 type StructureMapGroupInput struct {
-	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Name              string                `bson:"name" json:"name"`
-	Type              *string               `bson:"type,omitempty" json:"type,omitempty"`
-	Mode              StructureMapInputMode `bson:"mode" json:"mode"`
-	Documentation     *string               `bson:"documentation,omitempty" json:"documentation,omitempty"`
+	Id                   *string               `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement     `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension            []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Name                 string                `bson:"name" json:"name"`
+	NameElement          *PrimitiveElement     `bson:"_name,omitempty" json:"_name,omitempty"`
+	Type                 *string               `bson:"type,omitempty" json:"type,omitempty"`
+	TypeElement          *PrimitiveElement     `bson:"_type,omitempty" json:"_type,omitempty"`
+	Mode                 StructureMapInputMode `bson:"mode" json:"mode"`
+	ModeElement          *PrimitiveElement     `bson:"_mode,omitempty" json:"_mode,omitempty"`
+	Documentation        *string               `bson:"documentation,omitempty" json:"documentation,omitempty"`
+	DocumentationElement *PrimitiveElement     `bson:"_documentation,omitempty" json:"_documentation,omitempty"`
 }
 type StructureMapGroupRule struct {
-	Id                *string                          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension                      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Name              string                           `bson:"name" json:"name"`
-	Source            []StructureMapGroupRuleSource    `bson:"source" json:"source"`
-	Target            []StructureMapGroupRuleTarget    `bson:"target,omitempty" json:"target,omitempty"`
-	Rule              []StructureMapGroupRule          `bson:"rule,omitempty" json:"rule,omitempty"`
-	Dependent         []StructureMapGroupRuleDependent `bson:"dependent,omitempty" json:"dependent,omitempty"`
-	Documentation     *string                          `bson:"documentation,omitempty" json:"documentation,omitempty"`
+	Id                   *string                          `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement                `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension            []Extension                      `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension                      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Name                 string                           `bson:"name" json:"name"`
+	NameElement          *PrimitiveElement                `bson:"_name,omitempty" json:"_name,omitempty"`
+	Source               []StructureMapGroupRuleSource    `bson:"source" json:"source"`
+	Target               []StructureMapGroupRuleTarget    `bson:"target,omitempty" json:"target,omitempty"`
+	Rule                 []StructureMapGroupRule          `bson:"rule,omitempty" json:"rule,omitempty"`
+	Dependent            []StructureMapGroupRuleDependent `bson:"dependent,omitempty" json:"dependent,omitempty"`
+	Documentation        *string                          `bson:"documentation,omitempty" json:"documentation,omitempty"`
+	DocumentationElement *PrimitiveElement                `bson:"_documentation,omitempty" json:"_documentation,omitempty"`
 }
 type StructureMapGroupRuleSource struct {
 	Id                              *string                     `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                       *PrimitiveElement           `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension                       []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension               []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Context                         string                      `bson:"context" json:"context"`
+	ContextElement                  *PrimitiveElement           `bson:"_context,omitempty" json:"_context,omitempty"`
 	Min                             *int                        `bson:"min,omitempty" json:"min,omitempty"`
+	MinElement                      *PrimitiveElement           `bson:"_min,omitempty" json:"_min,omitempty"`
 	Max                             *string                     `bson:"max,omitempty" json:"max,omitempty"`
+	MaxElement                      *PrimitiveElement           `bson:"_max,omitempty" json:"_max,omitempty"`
 	Type                            *string                     `bson:"type,omitempty" json:"type,omitempty"`
+	TypeElement                     *PrimitiveElement           `bson:"_type,omitempty" json:"_type,omitempty"`
 	DefaultValueBase64Binary        *string                     `bson:"defaultValueBase64Binary,omitempty" json:"defaultValueBase64Binary,omitempty"`
+	DefaultValueBase64BinaryElement *PrimitiveElement           `bson:"_defaultValueBase64Binary,omitempty" json:"_defaultValueBase64Binary,omitempty"`
 	DefaultValueBoolean             *bool                       `bson:"defaultValueBoolean,omitempty" json:"defaultValueBoolean,omitempty"`
+	DefaultValueBooleanElement      *PrimitiveElement           `bson:"_defaultValueBoolean,omitempty" json:"_defaultValueBoolean,omitempty"`
 	DefaultValueCanonical           *string                     `bson:"defaultValueCanonical,omitempty" json:"defaultValueCanonical,omitempty"`
+	DefaultValueCanonicalElement    *PrimitiveElement           `bson:"_defaultValueCanonical,omitempty" json:"_defaultValueCanonical,omitempty"`
 	DefaultValueCode                *string                     `bson:"defaultValueCode,omitempty" json:"defaultValueCode,omitempty"`
+	DefaultValueCodeElement         *PrimitiveElement           `bson:"_defaultValueCode,omitempty" json:"_defaultValueCode,omitempty"`
 	DefaultValueDate                *string                     `bson:"defaultValueDate,omitempty" json:"defaultValueDate,omitempty"`
+	DefaultValueDateElement         *PrimitiveElement           `bson:"_defaultValueDate,omitempty" json:"_defaultValueDate,omitempty"`
 	DefaultValueDateTime            *string                     `bson:"defaultValueDateTime,omitempty" json:"defaultValueDateTime,omitempty"`
+	DefaultValueDateTimeElement     *PrimitiveElement           `bson:"_defaultValueDateTime,omitempty" json:"_defaultValueDateTime,omitempty"`
 	DefaultValueDecimal             *json.Number                `bson:"defaultValueDecimal,omitempty" json:"defaultValueDecimal,omitempty"`
+	DefaultValueDecimalElement      *PrimitiveElement           `bson:"_defaultValueDecimal,omitempty" json:"_defaultValueDecimal,omitempty"`
 	DefaultValueId                  *string                     `bson:"defaultValueId,omitempty" json:"defaultValueId,omitempty"`
+	DefaultValueIdElement           *PrimitiveElement           `bson:"_defaultValueId,omitempty" json:"_defaultValueId,omitempty"`
 	DefaultValueInstant             *string                     `bson:"defaultValueInstant,omitempty" json:"defaultValueInstant,omitempty"`
+	DefaultValueInstantElement      *PrimitiveElement           `bson:"_defaultValueInstant,omitempty" json:"_defaultValueInstant,omitempty"`
 	DefaultValueInteger             *int                        `bson:"defaultValueInteger,omitempty" json:"defaultValueInteger,omitempty"`
+	DefaultValueIntegerElement      *PrimitiveElement           `bson:"_defaultValueInteger,omitempty" json:"_defaultValueInteger,omitempty"`
 	DefaultValueMarkdown            *string                     `bson:"defaultValueMarkdown,omitempty" json:"defaultValueMarkdown,omitempty"`
+	DefaultValueMarkdownElement     *PrimitiveElement           `bson:"_defaultValueMarkdown,omitempty" json:"_defaultValueMarkdown,omitempty"`
 	DefaultValueOid                 *string                     `bson:"defaultValueOid,omitempty" json:"defaultValueOid,omitempty"`
+	DefaultValueOidElement          *PrimitiveElement           `bson:"_defaultValueOid,omitempty" json:"_defaultValueOid,omitempty"`
 	DefaultValuePositiveInt         *int                        `bson:"defaultValuePositiveInt,omitempty" json:"defaultValuePositiveInt,omitempty"`
+	DefaultValuePositiveIntElement  *PrimitiveElement           `bson:"_defaultValuePositiveInt,omitempty" json:"_defaultValuePositiveInt,omitempty"`
 	DefaultValueString              *string                     `bson:"defaultValueString,omitempty" json:"defaultValueString,omitempty"`
+	DefaultValueStringElement       *PrimitiveElement           `bson:"_defaultValueString,omitempty" json:"_defaultValueString,omitempty"`
 	DefaultValueTime                *string                     `bson:"defaultValueTime,omitempty" json:"defaultValueTime,omitempty"`
+	DefaultValueTimeElement         *PrimitiveElement           `bson:"_defaultValueTime,omitempty" json:"_defaultValueTime,omitempty"`
 	DefaultValueUnsignedInt         *int                        `bson:"defaultValueUnsignedInt,omitempty" json:"defaultValueUnsignedInt,omitempty"`
+	DefaultValueUnsignedIntElement  *PrimitiveElement           `bson:"_defaultValueUnsignedInt,omitempty" json:"_defaultValueUnsignedInt,omitempty"`
 	DefaultValueUri                 *string                     `bson:"defaultValueUri,omitempty" json:"defaultValueUri,omitempty"`
+	DefaultValueUriElement          *PrimitiveElement           `bson:"_defaultValueUri,omitempty" json:"_defaultValueUri,omitempty"`
 	DefaultValueUrl                 *string                     `bson:"defaultValueUrl,omitempty" json:"defaultValueUrl,omitempty"`
+	DefaultValueUrlElement          *PrimitiveElement           `bson:"_defaultValueUrl,omitempty" json:"_defaultValueUrl,omitempty"`
 	DefaultValueUuid                *string                     `bson:"defaultValueUuid,omitempty" json:"defaultValueUuid,omitempty"`
+	DefaultValueUuidElement         *PrimitiveElement           `bson:"_defaultValueUuid,omitempty" json:"_defaultValueUuid,omitempty"`
 	DefaultValueAddress             *Address                    `bson:"defaultValueAddress,omitempty" json:"defaultValueAddress,omitempty"`
 	DefaultValueAge                 *Age                        `bson:"defaultValueAge,omitempty" json:"defaultValueAge,omitempty"`
 	DefaultValueAnnotation          *Annotation                 `bson:"defaultValueAnnotation,omitempty" json:"defaultValueAnnotation,omitempty"`
@@ -146,41 +203,64 @@ type StructureMapGroupRuleSource struct {
 	DefaultValueDosage              *Dosage                     `bson:"defaultValueDosage,omitempty" json:"defaultValueDosage,omitempty"`
 	DefaultValueMeta                *Meta                       `bson:"defaultValueMeta,omitempty" json:"defaultValueMeta,omitempty"`
 	Element                         *string                     `bson:"element,omitempty" json:"element,omitempty"`
+	ElementElement                  *PrimitiveElement           `bson:"_element,omitempty" json:"_element,omitempty"`
 	ListMode                        *StructureMapSourceListMode `bson:"listMode,omitempty" json:"listMode,omitempty"`
+	ListModeElement                 *PrimitiveElement           `bson:"_listMode,omitempty" json:"_listMode,omitempty"`
 	Variable                        *string                     `bson:"variable,omitempty" json:"variable,omitempty"`
+	VariableElement                 *PrimitiveElement           `bson:"_variable,omitempty" json:"_variable,omitempty"`
 	Condition                       *string                     `bson:"condition,omitempty" json:"condition,omitempty"`
+	ConditionElement                *PrimitiveElement           `bson:"_condition,omitempty" json:"_condition,omitempty"`
 	Check                           *string                     `bson:"check,omitempty" json:"check,omitempty"`
+	CheckElement                    *PrimitiveElement           `bson:"_check,omitempty" json:"_check,omitempty"`
 	LogMessage                      *string                     `bson:"logMessage,omitempty" json:"logMessage,omitempty"`
+	LogMessageElement               *PrimitiveElement           `bson:"_logMessage,omitempty" json:"_logMessage,omitempty"`
 }
 type StructureMapGroupRuleTarget struct {
-	Id                *string                                `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension                            `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Context           *string                                `bson:"context,omitempty" json:"context,omitempty"`
-	ContextType       *StructureMapContextType               `bson:"contextType,omitempty" json:"contextType,omitempty"`
-	Element           *string                                `bson:"element,omitempty" json:"element,omitempty"`
-	Variable          *string                                `bson:"variable,omitempty" json:"variable,omitempty"`
-	ListMode          []StructureMapTargetListMode           `bson:"listMode,omitempty" json:"listMode,omitempty"`
-	ListRuleId        *string                                `bson:"listRuleId,omitempty" json:"listRuleId,omitempty"`
-	Transform         *StructureMapTransform                 `bson:"transform,omitempty" json:"transform,omitempty"`
-	Parameter         []StructureMapGroupRuleTargetParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
+	Id                 *string                                `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement                      `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension                            `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension  []Extension                            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Context            *string                                `bson:"context,omitempty" json:"context,omitempty"`
+	ContextElement     *PrimitiveElement                      `bson:"_context,omitempty" json:"_context,omitempty"`
+	ContextType        *StructureMapContextType               `bson:"contextType,omitempty" json:"contextType,omitempty"`
+	ContextTypeElement *PrimitiveElement                      `bson:"_contextType,omitempty" json:"_contextType,omitempty"`
+	Element            *string                                `bson:"element,omitempty" json:"element,omitempty"`
+	ElementElement     *PrimitiveElement                      `bson:"_element,omitempty" json:"_element,omitempty"`
+	Variable           *string                                `bson:"variable,omitempty" json:"variable,omitempty"`
+	VariableElement    *PrimitiveElement                      `bson:"_variable,omitempty" json:"_variable,omitempty"`
+	ListMode           []StructureMapTargetListMode           `bson:"listMode,omitempty" json:"listMode,omitempty"`
+	ListModeElement    []*PrimitiveElement                    `bson:"_listMode,omitempty" json:"_listMode,omitempty"`
+	ListRuleId         *string                                `bson:"listRuleId,omitempty" json:"listRuleId,omitempty"`
+	ListRuleIdElement  *PrimitiveElement                      `bson:"_listRuleId,omitempty" json:"_listRuleId,omitempty"`
+	Transform          *StructureMapTransform                 `bson:"transform,omitempty" json:"transform,omitempty"`
+	TransformElement   *PrimitiveElement                      `bson:"_transform,omitempty" json:"_transform,omitempty"`
+	Parameter          []StructureMapGroupRuleTargetParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
 }
 type StructureMapGroupRuleTargetParameter struct {
-	Id                *string      `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	ValueId           *string      `bson:"valueId,omitempty" json:"valueId,omitempty"`
-	ValueString       *string      `bson:"valueString,omitempty" json:"valueString,omitempty"`
-	ValueBoolean      *bool        `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
-	ValueInteger      *int         `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
-	ValueDecimal      *json.Number `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
+	Id                  *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement           *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension           []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension   []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	ValueId             *string           `bson:"valueId,omitempty" json:"valueId,omitempty"`
+	ValueIdElement      *PrimitiveElement `bson:"_valueId,omitempty" json:"_valueId,omitempty"`
+	ValueString         *string           `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueStringElement  *PrimitiveElement `bson:"_valueString,omitempty" json:"_valueString,omitempty"`
+	ValueBoolean        *bool             `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBooleanElement *PrimitiveElement `bson:"_valueBoolean,omitempty" json:"_valueBoolean,omitempty"`
+	ValueInteger        *int              `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
+	ValueIntegerElement *PrimitiveElement `bson:"_valueInteger,omitempty" json:"_valueInteger,omitempty"`
+	ValueDecimal        *json.Number      `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
+	ValueDecimalElement *PrimitiveElement `bson:"_valueDecimal,omitempty" json:"_valueDecimal,omitempty"`
 }
 type StructureMapGroupRuleDependent struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Name              string      `bson:"name" json:"name"`
-	Variable          []string    `bson:"variable" json:"variable"`
+	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Name              string              `bson:"name" json:"name"`
+	NameElement       *PrimitiveElement   `bson:"_name,omitempty" json:"_name,omitempty"`
+	Variable          []string            `bson:"variable" json:"variable"`
+	VariableElement   []*PrimitiveElement `bson:"_variable,omitempty" json:"_variable,omitempty"`
 }
 type OtherStructureMap StructureMap
 

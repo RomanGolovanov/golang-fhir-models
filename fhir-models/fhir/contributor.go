@@ -19,9 +19,12 @@ package fhir
 
 // Contributor is documented here http://hl7.org/fhir/StructureDefinition/Contributor
 type Contributor struct {
-	Id        *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	Type      ContributorType `bson:"type" json:"type"`
-	Name      string          `bson:"name" json:"name"`
-	Contact   []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty"`
+	Id          *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement   *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension   []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Type        ContributorType   `bson:"type" json:"type"`
+	TypeElement *PrimitiveElement `bson:"_type,omitempty" json:"_type,omitempty"`
+	Name        string            `bson:"name" json:"name"`
+	NameElement *PrimitiveElement `bson:"_name,omitempty" json:"_name,omitempty"`
+	Contact     []ContactDetail   `bson:"contact,omitempty" json:"contact,omitempty"`
 }

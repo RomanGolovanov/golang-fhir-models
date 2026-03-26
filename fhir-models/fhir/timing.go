@@ -21,31 +21,48 @@ import "encoding/json"
 
 // Timing is documented here http://hl7.org/fhir/StructureDefinition/Timing
 type Timing struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Event             []string         `bson:"event,omitempty" json:"event,omitempty"`
-	Repeat            *TimingRepeat    `bson:"repeat,omitempty" json:"repeat,omitempty"`
-	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
+	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Event             []string            `bson:"event,omitempty" json:"event,omitempty"`
+	EventElement      []*PrimitiveElement `bson:"_event,omitempty" json:"_event,omitempty"`
+	Repeat            *TimingRepeat       `bson:"repeat,omitempty" json:"repeat,omitempty"`
+	Code              *CodeableConcept    `bson:"code,omitempty" json:"code,omitempty"`
 }
 type TimingRepeat struct {
-	Id             *string      `bson:"id,omitempty" json:"id,omitempty"`
-	Extension      []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
-	BoundsDuration *Duration    `bson:"boundsDuration,omitempty" json:"boundsDuration,omitempty"`
-	BoundsRange    *Range       `bson:"boundsRange,omitempty" json:"boundsRange,omitempty"`
-	BoundsPeriod   *Period      `bson:"boundsPeriod,omitempty" json:"boundsPeriod,omitempty"`
-	Count          *int         `bson:"count,omitempty" json:"count,omitempty"`
-	CountMax       *int         `bson:"countMax,omitempty" json:"countMax,omitempty"`
-	Duration       *json.Number `bson:"duration,omitempty" json:"duration,omitempty"`
-	DurationMax    *json.Number `bson:"durationMax,omitempty" json:"durationMax,omitempty"`
-	DurationUnit   *string      `bson:"durationUnit,omitempty" json:"durationUnit,omitempty"`
-	Frequency      *int         `bson:"frequency,omitempty" json:"frequency,omitempty"`
-	FrequencyMax   *int         `bson:"frequencyMax,omitempty" json:"frequencyMax,omitempty"`
-	Period         *json.Number `bson:"period,omitempty" json:"period,omitempty"`
-	PeriodMax      *json.Number `bson:"periodMax,omitempty" json:"periodMax,omitempty"`
-	PeriodUnit     *string      `bson:"periodUnit,omitempty" json:"periodUnit,omitempty"`
-	DayOfWeek      []DaysOfWeek `bson:"dayOfWeek,omitempty" json:"dayOfWeek,omitempty"`
-	TimeOfDay      []string     `bson:"timeOfDay,omitempty" json:"timeOfDay,omitempty"`
-	When           []string     `bson:"when,omitempty" json:"when,omitempty"`
-	Offset         *int         `bson:"offset,omitempty" json:"offset,omitempty"`
+	Id                  *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement           *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension           []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	BoundsDuration      *Duration           `bson:"boundsDuration,omitempty" json:"boundsDuration,omitempty"`
+	BoundsRange         *Range              `bson:"boundsRange,omitempty" json:"boundsRange,omitempty"`
+	BoundsPeriod        *Period             `bson:"boundsPeriod,omitempty" json:"boundsPeriod,omitempty"`
+	Count               *int                `bson:"count,omitempty" json:"count,omitempty"`
+	CountElement        *PrimitiveElement   `bson:"_count,omitempty" json:"_count,omitempty"`
+	CountMax            *int                `bson:"countMax,omitempty" json:"countMax,omitempty"`
+	CountMaxElement     *PrimitiveElement   `bson:"_countMax,omitempty" json:"_countMax,omitempty"`
+	Duration            *json.Number        `bson:"duration,omitempty" json:"duration,omitempty"`
+	DurationElement     *PrimitiveElement   `bson:"_duration,omitempty" json:"_duration,omitempty"`
+	DurationMax         *json.Number        `bson:"durationMax,omitempty" json:"durationMax,omitempty"`
+	DurationMaxElement  *PrimitiveElement   `bson:"_durationMax,omitempty" json:"_durationMax,omitempty"`
+	DurationUnit        *string             `bson:"durationUnit,omitempty" json:"durationUnit,omitempty"`
+	DurationUnitElement *PrimitiveElement   `bson:"_durationUnit,omitempty" json:"_durationUnit,omitempty"`
+	Frequency           *int                `bson:"frequency,omitempty" json:"frequency,omitempty"`
+	FrequencyElement    *PrimitiveElement   `bson:"_frequency,omitempty" json:"_frequency,omitempty"`
+	FrequencyMax        *int                `bson:"frequencyMax,omitempty" json:"frequencyMax,omitempty"`
+	FrequencyMaxElement *PrimitiveElement   `bson:"_frequencyMax,omitempty" json:"_frequencyMax,omitempty"`
+	Period              *json.Number        `bson:"period,omitempty" json:"period,omitempty"`
+	PeriodElement       *PrimitiveElement   `bson:"_period,omitempty" json:"_period,omitempty"`
+	PeriodMax           *json.Number        `bson:"periodMax,omitempty" json:"periodMax,omitempty"`
+	PeriodMaxElement    *PrimitiveElement   `bson:"_periodMax,omitempty" json:"_periodMax,omitempty"`
+	PeriodUnit          *string             `bson:"periodUnit,omitempty" json:"periodUnit,omitempty"`
+	PeriodUnitElement   *PrimitiveElement   `bson:"_periodUnit,omitempty" json:"_periodUnit,omitempty"`
+	DayOfWeek           []DaysOfWeek        `bson:"dayOfWeek,omitempty" json:"dayOfWeek,omitempty"`
+	DayOfWeekElement    []*PrimitiveElement `bson:"_dayOfWeek,omitempty" json:"_dayOfWeek,omitempty"`
+	TimeOfDay           []string            `bson:"timeOfDay,omitempty" json:"timeOfDay,omitempty"`
+	TimeOfDayElement    []*PrimitiveElement `bson:"_timeOfDay,omitempty" json:"_timeOfDay,omitempty"`
+	When                []string            `bson:"when,omitempty" json:"when,omitempty"`
+	WhenElement         []*PrimitiveElement `bson:"_when,omitempty" json:"_when,omitempty"`
+	Offset              *int                `bson:"offset,omitempty" json:"offset,omitempty"`
+	OffsetElement       *PrimitiveElement   `bson:"_offset,omitempty" json:"_offset,omitempty"`
 }

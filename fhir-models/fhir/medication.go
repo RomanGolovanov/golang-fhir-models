@@ -21,37 +21,46 @@ import "encoding/json"
 
 // Medication is documented here http://hl7.org/fhir/StructureDefinition/Medication
 type Medication struct {
-	Id                *string                `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative             `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier           `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Code              *CodeableConcept       `bson:"code,omitempty" json:"code,omitempty"`
-	Status            *string                `bson:"status,omitempty" json:"status,omitempty"`
-	Manufacturer      *Reference             `bson:"manufacturer,omitempty" json:"manufacturer,omitempty"`
-	Form              *CodeableConcept       `bson:"form,omitempty" json:"form,omitempty"`
-	Amount            *Ratio                 `bson:"amount,omitempty" json:"amount,omitempty"`
-	Ingredient        []MedicationIngredient `bson:"ingredient,omitempty" json:"ingredient,omitempty"`
-	Batch             *MedicationBatch       `bson:"batch,omitempty" json:"batch,omitempty"`
+	Id                   *string                `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement      `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string                `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement      `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string                `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement      `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative             `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           []Identifier           `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Code                 *CodeableConcept       `bson:"code,omitempty" json:"code,omitempty"`
+	Status               *string                `bson:"status,omitempty" json:"status,omitempty"`
+	StatusElement        *PrimitiveElement      `bson:"_status,omitempty" json:"_status,omitempty"`
+	Manufacturer         *Reference             `bson:"manufacturer,omitempty" json:"manufacturer,omitempty"`
+	Form                 *CodeableConcept       `bson:"form,omitempty" json:"form,omitempty"`
+	Amount               *Ratio                 `bson:"amount,omitempty" json:"amount,omitempty"`
+	Ingredient           []MedicationIngredient `bson:"ingredient,omitempty" json:"ingredient,omitempty"`
+	Batch                *MedicationBatch       `bson:"batch,omitempty" json:"batch,omitempty"`
 }
 type MedicationIngredient struct {
-	Id                  *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension           []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension   []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	ItemCodeableConcept *CodeableConcept `bson:"itemCodeableConcept,omitempty" json:"itemCodeableConcept,omitempty"`
-	ItemReference       *Reference       `bson:"itemReference,omitempty" json:"itemReference,omitempty"`
-	IsActive            *bool            `bson:"isActive,omitempty" json:"isActive,omitempty"`
-	Strength            *Ratio           `bson:"strength,omitempty" json:"strength,omitempty"`
+	Id                  *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement           *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension           []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension   []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	ItemCodeableConcept *CodeableConcept  `bson:"itemCodeableConcept,omitempty" json:"itemCodeableConcept,omitempty"`
+	ItemReference       *Reference        `bson:"itemReference,omitempty" json:"itemReference,omitempty"`
+	IsActive            *bool             `bson:"isActive,omitempty" json:"isActive,omitempty"`
+	IsActiveElement     *PrimitiveElement `bson:"_isActive,omitempty" json:"_isActive,omitempty"`
+	Strength            *Ratio            `bson:"strength,omitempty" json:"strength,omitempty"`
 }
 type MedicationBatch struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	LotNumber         *string     `bson:"lotNumber,omitempty" json:"lotNumber,omitempty"`
-	ExpirationDate    *string     `bson:"expirationDate,omitempty" json:"expirationDate,omitempty"`
+	Id                    *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement             *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension             []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension     []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	LotNumber             *string           `bson:"lotNumber,omitempty" json:"lotNumber,omitempty"`
+	LotNumberElement      *PrimitiveElement `bson:"_lotNumber,omitempty" json:"_lotNumber,omitempty"`
+	ExpirationDate        *string           `bson:"expirationDate,omitempty" json:"expirationDate,omitempty"`
+	ExpirationDateElement *PrimitiveElement `bson:"_expirationDate,omitempty" json:"_expirationDate,omitempty"`
 }
 type OtherMedication Medication
 

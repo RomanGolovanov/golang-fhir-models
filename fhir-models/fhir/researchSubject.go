@@ -21,21 +21,27 @@ import "encoding/json"
 
 // ResearchSubject is documented here http://hl7.org/fhir/StructureDefinition/ResearchSubject
 type ResearchSubject struct {
-	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string               `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string               `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative            `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier          `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status            ResearchSubjectStatus `bson:"status" json:"status"`
-	Period            *Period               `bson:"period,omitempty" json:"period,omitempty"`
-	Study             Reference             `bson:"study" json:"study"`
-	Individual        Reference             `bson:"individual" json:"individual"`
-	AssignedArm       *string               `bson:"assignedArm,omitempty" json:"assignedArm,omitempty"`
-	ActualArm         *string               `bson:"actualArm,omitempty" json:"actualArm,omitempty"`
-	Consent           *Reference            `bson:"consent,omitempty" json:"consent,omitempty"`
+	Id                   *string               `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement     `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string               `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement     `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string               `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement     `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative            `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           []Identifier          `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status               ResearchSubjectStatus `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement     `bson:"_status,omitempty" json:"_status,omitempty"`
+	Period               *Period               `bson:"period,omitempty" json:"period,omitempty"`
+	Study                Reference             `bson:"study" json:"study"`
+	Individual           Reference             `bson:"individual" json:"individual"`
+	AssignedArm          *string               `bson:"assignedArm,omitempty" json:"assignedArm,omitempty"`
+	AssignedArmElement   *PrimitiveElement     `bson:"_assignedArm,omitempty" json:"_assignedArm,omitempty"`
+	ActualArm            *string               `bson:"actualArm,omitempty" json:"actualArm,omitempty"`
+	ActualArmElement     *PrimitiveElement     `bson:"_actualArm,omitempty" json:"_actualArm,omitempty"`
+	Consent              *Reference            `bson:"consent,omitempty" json:"consent,omitempty"`
 }
 type OtherResearchSubject ResearchSubject
 

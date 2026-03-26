@@ -19,13 +19,20 @@ package fhir
 
 // RelatedArtifact is documented here http://hl7.org/fhir/StructureDefinition/RelatedArtifact
 type RelatedArtifact struct {
-	Id        *string             `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
-	Type      RelatedArtifactType `bson:"type" json:"type"`
-	Label     *string             `bson:"label,omitempty" json:"label,omitempty"`
-	Display   *string             `bson:"display,omitempty" json:"display,omitempty"`
-	Citation  *string             `bson:"citation,omitempty" json:"citation,omitempty"`
-	Url       *string             `bson:"url,omitempty" json:"url,omitempty"`
-	Document  *Attachment         `bson:"document,omitempty" json:"document,omitempty"`
-	Resource  *string             `bson:"resource,omitempty" json:"resource,omitempty"`
+	Id              *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement       *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension       []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	Type            RelatedArtifactType `bson:"type" json:"type"`
+	TypeElement     *PrimitiveElement   `bson:"_type,omitempty" json:"_type,omitempty"`
+	Label           *string             `bson:"label,omitempty" json:"label,omitempty"`
+	LabelElement    *PrimitiveElement   `bson:"_label,omitempty" json:"_label,omitempty"`
+	Display         *string             `bson:"display,omitempty" json:"display,omitempty"`
+	DisplayElement  *PrimitiveElement   `bson:"_display,omitempty" json:"_display,omitempty"`
+	Citation        *string             `bson:"citation,omitempty" json:"citation,omitempty"`
+	CitationElement *PrimitiveElement   `bson:"_citation,omitempty" json:"_citation,omitempty"`
+	Url             *string             `bson:"url,omitempty" json:"url,omitempty"`
+	UrlElement      *PrimitiveElement   `bson:"_url,omitempty" json:"_url,omitempty"`
+	Document        *Attachment         `bson:"document,omitempty" json:"document,omitempty"`
+	Resource        *string             `bson:"resource,omitempty" json:"resource,omitempty"`
+	ResourceElement *PrimitiveElement   `bson:"_resource,omitempty" json:"_resource,omitempty"`
 }

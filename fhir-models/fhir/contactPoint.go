@@ -19,11 +19,16 @@ package fhir
 
 // ContactPoint is documented here http://hl7.org/fhir/StructureDefinition/ContactPoint
 type ContactPoint struct {
-	Id        *string             `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
-	System    *ContactPointSystem `bson:"system,omitempty" json:"system,omitempty"`
-	Value     *string             `bson:"value,omitempty" json:"value,omitempty"`
-	Use       *ContactPointUse    `bson:"use,omitempty" json:"use,omitempty"`
-	Rank      *int                `bson:"rank,omitempty" json:"rank,omitempty"`
-	Period    *Period             `bson:"period,omitempty" json:"period,omitempty"`
+	Id            *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement     *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension     []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	System        *ContactPointSystem `bson:"system,omitempty" json:"system,omitempty"`
+	SystemElement *PrimitiveElement   `bson:"_system,omitempty" json:"_system,omitempty"`
+	Value         *string             `bson:"value,omitempty" json:"value,omitempty"`
+	ValueElement  *PrimitiveElement   `bson:"_value,omitempty" json:"_value,omitempty"`
+	Use           *ContactPointUse    `bson:"use,omitempty" json:"use,omitempty"`
+	UseElement    *PrimitiveElement   `bson:"_use,omitempty" json:"_use,omitempty"`
+	Rank          *int                `bson:"rank,omitempty" json:"rank,omitempty"`
+	RankElement   *PrimitiveElement   `bson:"_rank,omitempty" json:"_rank,omitempty"`
+	Period        *Period             `bson:"period,omitempty" json:"period,omitempty"`
 }

@@ -21,21 +21,28 @@ import "encoding/json"
 
 // EnrollmentResponse is documented here http://hl7.org/fhir/StructureDefinition/EnrollmentResponse
 type EnrollmentResponse struct {
-	Id                *string                       `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                         `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                       `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                       `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative                    `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension                   `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                   `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier                  `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status            *FinancialResourceStatusCodes `bson:"status,omitempty" json:"status,omitempty"`
-	Request           *Reference                    `bson:"request,omitempty" json:"request,omitempty"`
-	Outcome           *ClaimProcessingCodes         `bson:"outcome,omitempty" json:"outcome,omitempty"`
-	Disposition       *string                       `bson:"disposition,omitempty" json:"disposition,omitempty"`
-	Created           *string                       `bson:"created,omitempty" json:"created,omitempty"`
-	Organization      *Reference                    `bson:"organization,omitempty" json:"organization,omitempty"`
-	RequestProvider   *Reference                    `bson:"requestProvider,omitempty" json:"requestProvider,omitempty"`
+	Id                   *string                       `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement             `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                         `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string                       `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement             `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string                       `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement             `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative                    `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension                   `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension                   `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           []Identifier                  `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status               *FinancialResourceStatusCodes `bson:"status,omitempty" json:"status,omitempty"`
+	StatusElement        *PrimitiveElement             `bson:"_status,omitempty" json:"_status,omitempty"`
+	Request              *Reference                    `bson:"request,omitempty" json:"request,omitempty"`
+	Outcome              *ClaimProcessingCodes         `bson:"outcome,omitempty" json:"outcome,omitempty"`
+	OutcomeElement       *PrimitiveElement             `bson:"_outcome,omitempty" json:"_outcome,omitempty"`
+	Disposition          *string                       `bson:"disposition,omitempty" json:"disposition,omitempty"`
+	DispositionElement   *PrimitiveElement             `bson:"_disposition,omitempty" json:"_disposition,omitempty"`
+	Created              *string                       `bson:"created,omitempty" json:"created,omitempty"`
+	CreatedElement       *PrimitiveElement             `bson:"_created,omitempty" json:"_created,omitempty"`
+	Organization         *Reference                    `bson:"organization,omitempty" json:"organization,omitempty"`
+	RequestProvider      *Reference                    `bson:"requestProvider,omitempty" json:"requestProvider,omitempty"`
 }
 type OtherEnrollmentResponse EnrollmentResponse
 

@@ -21,11 +21,17 @@ import "encoding/json"
 
 // Age is documented here http://hl7.org/fhir/StructureDefinition/Age
 type Age struct {
-	Id         *string             `bson:"id,omitempty" json:"id,omitempty"`
-	Extension  []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
-	Value      *json.Number        `bson:"value,omitempty" json:"value,omitempty"`
-	Comparator *QuantityComparator `bson:"comparator,omitempty" json:"comparator,omitempty"`
-	Unit       *string             `bson:"unit,omitempty" json:"unit,omitempty"`
-	System     *string             `bson:"system,omitempty" json:"system,omitempty"`
-	Code       *string             `bson:"code,omitempty" json:"code,omitempty"`
+	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement   `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
+	Value             *json.Number        `bson:"value,omitempty" json:"value,omitempty"`
+	ValueElement      *PrimitiveElement   `bson:"_value,omitempty" json:"_value,omitempty"`
+	Comparator        *QuantityComparator `bson:"comparator,omitempty" json:"comparator,omitempty"`
+	ComparatorElement *PrimitiveElement   `bson:"_comparator,omitempty" json:"_comparator,omitempty"`
+	Unit              *string             `bson:"unit,omitempty" json:"unit,omitempty"`
+	UnitElement       *PrimitiveElement   `bson:"_unit,omitempty" json:"_unit,omitempty"`
+	System            *string             `bson:"system,omitempty" json:"system,omitempty"`
+	SystemElement     *PrimitiveElement   `bson:"_system,omitempty" json:"_system,omitempty"`
+	Code              *string             `bson:"code,omitempty" json:"code,omitempty"`
+	CodeElement       *PrimitiveElement   `bson:"_code,omitempty" json:"_code,omitempty"`
 }

@@ -21,77 +21,110 @@ import "encoding/json"
 
 // Task is documented here http://hl7.org/fhir/StructureDefinition/Task
 type Task struct {
-	Id                    *string           `bson:"id,omitempty" json:"id,omitempty"`
-	Meta                  *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules         *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language              *string           `bson:"language,omitempty" json:"language,omitempty"`
-	Text                  *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
-	Extension             []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension     []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier            []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	InstantiatesCanonical *string           `bson:"instantiatesCanonical,omitempty" json:"instantiatesCanonical,omitempty"`
-	InstantiatesUri       *string           `bson:"instantiatesUri,omitempty" json:"instantiatesUri,omitempty"`
-	BasedOn               []Reference       `bson:"basedOn,omitempty" json:"basedOn,omitempty"`
-	GroupIdentifier       *Identifier       `bson:"groupIdentifier,omitempty" json:"groupIdentifier,omitempty"`
-	PartOf                []Reference       `bson:"partOf,omitempty" json:"partOf,omitempty"`
-	Status                TaskStatus        `bson:"status" json:"status"`
-	StatusReason          *CodeableConcept  `bson:"statusReason,omitempty" json:"statusReason,omitempty"`
-	BusinessStatus        *CodeableConcept  `bson:"businessStatus,omitempty" json:"businessStatus,omitempty"`
-	Intent                string            `bson:"intent" json:"intent"`
-	Priority              *RequestPriority  `bson:"priority,omitempty" json:"priority,omitempty"`
-	Code                  *CodeableConcept  `bson:"code,omitempty" json:"code,omitempty"`
-	Description           *string           `bson:"description,omitempty" json:"description,omitempty"`
-	Focus                 *Reference        `bson:"focus,omitempty" json:"focus,omitempty"`
-	For                   *Reference        `bson:"for,omitempty" json:"for,omitempty"`
-	Encounter             *Reference        `bson:"encounter,omitempty" json:"encounter,omitempty"`
-	ExecutionPeriod       *Period           `bson:"executionPeriod,omitempty" json:"executionPeriod,omitempty"`
-	AuthoredOn            *string           `bson:"authoredOn,omitempty" json:"authoredOn,omitempty"`
-	LastModified          *string           `bson:"lastModified,omitempty" json:"lastModified,omitempty"`
-	Requester             *Reference        `bson:"requester,omitempty" json:"requester,omitempty"`
-	PerformerType         []CodeableConcept `bson:"performerType,omitempty" json:"performerType,omitempty"`
-	Owner                 *Reference        `bson:"owner,omitempty" json:"owner,omitempty"`
-	Location              *Reference        `bson:"location,omitempty" json:"location,omitempty"`
-	ReasonCode            *CodeableConcept  `bson:"reasonCode,omitempty" json:"reasonCode,omitempty"`
-	ReasonReference       *Reference        `bson:"reasonReference,omitempty" json:"reasonReference,omitempty"`
-	Insurance             []Reference       `bson:"insurance,omitempty" json:"insurance,omitempty"`
-	Note                  []Annotation      `bson:"note,omitempty" json:"note,omitempty"`
-	RelevantHistory       []Reference       `bson:"relevantHistory,omitempty" json:"relevantHistory,omitempty"`
-	Restriction           *TaskRestriction  `bson:"restriction,omitempty" json:"restriction,omitempty"`
-	Input                 []TaskInput       `bson:"input,omitempty" json:"input,omitempty"`
-	Output                []TaskOutput      `bson:"output,omitempty" json:"output,omitempty"`
+	Id                           *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                    *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                         *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules                *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement         *PrimitiveElement `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language                     *string           `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement              *PrimitiveElement `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                         *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
+	Extension                    []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension            []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier                   []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	InstantiatesCanonical        *string           `bson:"instantiatesCanonical,omitempty" json:"instantiatesCanonical,omitempty"`
+	InstantiatesCanonicalElement *PrimitiveElement `bson:"_instantiatesCanonical,omitempty" json:"_instantiatesCanonical,omitempty"`
+	InstantiatesUri              *string           `bson:"instantiatesUri,omitempty" json:"instantiatesUri,omitempty"`
+	InstantiatesUriElement       *PrimitiveElement `bson:"_instantiatesUri,omitempty" json:"_instantiatesUri,omitempty"`
+	BasedOn                      []Reference       `bson:"basedOn,omitempty" json:"basedOn,omitempty"`
+	GroupIdentifier              *Identifier       `bson:"groupIdentifier,omitempty" json:"groupIdentifier,omitempty"`
+	PartOf                       []Reference       `bson:"partOf,omitempty" json:"partOf,omitempty"`
+	Status                       TaskStatus        `bson:"status" json:"status"`
+	StatusElement                *PrimitiveElement `bson:"_status,omitempty" json:"_status,omitempty"`
+	StatusReason                 *CodeableConcept  `bson:"statusReason,omitempty" json:"statusReason,omitempty"`
+	BusinessStatus               *CodeableConcept  `bson:"businessStatus,omitempty" json:"businessStatus,omitempty"`
+	Intent                       string            `bson:"intent" json:"intent"`
+	IntentElement                *PrimitiveElement `bson:"_intent,omitempty" json:"_intent,omitempty"`
+	Priority                     *RequestPriority  `bson:"priority,omitempty" json:"priority,omitempty"`
+	PriorityElement              *PrimitiveElement `bson:"_priority,omitempty" json:"_priority,omitempty"`
+	Code                         *CodeableConcept  `bson:"code,omitempty" json:"code,omitempty"`
+	Description                  *string           `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement           *PrimitiveElement `bson:"_description,omitempty" json:"_description,omitempty"`
+	Focus                        *Reference        `bson:"focus,omitempty" json:"focus,omitempty"`
+	For                          *Reference        `bson:"for,omitempty" json:"for,omitempty"`
+	Encounter                    *Reference        `bson:"encounter,omitempty" json:"encounter,omitempty"`
+	ExecutionPeriod              *Period           `bson:"executionPeriod,omitempty" json:"executionPeriod,omitempty"`
+	AuthoredOn                   *string           `bson:"authoredOn,omitempty" json:"authoredOn,omitempty"`
+	AuthoredOnElement            *PrimitiveElement `bson:"_authoredOn,omitempty" json:"_authoredOn,omitempty"`
+	LastModified                 *string           `bson:"lastModified,omitempty" json:"lastModified,omitempty"`
+	LastModifiedElement          *PrimitiveElement `bson:"_lastModified,omitempty" json:"_lastModified,omitempty"`
+	Requester                    *Reference        `bson:"requester,omitempty" json:"requester,omitempty"`
+	PerformerType                []CodeableConcept `bson:"performerType,omitempty" json:"performerType,omitempty"`
+	Owner                        *Reference        `bson:"owner,omitempty" json:"owner,omitempty"`
+	Location                     *Reference        `bson:"location,omitempty" json:"location,omitempty"`
+	ReasonCode                   *CodeableConcept  `bson:"reasonCode,omitempty" json:"reasonCode,omitempty"`
+	ReasonReference              *Reference        `bson:"reasonReference,omitempty" json:"reasonReference,omitempty"`
+	Insurance                    []Reference       `bson:"insurance,omitempty" json:"insurance,omitempty"`
+	Note                         []Annotation      `bson:"note,omitempty" json:"note,omitempty"`
+	RelevantHistory              []Reference       `bson:"relevantHistory,omitempty" json:"relevantHistory,omitempty"`
+	Restriction                  *TaskRestriction  `bson:"restriction,omitempty" json:"restriction,omitempty"`
+	Input                        []TaskInput       `bson:"input,omitempty" json:"input,omitempty"`
+	Output                       []TaskOutput      `bson:"output,omitempty" json:"output,omitempty"`
 }
 type TaskRestriction struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Repetitions       *int        `bson:"repetitions,omitempty" json:"repetitions,omitempty"`
-	Period            *Period     `bson:"period,omitempty" json:"period,omitempty"`
-	Recipient         []Reference `bson:"recipient,omitempty" json:"recipient,omitempty"`
+	Id                 *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension  []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Repetitions        *int              `bson:"repetitions,omitempty" json:"repetitions,omitempty"`
+	RepetitionsElement *PrimitiveElement `bson:"_repetitions,omitempty" json:"_repetitions,omitempty"`
+	Period             *Period           `bson:"period,omitempty" json:"period,omitempty"`
+	Recipient          []Reference       `bson:"recipient,omitempty" json:"recipient,omitempty"`
 }
 type TaskInput struct {
 	Id                       *string              `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                *PrimitiveElement    `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension                []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension        []Extension          `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type                     CodeableConcept      `bson:"type" json:"type"`
 	ValueBase64Binary        *string              `bson:"valueBase64Binary,omitempty" json:"valueBase64Binary,omitempty"`
+	ValueBase64BinaryElement *PrimitiveElement    `bson:"_valueBase64Binary,omitempty" json:"_valueBase64Binary,omitempty"`
 	ValueBoolean             *bool                `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBooleanElement      *PrimitiveElement    `bson:"_valueBoolean,omitempty" json:"_valueBoolean,omitempty"`
 	ValueCanonical           *string              `bson:"valueCanonical,omitempty" json:"valueCanonical,omitempty"`
+	ValueCanonicalElement    *PrimitiveElement    `bson:"_valueCanonical,omitempty" json:"_valueCanonical,omitempty"`
 	ValueCode                *string              `bson:"valueCode,omitempty" json:"valueCode,omitempty"`
+	ValueCodeElement         *PrimitiveElement    `bson:"_valueCode,omitempty" json:"_valueCode,omitempty"`
 	ValueDate                *string              `bson:"valueDate,omitempty" json:"valueDate,omitempty"`
+	ValueDateElement         *PrimitiveElement    `bson:"_valueDate,omitempty" json:"_valueDate,omitempty"`
 	ValueDateTime            *string              `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
+	ValueDateTimeElement     *PrimitiveElement    `bson:"_valueDateTime,omitempty" json:"_valueDateTime,omitempty"`
 	ValueDecimal             *json.Number         `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
+	ValueDecimalElement      *PrimitiveElement    `bson:"_valueDecimal,omitempty" json:"_valueDecimal,omitempty"`
 	ValueId                  *string              `bson:"valueId,omitempty" json:"valueId,omitempty"`
+	ValueIdElement           *PrimitiveElement    `bson:"_valueId,omitempty" json:"_valueId,omitempty"`
 	ValueInstant             *string              `bson:"valueInstant,omitempty" json:"valueInstant,omitempty"`
+	ValueInstantElement      *PrimitiveElement    `bson:"_valueInstant,omitempty" json:"_valueInstant,omitempty"`
 	ValueInteger             *int                 `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
+	ValueIntegerElement      *PrimitiveElement    `bson:"_valueInteger,omitempty" json:"_valueInteger,omitempty"`
 	ValueMarkdown            *string              `bson:"valueMarkdown,omitempty" json:"valueMarkdown,omitempty"`
+	ValueMarkdownElement     *PrimitiveElement    `bson:"_valueMarkdown,omitempty" json:"_valueMarkdown,omitempty"`
 	ValueOid                 *string              `bson:"valueOid,omitempty" json:"valueOid,omitempty"`
+	ValueOidElement          *PrimitiveElement    `bson:"_valueOid,omitempty" json:"_valueOid,omitempty"`
 	ValuePositiveInt         *int                 `bson:"valuePositiveInt,omitempty" json:"valuePositiveInt,omitempty"`
+	ValuePositiveIntElement  *PrimitiveElement    `bson:"_valuePositiveInt,omitempty" json:"_valuePositiveInt,omitempty"`
 	ValueString              *string              `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueStringElement       *PrimitiveElement    `bson:"_valueString,omitempty" json:"_valueString,omitempty"`
 	ValueTime                *string              `bson:"valueTime,omitempty" json:"valueTime,omitempty"`
+	ValueTimeElement         *PrimitiveElement    `bson:"_valueTime,omitempty" json:"_valueTime,omitempty"`
 	ValueUnsignedInt         *int                 `bson:"valueUnsignedInt,omitempty" json:"valueUnsignedInt,omitempty"`
+	ValueUnsignedIntElement  *PrimitiveElement    `bson:"_valueUnsignedInt,omitempty" json:"_valueUnsignedInt,omitempty"`
 	ValueUri                 *string              `bson:"valueUri,omitempty" json:"valueUri,omitempty"`
+	ValueUriElement          *PrimitiveElement    `bson:"_valueUri,omitempty" json:"_valueUri,omitempty"`
 	ValueUrl                 *string              `bson:"valueUrl,omitempty" json:"valueUrl,omitempty"`
+	ValueUrlElement          *PrimitiveElement    `bson:"_valueUrl,omitempty" json:"_valueUrl,omitempty"`
 	ValueUuid                *string              `bson:"valueUuid,omitempty" json:"valueUuid,omitempty"`
+	ValueUuidElement         *PrimitiveElement    `bson:"_valueUuid,omitempty" json:"_valueUuid,omitempty"`
 	ValueAddress             *Address             `bson:"valueAddress,omitempty" json:"valueAddress,omitempty"`
 	ValueAge                 *Age                 `bson:"valueAge,omitempty" json:"valueAge,omitempty"`
 	ValueAnnotation          *Annotation          `bson:"valueAnnotation,omitempty" json:"valueAnnotation,omitempty"`
@@ -126,28 +159,48 @@ type TaskInput struct {
 }
 type TaskOutput struct {
 	Id                       *string              `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                *PrimitiveElement    `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension                []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension        []Extension          `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type                     CodeableConcept      `bson:"type" json:"type"`
 	ValueBase64Binary        *string              `bson:"valueBase64Binary,omitempty" json:"valueBase64Binary,omitempty"`
+	ValueBase64BinaryElement *PrimitiveElement    `bson:"_valueBase64Binary,omitempty" json:"_valueBase64Binary,omitempty"`
 	ValueBoolean             *bool                `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBooleanElement      *PrimitiveElement    `bson:"_valueBoolean,omitempty" json:"_valueBoolean,omitempty"`
 	ValueCanonical           *string              `bson:"valueCanonical,omitempty" json:"valueCanonical,omitempty"`
+	ValueCanonicalElement    *PrimitiveElement    `bson:"_valueCanonical,omitempty" json:"_valueCanonical,omitempty"`
 	ValueCode                *string              `bson:"valueCode,omitempty" json:"valueCode,omitempty"`
+	ValueCodeElement         *PrimitiveElement    `bson:"_valueCode,omitempty" json:"_valueCode,omitempty"`
 	ValueDate                *string              `bson:"valueDate,omitempty" json:"valueDate,omitempty"`
+	ValueDateElement         *PrimitiveElement    `bson:"_valueDate,omitempty" json:"_valueDate,omitempty"`
 	ValueDateTime            *string              `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
+	ValueDateTimeElement     *PrimitiveElement    `bson:"_valueDateTime,omitempty" json:"_valueDateTime,omitempty"`
 	ValueDecimal             *json.Number         `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
+	ValueDecimalElement      *PrimitiveElement    `bson:"_valueDecimal,omitempty" json:"_valueDecimal,omitempty"`
 	ValueId                  *string              `bson:"valueId,omitempty" json:"valueId,omitempty"`
+	ValueIdElement           *PrimitiveElement    `bson:"_valueId,omitempty" json:"_valueId,omitempty"`
 	ValueInstant             *string              `bson:"valueInstant,omitempty" json:"valueInstant,omitempty"`
+	ValueInstantElement      *PrimitiveElement    `bson:"_valueInstant,omitempty" json:"_valueInstant,omitempty"`
 	ValueInteger             *int                 `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
+	ValueIntegerElement      *PrimitiveElement    `bson:"_valueInteger,omitempty" json:"_valueInteger,omitempty"`
 	ValueMarkdown            *string              `bson:"valueMarkdown,omitempty" json:"valueMarkdown,omitempty"`
+	ValueMarkdownElement     *PrimitiveElement    `bson:"_valueMarkdown,omitempty" json:"_valueMarkdown,omitempty"`
 	ValueOid                 *string              `bson:"valueOid,omitempty" json:"valueOid,omitempty"`
+	ValueOidElement          *PrimitiveElement    `bson:"_valueOid,omitempty" json:"_valueOid,omitempty"`
 	ValuePositiveInt         *int                 `bson:"valuePositiveInt,omitempty" json:"valuePositiveInt,omitempty"`
+	ValuePositiveIntElement  *PrimitiveElement    `bson:"_valuePositiveInt,omitempty" json:"_valuePositiveInt,omitempty"`
 	ValueString              *string              `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueStringElement       *PrimitiveElement    `bson:"_valueString,omitempty" json:"_valueString,omitempty"`
 	ValueTime                *string              `bson:"valueTime,omitempty" json:"valueTime,omitempty"`
+	ValueTimeElement         *PrimitiveElement    `bson:"_valueTime,omitempty" json:"_valueTime,omitempty"`
 	ValueUnsignedInt         *int                 `bson:"valueUnsignedInt,omitempty" json:"valueUnsignedInt,omitempty"`
+	ValueUnsignedIntElement  *PrimitiveElement    `bson:"_valueUnsignedInt,omitempty" json:"_valueUnsignedInt,omitempty"`
 	ValueUri                 *string              `bson:"valueUri,omitempty" json:"valueUri,omitempty"`
+	ValueUriElement          *PrimitiveElement    `bson:"_valueUri,omitempty" json:"_valueUri,omitempty"`
 	ValueUrl                 *string              `bson:"valueUrl,omitempty" json:"valueUrl,omitempty"`
+	ValueUrlElement          *PrimitiveElement    `bson:"_valueUrl,omitempty" json:"_valueUrl,omitempty"`
 	ValueUuid                *string              `bson:"valueUuid,omitempty" json:"valueUuid,omitempty"`
+	ValueUuidElement         *PrimitiveElement    `bson:"_valueUuid,omitempty" json:"_valueUuid,omitempty"`
 	ValueAddress             *Address             `bson:"valueAddress,omitempty" json:"valueAddress,omitempty"`
 	ValueAge                 *Age                 `bson:"valueAge,omitempty" json:"valueAge,omitempty"`
 	ValueAnnotation          *Annotation          `bson:"valueAnnotation,omitempty" json:"valueAnnotation,omitempty"`

@@ -21,53 +21,66 @@ import "encoding/json"
 
 // Observation is documented here http://hl7.org/fhir/StructureDefinition/Observation
 type Observation struct {
-	Id                   *string                     `bson:"id,omitempty" json:"id,omitempty"`
-	Meta                 *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules        *string                     `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language             *string                     `bson:"language,omitempty" json:"language,omitempty"`
-	Text                 *Narrative                  `bson:"text,omitempty" json:"text,omitempty"`
-	Extension            []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension    []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier           []Identifier                `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	BasedOn              []Reference                 `bson:"basedOn,omitempty" json:"basedOn,omitempty"`
-	PartOf               []Reference                 `bson:"partOf,omitempty" json:"partOf,omitempty"`
-	Status               ObservationStatus           `bson:"status" json:"status"`
-	Category             []CodeableConcept           `bson:"category,omitempty" json:"category,omitempty"`
-	Code                 CodeableConcept             `bson:"code" json:"code"`
-	Subject              *Reference                  `bson:"subject,omitempty" json:"subject,omitempty"`
-	Focus                []Reference                 `bson:"focus,omitempty" json:"focus,omitempty"`
-	Encounter            *Reference                  `bson:"encounter,omitempty" json:"encounter,omitempty"`
-	EffectiveDateTime    *string                     `bson:"effectiveDateTime,omitempty" json:"effectiveDateTime,omitempty"`
-	EffectivePeriod      *Period                     `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty"`
-	EffectiveTiming      *Timing                     `bson:"effectiveTiming,omitempty" json:"effectiveTiming,omitempty"`
-	EffectiveInstant     *string                     `bson:"effectiveInstant,omitempty" json:"effectiveInstant,omitempty"`
-	Issued               *string                     `bson:"issued,omitempty" json:"issued,omitempty"`
-	Performer            []Reference                 `bson:"performer,omitempty" json:"performer,omitempty"`
-	ValueQuantity        *Quantity                   `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
-	ValueCodeableConcept *CodeableConcept            `bson:"valueCodeableConcept,omitempty" json:"valueCodeableConcept,omitempty"`
-	ValueString          *string                     `bson:"valueString,omitempty" json:"valueString,omitempty"`
-	ValueBoolean         *bool                       `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
-	ValueInteger         *int                        `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
-	ValueRange           *Range                      `bson:"valueRange,omitempty" json:"valueRange,omitempty"`
-	ValueRatio           *Ratio                      `bson:"valueRatio,omitempty" json:"valueRatio,omitempty"`
-	ValueSampledData     *SampledData                `bson:"valueSampledData,omitempty" json:"valueSampledData,omitempty"`
-	ValueTime            *string                     `bson:"valueTime,omitempty" json:"valueTime,omitempty"`
-	ValueDateTime        *string                     `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
-	ValuePeriod          *Period                     `bson:"valuePeriod,omitempty" json:"valuePeriod,omitempty"`
-	DataAbsentReason     *CodeableConcept            `bson:"dataAbsentReason,omitempty" json:"dataAbsentReason,omitempty"`
-	Interpretation       []CodeableConcept           `bson:"interpretation,omitempty" json:"interpretation,omitempty"`
-	Note                 []Annotation                `bson:"note,omitempty" json:"note,omitempty"`
-	BodySite             *CodeableConcept            `bson:"bodySite,omitempty" json:"bodySite,omitempty"`
-	Method               *CodeableConcept            `bson:"method,omitempty" json:"method,omitempty"`
-	Specimen             *Reference                  `bson:"specimen,omitempty" json:"specimen,omitempty"`
-	Device               *Reference                  `bson:"device,omitempty" json:"device,omitempty"`
-	ReferenceRange       []ObservationReferenceRange `bson:"referenceRange,omitempty" json:"referenceRange,omitempty"`
-	HasMember            []Reference                 `bson:"hasMember,omitempty" json:"hasMember,omitempty"`
-	DerivedFrom          []Reference                 `bson:"derivedFrom,omitempty" json:"derivedFrom,omitempty"`
-	Component            []ObservationComponent      `bson:"component,omitempty" json:"component,omitempty"`
+	Id                       *string                     `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                *PrimitiveElement           `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                     *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules            *string                     `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement     *PrimitiveElement           `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language                 *string                     `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement          *PrimitiveElement           `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                     *Narrative                  `bson:"text,omitempty" json:"text,omitempty"`
+	Extension                []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension        []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier               []Identifier                `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	BasedOn                  []Reference                 `bson:"basedOn,omitempty" json:"basedOn,omitempty"`
+	PartOf                   []Reference                 `bson:"partOf,omitempty" json:"partOf,omitempty"`
+	Status                   ObservationStatus           `bson:"status" json:"status"`
+	StatusElement            *PrimitiveElement           `bson:"_status,omitempty" json:"_status,omitempty"`
+	Category                 []CodeableConcept           `bson:"category,omitempty" json:"category,omitempty"`
+	Code                     CodeableConcept             `bson:"code" json:"code"`
+	Subject                  *Reference                  `bson:"subject,omitempty" json:"subject,omitempty"`
+	Focus                    []Reference                 `bson:"focus,omitempty" json:"focus,omitempty"`
+	Encounter                *Reference                  `bson:"encounter,omitempty" json:"encounter,omitempty"`
+	EffectiveDateTime        *string                     `bson:"effectiveDateTime,omitempty" json:"effectiveDateTime,omitempty"`
+	EffectiveDateTimeElement *PrimitiveElement           `bson:"_effectiveDateTime,omitempty" json:"_effectiveDateTime,omitempty"`
+	EffectivePeriod          *Period                     `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty"`
+	EffectiveTiming          *Timing                     `bson:"effectiveTiming,omitempty" json:"effectiveTiming,omitempty"`
+	EffectiveInstant         *string                     `bson:"effectiveInstant,omitempty" json:"effectiveInstant,omitempty"`
+	EffectiveInstantElement  *PrimitiveElement           `bson:"_effectiveInstant,omitempty" json:"_effectiveInstant,omitempty"`
+	Issued                   *string                     `bson:"issued,omitempty" json:"issued,omitempty"`
+	IssuedElement            *PrimitiveElement           `bson:"_issued,omitempty" json:"_issued,omitempty"`
+	Performer                []Reference                 `bson:"performer,omitempty" json:"performer,omitempty"`
+	ValueQuantity            *Quantity                   `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
+	ValueCodeableConcept     *CodeableConcept            `bson:"valueCodeableConcept,omitempty" json:"valueCodeableConcept,omitempty"`
+	ValueString              *string                     `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueStringElement       *PrimitiveElement           `bson:"_valueString,omitempty" json:"_valueString,omitempty"`
+	ValueBoolean             *bool                       `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBooleanElement      *PrimitiveElement           `bson:"_valueBoolean,omitempty" json:"_valueBoolean,omitempty"`
+	ValueInteger             *int                        `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
+	ValueIntegerElement      *PrimitiveElement           `bson:"_valueInteger,omitempty" json:"_valueInteger,omitempty"`
+	ValueRange               *Range                      `bson:"valueRange,omitempty" json:"valueRange,omitempty"`
+	ValueRatio               *Ratio                      `bson:"valueRatio,omitempty" json:"valueRatio,omitempty"`
+	ValueSampledData         *SampledData                `bson:"valueSampledData,omitempty" json:"valueSampledData,omitempty"`
+	ValueTime                *string                     `bson:"valueTime,omitempty" json:"valueTime,omitempty"`
+	ValueTimeElement         *PrimitiveElement           `bson:"_valueTime,omitempty" json:"_valueTime,omitempty"`
+	ValueDateTime            *string                     `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
+	ValueDateTimeElement     *PrimitiveElement           `bson:"_valueDateTime,omitempty" json:"_valueDateTime,omitempty"`
+	ValuePeriod              *Period                     `bson:"valuePeriod,omitempty" json:"valuePeriod,omitempty"`
+	DataAbsentReason         *CodeableConcept            `bson:"dataAbsentReason,omitempty" json:"dataAbsentReason,omitempty"`
+	Interpretation           []CodeableConcept           `bson:"interpretation,omitempty" json:"interpretation,omitempty"`
+	Note                     []Annotation                `bson:"note,omitempty" json:"note,omitempty"`
+	BodySite                 *CodeableConcept            `bson:"bodySite,omitempty" json:"bodySite,omitempty"`
+	Method                   *CodeableConcept            `bson:"method,omitempty" json:"method,omitempty"`
+	Specimen                 *Reference                  `bson:"specimen,omitempty" json:"specimen,omitempty"`
+	Device                   *Reference                  `bson:"device,omitempty" json:"device,omitempty"`
+	ReferenceRange           []ObservationReferenceRange `bson:"referenceRange,omitempty" json:"referenceRange,omitempty"`
+	HasMember                []Reference                 `bson:"hasMember,omitempty" json:"hasMember,omitempty"`
+	DerivedFrom              []Reference                 `bson:"derivedFrom,omitempty" json:"derivedFrom,omitempty"`
+	Component                []ObservationComponent      `bson:"component,omitempty" json:"component,omitempty"`
 }
 type ObservationReferenceRange struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Low               *Quantity         `bson:"low,omitempty" json:"low,omitempty"`
@@ -76,22 +89,29 @@ type ObservationReferenceRange struct {
 	AppliesTo         []CodeableConcept `bson:"appliesTo,omitempty" json:"appliesTo,omitempty"`
 	Age               *Range            `bson:"age,omitempty" json:"age,omitempty"`
 	Text              *string           `bson:"text,omitempty" json:"text,omitempty"`
+	TextElement       *PrimitiveElement `bson:"_text,omitempty" json:"_text,omitempty"`
 }
 type ObservationComponent struct {
 	Id                   *string                     `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement           `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension            []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension    []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Code                 CodeableConcept             `bson:"code" json:"code"`
 	ValueQuantity        *Quantity                   `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
 	ValueCodeableConcept *CodeableConcept            `bson:"valueCodeableConcept,omitempty" json:"valueCodeableConcept,omitempty"`
 	ValueString          *string                     `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueStringElement   *PrimitiveElement           `bson:"_valueString,omitempty" json:"_valueString,omitempty"`
 	ValueBoolean         *bool                       `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBooleanElement  *PrimitiveElement           `bson:"_valueBoolean,omitempty" json:"_valueBoolean,omitempty"`
 	ValueInteger         *int                        `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
+	ValueIntegerElement  *PrimitiveElement           `bson:"_valueInteger,omitempty" json:"_valueInteger,omitempty"`
 	ValueRange           *Range                      `bson:"valueRange,omitempty" json:"valueRange,omitempty"`
 	ValueRatio           *Ratio                      `bson:"valueRatio,omitempty" json:"valueRatio,omitempty"`
 	ValueSampledData     *SampledData                `bson:"valueSampledData,omitempty" json:"valueSampledData,omitempty"`
 	ValueTime            *string                     `bson:"valueTime,omitempty" json:"valueTime,omitempty"`
+	ValueTimeElement     *PrimitiveElement           `bson:"_valueTime,omitempty" json:"_valueTime,omitempty"`
 	ValueDateTime        *string                     `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
+	ValueDateTimeElement *PrimitiveElement           `bson:"_valueDateTime,omitempty" json:"_valueDateTime,omitempty"`
 	ValuePeriod          *Period                     `bson:"valuePeriod,omitempty" json:"valuePeriod,omitempty"`
 	DataAbsentReason     *CodeableConcept            `bson:"dataAbsentReason,omitempty" json:"dataAbsentReason,omitempty"`
 	Interpretation       []CodeableConcept           `bson:"interpretation,omitempty" json:"interpretation,omitempty"`

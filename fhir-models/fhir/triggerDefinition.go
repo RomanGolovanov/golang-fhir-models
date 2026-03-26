@@ -19,14 +19,19 @@ package fhir
 
 // TriggerDefinition is documented here http://hl7.org/fhir/StructureDefinition/TriggerDefinition
 type TriggerDefinition struct {
-	Id              *string           `bson:"id,omitempty" json:"id,omitempty"`
-	Extension       []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
-	Type            TriggerType       `bson:"type" json:"type"`
-	Name            *string           `bson:"name,omitempty" json:"name,omitempty"`
-	TimingTiming    *Timing           `bson:"timingTiming,omitempty" json:"timingTiming,omitempty"`
-	TimingReference *Reference        `bson:"timingReference,omitempty" json:"timingReference,omitempty"`
-	TimingDate      *string           `bson:"timingDate,omitempty" json:"timingDate,omitempty"`
-	TimingDateTime  *string           `bson:"timingDateTime,omitempty" json:"timingDateTime,omitempty"`
-	Data            []DataRequirement `bson:"data,omitempty" json:"data,omitempty"`
-	Condition       *Expression       `bson:"condition,omitempty" json:"condition,omitempty"`
+	Id                    *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement             *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension             []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Type                  TriggerType       `bson:"type" json:"type"`
+	TypeElement           *PrimitiveElement `bson:"_type,omitempty" json:"_type,omitempty"`
+	Name                  *string           `bson:"name,omitempty" json:"name,omitempty"`
+	NameElement           *PrimitiveElement `bson:"_name,omitempty" json:"_name,omitempty"`
+	TimingTiming          *Timing           `bson:"timingTiming,omitempty" json:"timingTiming,omitempty"`
+	TimingReference       *Reference        `bson:"timingReference,omitempty" json:"timingReference,omitempty"`
+	TimingDate            *string           `bson:"timingDate,omitempty" json:"timingDate,omitempty"`
+	TimingDateElement     *PrimitiveElement `bson:"_timingDate,omitempty" json:"_timingDate,omitempty"`
+	TimingDateTime        *string           `bson:"timingDateTime,omitempty" json:"timingDateTime,omitempty"`
+	TimingDateTimeElement *PrimitiveElement `bson:"_timingDateTime,omitempty" json:"_timingDateTime,omitempty"`
+	Data                  []DataRequirement `bson:"data,omitempty" json:"data,omitempty"`
+	Condition             *Expression       `bson:"condition,omitempty" json:"condition,omitempty"`
 }

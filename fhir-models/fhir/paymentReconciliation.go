@@ -21,50 +21,63 @@ import "encoding/json"
 
 // PaymentReconciliation is documented here http://hl7.org/fhir/StructureDefinition/PaymentReconciliation
 type PaymentReconciliation struct {
-	Id                *string                            `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                              `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                            `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                            `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative                         `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension                        `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                        `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier                       `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status            FinancialResourceStatusCodes       `bson:"status" json:"status"`
-	Period            *Period                            `bson:"period,omitempty" json:"period,omitempty"`
-	Created           string                             `bson:"created" json:"created"`
-	PaymentIssuer     *Reference                         `bson:"paymentIssuer,omitempty" json:"paymentIssuer,omitempty"`
-	Request           *Reference                         `bson:"request,omitempty" json:"request,omitempty"`
-	Requestor         *Reference                         `bson:"requestor,omitempty" json:"requestor,omitempty"`
-	Outcome           *ClaimProcessingCodes              `bson:"outcome,omitempty" json:"outcome,omitempty"`
-	Disposition       *string                            `bson:"disposition,omitempty" json:"disposition,omitempty"`
-	PaymentDate       string                             `bson:"paymentDate" json:"paymentDate"`
-	PaymentAmount     Money                              `bson:"paymentAmount" json:"paymentAmount"`
-	PaymentIdentifier *Identifier                        `bson:"paymentIdentifier,omitempty" json:"paymentIdentifier,omitempty"`
-	Detail            []PaymentReconciliationDetail      `bson:"detail,omitempty" json:"detail,omitempty"`
-	FormCode          *CodeableConcept                   `bson:"formCode,omitempty" json:"formCode,omitempty"`
-	ProcessNote       []PaymentReconciliationProcessNote `bson:"processNote,omitempty" json:"processNote,omitempty"`
+	Id                   *string                            `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement                  `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                              `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string                            `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement                  `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string                            `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement                  `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative                         `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension                        `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension                        `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           []Identifier                       `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status               FinancialResourceStatusCodes       `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement                  `bson:"_status,omitempty" json:"_status,omitempty"`
+	Period               *Period                            `bson:"period,omitempty" json:"period,omitempty"`
+	Created              string                             `bson:"created" json:"created"`
+	CreatedElement       *PrimitiveElement                  `bson:"_created,omitempty" json:"_created,omitempty"`
+	PaymentIssuer        *Reference                         `bson:"paymentIssuer,omitempty" json:"paymentIssuer,omitempty"`
+	Request              *Reference                         `bson:"request,omitempty" json:"request,omitempty"`
+	Requestor            *Reference                         `bson:"requestor,omitempty" json:"requestor,omitempty"`
+	Outcome              *ClaimProcessingCodes              `bson:"outcome,omitempty" json:"outcome,omitempty"`
+	OutcomeElement       *PrimitiveElement                  `bson:"_outcome,omitempty" json:"_outcome,omitempty"`
+	Disposition          *string                            `bson:"disposition,omitempty" json:"disposition,omitempty"`
+	DispositionElement   *PrimitiveElement                  `bson:"_disposition,omitempty" json:"_disposition,omitempty"`
+	PaymentDate          string                             `bson:"paymentDate" json:"paymentDate"`
+	PaymentDateElement   *PrimitiveElement                  `bson:"_paymentDate,omitempty" json:"_paymentDate,omitempty"`
+	PaymentAmount        Money                              `bson:"paymentAmount" json:"paymentAmount"`
+	PaymentIdentifier    *Identifier                        `bson:"paymentIdentifier,omitempty" json:"paymentIdentifier,omitempty"`
+	Detail               []PaymentReconciliationDetail      `bson:"detail,omitempty" json:"detail,omitempty"`
+	FormCode             *CodeableConcept                   `bson:"formCode,omitempty" json:"formCode,omitempty"`
+	ProcessNote          []PaymentReconciliationProcessNote `bson:"processNote,omitempty" json:"processNote,omitempty"`
 }
 type PaymentReconciliationDetail struct {
-	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        *Identifier     `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Predecessor       *Identifier     `bson:"predecessor,omitempty" json:"predecessor,omitempty"`
-	Type              CodeableConcept `bson:"type" json:"type"`
-	Request           *Reference      `bson:"request,omitempty" json:"request,omitempty"`
-	Submitter         *Reference      `bson:"submitter,omitempty" json:"submitter,omitempty"`
-	Response          *Reference      `bson:"response,omitempty" json:"response,omitempty"`
-	Date              *string         `bson:"date,omitempty" json:"date,omitempty"`
-	Responsible       *Reference      `bson:"responsible,omitempty" json:"responsible,omitempty"`
-	Payee             *Reference      `bson:"payee,omitempty" json:"payee,omitempty"`
-	Amount            *Money          `bson:"amount,omitempty" json:"amount,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier        *Identifier       `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Predecessor       *Identifier       `bson:"predecessor,omitempty" json:"predecessor,omitempty"`
+	Type              CodeableConcept   `bson:"type" json:"type"`
+	Request           *Reference        `bson:"request,omitempty" json:"request,omitempty"`
+	Submitter         *Reference        `bson:"submitter,omitempty" json:"submitter,omitempty"`
+	Response          *Reference        `bson:"response,omitempty" json:"response,omitempty"`
+	Date              *string           `bson:"date,omitempty" json:"date,omitempty"`
+	DateElement       *PrimitiveElement `bson:"_date,omitempty" json:"_date,omitempty"`
+	Responsible       *Reference        `bson:"responsible,omitempty" json:"responsible,omitempty"`
+	Payee             *Reference        `bson:"payee,omitempty" json:"payee,omitempty"`
+	Amount            *Money            `bson:"amount,omitempty" json:"amount,omitempty"`
 }
 type PaymentReconciliationProcessNote struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Type              *NoteType   `bson:"type,omitempty" json:"type,omitempty"`
-	Text              *string     `bson:"text,omitempty" json:"text,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Type              *NoteType         `bson:"type,omitempty" json:"type,omitempty"`
+	TypeElement       *PrimitiveElement `bson:"_type,omitempty" json:"_type,omitempty"`
+	Text              *string           `bson:"text,omitempty" json:"text,omitempty"`
+	TextElement       *PrimitiveElement `bson:"_text,omitempty" json:"_text,omitempty"`
 }
 type OtherPaymentReconciliation PaymentReconciliation
 

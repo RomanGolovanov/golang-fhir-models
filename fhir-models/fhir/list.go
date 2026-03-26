@@ -21,35 +21,45 @@ import "encoding/json"
 
 // List is documented here http://hl7.org/fhir/StructureDefinition/List
 type List struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta            `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string          `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string          `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative       `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier     `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status            ListStatus       `bson:"status" json:"status"`
-	Mode              ListMode         `bson:"mode" json:"mode"`
-	Title             *string          `bson:"title,omitempty" json:"title,omitempty"`
-	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
-	Subject           *Reference       `bson:"subject,omitempty" json:"subject,omitempty"`
-	Encounter         *Reference       `bson:"encounter,omitempty" json:"encounter,omitempty"`
-	Date              *string          `bson:"date,omitempty" json:"date,omitempty"`
-	Source            *Reference       `bson:"source,omitempty" json:"source,omitempty"`
-	OrderedBy         *CodeableConcept `bson:"orderedBy,omitempty" json:"orderedBy,omitempty"`
-	Note              []Annotation     `bson:"note,omitempty" json:"note,omitempty"`
-	Entry             []ListEntry      `bson:"entry,omitempty" json:"entry,omitempty"`
-	EmptyReason       *CodeableConcept `bson:"emptyReason,omitempty" json:"emptyReason,omitempty"`
+	Id                   *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string           `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status               ListStatus        `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement `bson:"_status,omitempty" json:"_status,omitempty"`
+	Mode                 ListMode          `bson:"mode" json:"mode"`
+	ModeElement          *PrimitiveElement `bson:"_mode,omitempty" json:"_mode,omitempty"`
+	Title                *string           `bson:"title,omitempty" json:"title,omitempty"`
+	TitleElement         *PrimitiveElement `bson:"_title,omitempty" json:"_title,omitempty"`
+	Code                 *CodeableConcept  `bson:"code,omitempty" json:"code,omitempty"`
+	Subject              *Reference        `bson:"subject,omitempty" json:"subject,omitempty"`
+	Encounter            *Reference        `bson:"encounter,omitempty" json:"encounter,omitempty"`
+	Date                 *string           `bson:"date,omitempty" json:"date,omitempty"`
+	DateElement          *PrimitiveElement `bson:"_date,omitempty" json:"_date,omitempty"`
+	Source               *Reference        `bson:"source,omitempty" json:"source,omitempty"`
+	OrderedBy            *CodeableConcept  `bson:"orderedBy,omitempty" json:"orderedBy,omitempty"`
+	Note                 []Annotation      `bson:"note,omitempty" json:"note,omitempty"`
+	Entry                []ListEntry       `bson:"entry,omitempty" json:"entry,omitempty"`
+	EmptyReason          *CodeableConcept  `bson:"emptyReason,omitempty" json:"emptyReason,omitempty"`
 }
 type ListEntry struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Flag              *CodeableConcept `bson:"flag,omitempty" json:"flag,omitempty"`
-	Deleted           *bool            `bson:"deleted,omitempty" json:"deleted,omitempty"`
-	Date              *string          `bson:"date,omitempty" json:"date,omitempty"`
-	Item              Reference        `bson:"item" json:"item"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Flag              *CodeableConcept  `bson:"flag,omitempty" json:"flag,omitempty"`
+	Deleted           *bool             `bson:"deleted,omitempty" json:"deleted,omitempty"`
+	DeletedElement    *PrimitiveElement `bson:"_deleted,omitempty" json:"_deleted,omitempty"`
+	Date              *string           `bson:"date,omitempty" json:"date,omitempty"`
+	DateElement       *PrimitiveElement `bson:"_date,omitempty" json:"_date,omitempty"`
+	Item              Reference         `bson:"item" json:"item"`
 }
 type OtherList List
 

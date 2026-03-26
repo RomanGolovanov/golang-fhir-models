@@ -20,37 +20,53 @@ package fhir
 // DataRequirement is documented here http://hl7.org/fhir/StructureDefinition/DataRequirement
 type DataRequirement struct {
 	Id                     *string                     `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement              *PrimitiveElement           `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension              []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
 	Type                   string                      `bson:"type" json:"type"`
+	TypeElement            *PrimitiveElement           `bson:"_type,omitempty" json:"_type,omitempty"`
 	Profile                []string                    `bson:"profile,omitempty" json:"profile,omitempty"`
+	ProfileElement         []*PrimitiveElement         `bson:"_profile,omitempty" json:"_profile,omitempty"`
 	SubjectCodeableConcept *CodeableConcept            `bson:"subjectCodeableConcept,omitempty" json:"subjectCodeableConcept,omitempty"`
 	SubjectReference       *Reference                  `bson:"subjectReference,omitempty" json:"subjectReference,omitempty"`
 	MustSupport            []string                    `bson:"mustSupport,omitempty" json:"mustSupport,omitempty"`
+	MustSupportElement     []*PrimitiveElement         `bson:"_mustSupport,omitempty" json:"_mustSupport,omitempty"`
 	CodeFilter             []DataRequirementCodeFilter `bson:"codeFilter,omitempty" json:"codeFilter,omitempty"`
 	DateFilter             []DataRequirementDateFilter `bson:"dateFilter,omitempty" json:"dateFilter,omitempty"`
 	Limit                  *int                        `bson:"limit,omitempty" json:"limit,omitempty"`
+	LimitElement           *PrimitiveElement           `bson:"_limit,omitempty" json:"_limit,omitempty"`
 	Sort                   []DataRequirementSort       `bson:"sort,omitempty" json:"sort,omitempty"`
 }
 type DataRequirementCodeFilter struct {
-	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension   []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Path        *string     `bson:"path,omitempty" json:"path,omitempty"`
-	SearchParam *string     `bson:"searchParam,omitempty" json:"searchParam,omitempty"`
-	ValueSet    *string     `bson:"valueSet,omitempty" json:"valueSet,omitempty"`
-	Code        []Coding    `bson:"code,omitempty" json:"code,omitempty"`
+	Id                 *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Path               *string           `bson:"path,omitempty" json:"path,omitempty"`
+	PathElement        *PrimitiveElement `bson:"_path,omitempty" json:"_path,omitempty"`
+	SearchParam        *string           `bson:"searchParam,omitempty" json:"searchParam,omitempty"`
+	SearchParamElement *PrimitiveElement `bson:"_searchParam,omitempty" json:"_searchParam,omitempty"`
+	ValueSet           *string           `bson:"valueSet,omitempty" json:"valueSet,omitempty"`
+	ValueSetElement    *PrimitiveElement `bson:"_valueSet,omitempty" json:"_valueSet,omitempty"`
+	Code               []Coding          `bson:"code,omitempty" json:"code,omitempty"`
 }
 type DataRequirementDateFilter struct {
-	Id            *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension     []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Path          *string     `bson:"path,omitempty" json:"path,omitempty"`
-	SearchParam   *string     `bson:"searchParam,omitempty" json:"searchParam,omitempty"`
-	ValueDateTime *string     `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
-	ValuePeriod   *Period     `bson:"valuePeriod,omitempty" json:"valuePeriod,omitempty"`
-	ValueDuration *Duration   `bson:"valueDuration,omitempty" json:"valueDuration,omitempty"`
+	Id                   *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension            []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Path                 *string           `bson:"path,omitempty" json:"path,omitempty"`
+	PathElement          *PrimitiveElement `bson:"_path,omitempty" json:"_path,omitempty"`
+	SearchParam          *string           `bson:"searchParam,omitempty" json:"searchParam,omitempty"`
+	SearchParamElement   *PrimitiveElement `bson:"_searchParam,omitempty" json:"_searchParam,omitempty"`
+	ValueDateTime        *string           `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
+	ValueDateTimeElement *PrimitiveElement `bson:"_valueDateTime,omitempty" json:"_valueDateTime,omitempty"`
+	ValuePeriod          *Period           `bson:"valuePeriod,omitempty" json:"valuePeriod,omitempty"`
+	ValueDuration        *Duration         `bson:"valueDuration,omitempty" json:"valueDuration,omitempty"`
 }
 type DataRequirementSort struct {
-	Id        *string       `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension   `bson:"extension,omitempty" json:"extension,omitempty"`
-	Path      string        `bson:"path" json:"path"`
-	Direction SortDirection `bson:"direction" json:"direction"`
+	Id               *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement        *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension        []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Path             string            `bson:"path" json:"path"`
+	PathElement      *PrimitiveElement `bson:"_path,omitempty" json:"_path,omitempty"`
+	Direction        SortDirection     `bson:"direction" json:"direction"`
+	DirectionElement *PrimitiveElement `bson:"_direction,omitempty" json:"_direction,omitempty"`
 }

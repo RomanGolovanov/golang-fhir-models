@@ -21,59 +21,89 @@ import "encoding/json"
 
 // GraphDefinition is documented here http://hl7.org/fhir/StructureDefinition/GraphDefinition
 type GraphDefinition struct {
-	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string               `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string               `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative            `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Url               *string               `bson:"url,omitempty" json:"url,omitempty"`
-	Version           *string               `bson:"version,omitempty" json:"version,omitempty"`
-	Name              string                `bson:"name" json:"name"`
-	Status            PublicationStatus     `bson:"status" json:"status"`
-	Experimental      *bool                 `bson:"experimental,omitempty" json:"experimental,omitempty"`
-	Date              *string               `bson:"date,omitempty" json:"date,omitempty"`
-	Publisher         *string               `bson:"publisher,omitempty" json:"publisher,omitempty"`
-	Contact           []ContactDetail       `bson:"contact,omitempty" json:"contact,omitempty"`
-	Description       *string               `bson:"description,omitempty" json:"description,omitempty"`
-	UseContext        []UsageContext        `bson:"useContext,omitempty" json:"useContext,omitempty"`
-	Jurisdiction      []CodeableConcept     `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty"`
-	Purpose           *string               `bson:"purpose,omitempty" json:"purpose,omitempty"`
-	Start             ResourceType          `bson:"start" json:"start"`
-	Profile           *string               `bson:"profile,omitempty" json:"profile,omitempty"`
-	Link              []GraphDefinitionLink `bson:"link,omitempty" json:"link,omitempty"`
+	Id                   *string               `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement     `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string               `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement     `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string               `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement     `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative            `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Url                  *string               `bson:"url,omitempty" json:"url,omitempty"`
+	UrlElement           *PrimitiveElement     `bson:"_url,omitempty" json:"_url,omitempty"`
+	Version              *string               `bson:"version,omitempty" json:"version,omitempty"`
+	VersionElement       *PrimitiveElement     `bson:"_version,omitempty" json:"_version,omitempty"`
+	Name                 string                `bson:"name" json:"name"`
+	NameElement          *PrimitiveElement     `bson:"_name,omitempty" json:"_name,omitempty"`
+	Status               PublicationStatus     `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement     `bson:"_status,omitempty" json:"_status,omitempty"`
+	Experimental         *bool                 `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	ExperimentalElement  *PrimitiveElement     `bson:"_experimental,omitempty" json:"_experimental,omitempty"`
+	Date                 *string               `bson:"date,omitempty" json:"date,omitempty"`
+	DateElement          *PrimitiveElement     `bson:"_date,omitempty" json:"_date,omitempty"`
+	Publisher            *string               `bson:"publisher,omitempty" json:"publisher,omitempty"`
+	PublisherElement     *PrimitiveElement     `bson:"_publisher,omitempty" json:"_publisher,omitempty"`
+	Contact              []ContactDetail       `bson:"contact,omitempty" json:"contact,omitempty"`
+	Description          *string               `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement   *PrimitiveElement     `bson:"_description,omitempty" json:"_description,omitempty"`
+	UseContext           []UsageContext        `bson:"useContext,omitempty" json:"useContext,omitempty"`
+	Jurisdiction         []CodeableConcept     `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty"`
+	Purpose              *string               `bson:"purpose,omitempty" json:"purpose,omitempty"`
+	PurposeElement       *PrimitiveElement     `bson:"_purpose,omitempty" json:"_purpose,omitempty"`
+	Start                ResourceType          `bson:"start" json:"start"`
+	StartElement         *PrimitiveElement     `bson:"_start,omitempty" json:"_start,omitempty"`
+	Profile              *string               `bson:"profile,omitempty" json:"profile,omitempty"`
+	ProfileElement       *PrimitiveElement     `bson:"_profile,omitempty" json:"_profile,omitempty"`
+	Link                 []GraphDefinitionLink `bson:"link,omitempty" json:"link,omitempty"`
 }
 type GraphDefinitionLink struct {
-	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Path              *string                     `bson:"path,omitempty" json:"path,omitempty"`
-	SliceName         *string                     `bson:"sliceName,omitempty" json:"sliceName,omitempty"`
-	Min               *int                        `bson:"min,omitempty" json:"min,omitempty"`
-	Max               *string                     `bson:"max,omitempty" json:"max,omitempty"`
-	Description       *string                     `bson:"description,omitempty" json:"description,omitempty"`
-	Target            []GraphDefinitionLinkTarget `bson:"target,omitempty" json:"target,omitempty"`
+	Id                 *string                     `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement           `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension  []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Path               *string                     `bson:"path,omitempty" json:"path,omitempty"`
+	PathElement        *PrimitiveElement           `bson:"_path,omitempty" json:"_path,omitempty"`
+	SliceName          *string                     `bson:"sliceName,omitempty" json:"sliceName,omitempty"`
+	SliceNameElement   *PrimitiveElement           `bson:"_sliceName,omitempty" json:"_sliceName,omitempty"`
+	Min                *int                        `bson:"min,omitempty" json:"min,omitempty"`
+	MinElement         *PrimitiveElement           `bson:"_min,omitempty" json:"_min,omitempty"`
+	Max                *string                     `bson:"max,omitempty" json:"max,omitempty"`
+	MaxElement         *PrimitiveElement           `bson:"_max,omitempty" json:"_max,omitempty"`
+	Description        *string                     `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement *PrimitiveElement           `bson:"_description,omitempty" json:"_description,omitempty"`
+	Target             []GraphDefinitionLinkTarget `bson:"target,omitempty" json:"target,omitempty"`
 }
 type GraphDefinitionLinkTarget struct {
 	Id                *string                                `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement                      `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension                            `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              ResourceType                           `bson:"type" json:"type"`
+	TypeElement       *PrimitiveElement                      `bson:"_type,omitempty" json:"_type,omitempty"`
 	Params            *string                                `bson:"params,omitempty" json:"params,omitempty"`
+	ParamsElement     *PrimitiveElement                      `bson:"_params,omitempty" json:"_params,omitempty"`
 	Profile           *string                                `bson:"profile,omitempty" json:"profile,omitempty"`
+	ProfileElement    *PrimitiveElement                      `bson:"_profile,omitempty" json:"_profile,omitempty"`
 	Compartment       []GraphDefinitionLinkTargetCompartment `bson:"compartment,omitempty" json:"compartment,omitempty"`
 	Link              []GraphDefinitionLink                  `bson:"link,omitempty" json:"link,omitempty"`
 }
 type GraphDefinitionLinkTargetCompartment struct {
-	Id                *string              `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension          `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Use               GraphCompartmentUse  `bson:"use" json:"use"`
-	Code              CompartmentType      `bson:"code" json:"code"`
-	Rule              GraphCompartmentRule `bson:"rule" json:"rule"`
-	Expression        *string              `bson:"expression,omitempty" json:"expression,omitempty"`
-	Description       *string              `bson:"description,omitempty" json:"description,omitempty"`
+	Id                 *string              `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement    `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension  []Extension          `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Use                GraphCompartmentUse  `bson:"use" json:"use"`
+	UseElement         *PrimitiveElement    `bson:"_use,omitempty" json:"_use,omitempty"`
+	Code               CompartmentType      `bson:"code" json:"code"`
+	CodeElement        *PrimitiveElement    `bson:"_code,omitempty" json:"_code,omitempty"`
+	Rule               GraphCompartmentRule `bson:"rule" json:"rule"`
+	RuleElement        *PrimitiveElement    `bson:"_rule,omitempty" json:"_rule,omitempty"`
+	Expression         *string              `bson:"expression,omitempty" json:"expression,omitempty"`
+	ExpressionElement  *PrimitiveElement    `bson:"_expression,omitempty" json:"_expression,omitempty"`
+	Description        *string              `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement *PrimitiveElement    `bson:"_description,omitempty" json:"_description,omitempty"`
 }
 type OtherGraphDefinition GraphDefinition
 

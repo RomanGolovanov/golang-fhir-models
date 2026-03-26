@@ -21,20 +21,25 @@ import "encoding/json"
 
 // EnrollmentRequest is documented here http://hl7.org/fhir/StructureDefinition/EnrollmentRequest
 type EnrollmentRequest struct {
-	Id                *string                       `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                         `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                       `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                       `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative                    `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension                   `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                   `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier                  `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status            *FinancialResourceStatusCodes `bson:"status,omitempty" json:"status,omitempty"`
-	Created           *string                       `bson:"created,omitempty" json:"created,omitempty"`
-	Insurer           *Reference                    `bson:"insurer,omitempty" json:"insurer,omitempty"`
-	Provider          *Reference                    `bson:"provider,omitempty" json:"provider,omitempty"`
-	Candidate         *Reference                    `bson:"candidate,omitempty" json:"candidate,omitempty"`
-	Coverage          *Reference                    `bson:"coverage,omitempty" json:"coverage,omitempty"`
+	Id                   *string                       `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement             `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                         `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string                       `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement             `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string                       `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement             `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative                    `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension                   `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension                   `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           []Identifier                  `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status               *FinancialResourceStatusCodes `bson:"status,omitempty" json:"status,omitempty"`
+	StatusElement        *PrimitiveElement             `bson:"_status,omitempty" json:"_status,omitempty"`
+	Created              *string                       `bson:"created,omitempty" json:"created,omitempty"`
+	CreatedElement       *PrimitiveElement             `bson:"_created,omitempty" json:"_created,omitempty"`
+	Insurer              *Reference                    `bson:"insurer,omitempty" json:"insurer,omitempty"`
+	Provider             *Reference                    `bson:"provider,omitempty" json:"provider,omitempty"`
+	Candidate            *Reference                    `bson:"candidate,omitempty" json:"candidate,omitempty"`
+	Coverage             *Reference                    `bson:"coverage,omitempty" json:"coverage,omitempty"`
 }
 type OtherEnrollmentRequest EnrollmentRequest
 

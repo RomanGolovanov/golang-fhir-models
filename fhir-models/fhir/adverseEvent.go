@@ -22,21 +22,28 @@ import "encoding/json"
 // AdverseEvent is documented here http://hl7.org/fhir/StructureDefinition/AdverseEvent
 type AdverseEvent struct {
 	Id                    *string                     `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement             *PrimitiveElement           `bson:"_id,omitempty" json:"_id,omitempty"`
 	Meta                  *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`
 	ImplicitRules         *string                     `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement  *PrimitiveElement           `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
 	Language              *string                     `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement       *PrimitiveElement           `bson:"_language,omitempty" json:"_language,omitempty"`
 	Text                  *Narrative                  `bson:"text,omitempty" json:"text,omitempty"`
 	Extension             []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension     []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier            *Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
 	Actuality             AdverseEventActuality       `bson:"actuality" json:"actuality"`
+	ActualityElement      *PrimitiveElement           `bson:"_actuality,omitempty" json:"_actuality,omitempty"`
 	Category              []CodeableConcept           `bson:"category,omitempty" json:"category,omitempty"`
 	Event                 *CodeableConcept            `bson:"event,omitempty" json:"event,omitempty"`
 	Subject               Reference                   `bson:"subject" json:"subject"`
 	Encounter             *Reference                  `bson:"encounter,omitempty" json:"encounter,omitempty"`
 	Date                  *string                     `bson:"date,omitempty" json:"date,omitempty"`
+	DateElement           *PrimitiveElement           `bson:"_date,omitempty" json:"_date,omitempty"`
 	Detected              *string                     `bson:"detected,omitempty" json:"detected,omitempty"`
+	DetectedElement       *PrimitiveElement           `bson:"_detected,omitempty" json:"_detected,omitempty"`
 	RecordedDate          *string                     `bson:"recordedDate,omitempty" json:"recordedDate,omitempty"`
+	RecordedDateElement   *PrimitiveElement           `bson:"_recordedDate,omitempty" json:"_recordedDate,omitempty"`
 	ResultingCondition    []Reference                 `bson:"resultingCondition,omitempty" json:"resultingCondition,omitempty"`
 	Location              *Reference                  `bson:"location,omitempty" json:"location,omitempty"`
 	Seriousness           *CodeableConcept            `bson:"seriousness,omitempty" json:"seriousness,omitempty"`
@@ -51,19 +58,22 @@ type AdverseEvent struct {
 }
 type AdverseEventSuspectEntity struct {
 	Id                *string                              `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement                    `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension                          `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                          `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Instance          Reference                            `bson:"instance" json:"instance"`
 	Causality         []AdverseEventSuspectEntityCausality `bson:"causality,omitempty" json:"causality,omitempty"`
 }
 type AdverseEventSuspectEntityCausality struct {
-	Id                 *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension          []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension  []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Assessment         *CodeableConcept `bson:"assessment,omitempty" json:"assessment,omitempty"`
-	ProductRelatedness *string          `bson:"productRelatedness,omitempty" json:"productRelatedness,omitempty"`
-	Author             *Reference       `bson:"author,omitempty" json:"author,omitempty"`
-	Method             *CodeableConcept `bson:"method,omitempty" json:"method,omitempty"`
+	Id                        *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement                 *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension                 []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension         []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Assessment                *CodeableConcept  `bson:"assessment,omitempty" json:"assessment,omitempty"`
+	ProductRelatedness        *string           `bson:"productRelatedness,omitempty" json:"productRelatedness,omitempty"`
+	ProductRelatednessElement *PrimitiveElement `bson:"_productRelatedness,omitempty" json:"_productRelatedness,omitempty"`
+	Author                    *Reference        `bson:"author,omitempty" json:"author,omitempty"`
+	Method                    *CodeableConcept  `bson:"method,omitempty" json:"method,omitempty"`
 }
 type OtherAdverseEvent AdverseEvent
 

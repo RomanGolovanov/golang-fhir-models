@@ -21,52 +21,71 @@ import "encoding/json"
 
 // QuestionnaireResponse is documented here http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
 type QuestionnaireResponse struct {
-	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                     `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                     `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative                  `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        *Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	BasedOn           []Reference                 `bson:"basedOn,omitempty" json:"basedOn,omitempty"`
-	PartOf            []Reference                 `bson:"partOf,omitempty" json:"partOf,omitempty"`
-	Questionnaire     *string                     `bson:"questionnaire,omitempty" json:"questionnaire,omitempty"`
-	Status            QuestionnaireResponseStatus `bson:"status" json:"status"`
-	Subject           *Reference                  `bson:"subject,omitempty" json:"subject,omitempty"`
-	Encounter         *Reference                  `bson:"encounter,omitempty" json:"encounter,omitempty"`
-	Authored          *string                     `bson:"authored,omitempty" json:"authored,omitempty"`
-	Author            *Reference                  `bson:"author,omitempty" json:"author,omitempty"`
-	Source            *Reference                  `bson:"source,omitempty" json:"source,omitempty"`
-	Item              []QuestionnaireResponseItem `bson:"item,omitempty" json:"item,omitempty"`
+	Id                   *string                     `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement           `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string                     `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement           `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string                     `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement           `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative                  `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           *Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	BasedOn              []Reference                 `bson:"basedOn,omitempty" json:"basedOn,omitempty"`
+	PartOf               []Reference                 `bson:"partOf,omitempty" json:"partOf,omitempty"`
+	Questionnaire        *string                     `bson:"questionnaire,omitempty" json:"questionnaire,omitempty"`
+	QuestionnaireElement *PrimitiveElement           `bson:"_questionnaire,omitempty" json:"_questionnaire,omitempty"`
+	Status               QuestionnaireResponseStatus `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement           `bson:"_status,omitempty" json:"_status,omitempty"`
+	Subject              *Reference                  `bson:"subject,omitempty" json:"subject,omitempty"`
+	Encounter            *Reference                  `bson:"encounter,omitempty" json:"encounter,omitempty"`
+	Authored             *string                     `bson:"authored,omitempty" json:"authored,omitempty"`
+	AuthoredElement      *PrimitiveElement           `bson:"_authored,omitempty" json:"_authored,omitempty"`
+	Author               *Reference                  `bson:"author,omitempty" json:"author,omitempty"`
+	Source               *Reference                  `bson:"source,omitempty" json:"source,omitempty"`
+	Item                 []QuestionnaireResponseItem `bson:"item,omitempty" json:"item,omitempty"`
 }
 type QuestionnaireResponseItem struct {
 	Id                *string                           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement                 `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension                       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	LinkId            string                            `bson:"linkId" json:"linkId"`
+	LinkIdElement     *PrimitiveElement                 `bson:"_linkId,omitempty" json:"_linkId,omitempty"`
 	Definition        *string                           `bson:"definition,omitempty" json:"definition,omitempty"`
+	DefinitionElement *PrimitiveElement                 `bson:"_definition,omitempty" json:"_definition,omitempty"`
 	Text              *string                           `bson:"text,omitempty" json:"text,omitempty"`
+	TextElement       *PrimitiveElement                 `bson:"_text,omitempty" json:"_text,omitempty"`
 	Answer            []QuestionnaireResponseItemAnswer `bson:"answer,omitempty" json:"answer,omitempty"`
 	Item              []QuestionnaireResponseItem       `bson:"item,omitempty" json:"item,omitempty"`
 }
 type QuestionnaireResponseItemAnswer struct {
-	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	ValueBoolean      *bool                       `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
-	ValueDecimal      *json.Number                `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
-	ValueInteger      *int                        `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
-	ValueDate         *string                     `bson:"valueDate,omitempty" json:"valueDate,omitempty"`
-	ValueDateTime     *string                     `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
-	ValueTime         *string                     `bson:"valueTime,omitempty" json:"valueTime,omitempty"`
-	ValueString       *string                     `bson:"valueString,omitempty" json:"valueString,omitempty"`
-	ValueUri          *string                     `bson:"valueUri,omitempty" json:"valueUri,omitempty"`
-	ValueAttachment   *Attachment                 `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty"`
-	ValueCoding       *Coding                     `bson:"valueCoding,omitempty" json:"valueCoding,omitempty"`
-	ValueQuantity     *Quantity                   `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
-	ValueReference    *Reference                  `bson:"valueReference,omitempty" json:"valueReference,omitempty"`
-	Item              []QuestionnaireResponseItem `bson:"item,omitempty" json:"item,omitempty"`
+	Id                   *string                     `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement           `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension            []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	ValueBoolean         *bool                       `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBooleanElement  *PrimitiveElement           `bson:"_valueBoolean,omitempty" json:"_valueBoolean,omitempty"`
+	ValueDecimal         *json.Number                `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
+	ValueDecimalElement  *PrimitiveElement           `bson:"_valueDecimal,omitempty" json:"_valueDecimal,omitempty"`
+	ValueInteger         *int                        `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
+	ValueIntegerElement  *PrimitiveElement           `bson:"_valueInteger,omitempty" json:"_valueInteger,omitempty"`
+	ValueDate            *string                     `bson:"valueDate,omitempty" json:"valueDate,omitempty"`
+	ValueDateElement     *PrimitiveElement           `bson:"_valueDate,omitempty" json:"_valueDate,omitempty"`
+	ValueDateTime        *string                     `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
+	ValueDateTimeElement *PrimitiveElement           `bson:"_valueDateTime,omitempty" json:"_valueDateTime,omitempty"`
+	ValueTime            *string                     `bson:"valueTime,omitempty" json:"valueTime,omitempty"`
+	ValueTimeElement     *PrimitiveElement           `bson:"_valueTime,omitempty" json:"_valueTime,omitempty"`
+	ValueString          *string                     `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueStringElement   *PrimitiveElement           `bson:"_valueString,omitempty" json:"_valueString,omitempty"`
+	ValueUri             *string                     `bson:"valueUri,omitempty" json:"valueUri,omitempty"`
+	ValueUriElement      *PrimitiveElement           `bson:"_valueUri,omitempty" json:"_valueUri,omitempty"`
+	ValueAttachment      *Attachment                 `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty"`
+	ValueCoding          *Coding                     `bson:"valueCoding,omitempty" json:"valueCoding,omitempty"`
+	ValueQuantity        *Quantity                   `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
+	ValueReference       *Reference                  `bson:"valueReference,omitempty" json:"valueReference,omitempty"`
+	Item                 []QuestionnaireResponseItem `bson:"item,omitempty" json:"item,omitempty"`
 }
 type OtherQuestionnaireResponse QuestionnaireResponse
 

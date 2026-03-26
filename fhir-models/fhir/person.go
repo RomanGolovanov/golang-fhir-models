@@ -22,9 +22,12 @@ import "encoding/json"
 // Person is documented here http://hl7.org/fhir/StructureDefinition/Person
 type Person struct {
 	Id                   *string               `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement     `bson:"_id,omitempty" json:"_id,omitempty"`
 	Meta                 *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
 	ImplicitRules        *string               `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement     `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
 	Language             *string               `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement     `bson:"_language,omitempty" json:"_language,omitempty"`
 	Text                 *Narrative            `bson:"text,omitempty" json:"text,omitempty"`
 	Extension            []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension    []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
@@ -32,19 +35,24 @@ type Person struct {
 	Name                 []HumanName           `bson:"name,omitempty" json:"name,omitempty"`
 	Telecom              []ContactPoint        `bson:"telecom,omitempty" json:"telecom,omitempty"`
 	Gender               *AdministrativeGender `bson:"gender,omitempty" json:"gender,omitempty"`
+	GenderElement        *PrimitiveElement     `bson:"_gender,omitempty" json:"_gender,omitempty"`
 	BirthDate            *string               `bson:"birthDate,omitempty" json:"birthDate,omitempty"`
+	BirthDateElement     *PrimitiveElement     `bson:"_birthDate,omitempty" json:"_birthDate,omitempty"`
 	Address              []Address             `bson:"address,omitempty" json:"address,omitempty"`
 	Photo                *Attachment           `bson:"photo,omitempty" json:"photo,omitempty"`
 	ManagingOrganization *Reference            `bson:"managingOrganization,omitempty" json:"managingOrganization,omitempty"`
 	Active               *bool                 `bson:"active,omitempty" json:"active,omitempty"`
+	ActiveElement        *PrimitiveElement     `bson:"_active,omitempty" json:"_active,omitempty"`
 	Link                 []PersonLink          `bson:"link,omitempty" json:"link,omitempty"`
 }
 type PersonLink struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement       `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Target            Reference               `bson:"target" json:"target"`
 	Assurance         *IdentityAssuranceLevel `bson:"assurance,omitempty" json:"assurance,omitempty"`
+	AssuranceElement  *PrimitiveElement       `bson:"_assurance,omitempty" json:"_assurance,omitempty"`
 }
 type OtherPerson Person
 

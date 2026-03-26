@@ -19,11 +19,17 @@ package fhir
 
 // Expression is documented here http://hl7.org/fhir/StructureDefinition/Expression
 type Expression struct {
-	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension   []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Description *string     `bson:"description,omitempty" json:"description,omitempty"`
-	Name        *string     `bson:"name,omitempty" json:"name,omitempty"`
-	Language    string      `bson:"language" json:"language"`
-	Expression  *string     `bson:"expression,omitempty" json:"expression,omitempty"`
-	Reference   *string     `bson:"reference,omitempty" json:"reference,omitempty"`
+	Id                 *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement          *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension          []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Description        *string           `bson:"description,omitempty" json:"description,omitempty"`
+	DescriptionElement *PrimitiveElement `bson:"_description,omitempty" json:"_description,omitempty"`
+	Name               *string           `bson:"name,omitempty" json:"name,omitempty"`
+	NameElement        *PrimitiveElement `bson:"_name,omitempty" json:"_name,omitempty"`
+	Language           string            `bson:"language" json:"language"`
+	LanguageElement    *PrimitiveElement `bson:"_language,omitempty" json:"_language,omitempty"`
+	Expression         *string           `bson:"expression,omitempty" json:"expression,omitempty"`
+	ExpressionElement  *PrimitiveElement `bson:"_expression,omitempty" json:"_expression,omitempty"`
+	Reference          *string           `bson:"reference,omitempty" json:"reference,omitempty"`
+	ReferenceElement   *PrimitiveElement `bson:"_reference,omitempty" json:"_reference,omitempty"`
 }

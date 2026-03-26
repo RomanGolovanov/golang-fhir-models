@@ -19,8 +19,11 @@ package fhir
 
 // Narrative is documented here http://hl7.org/fhir/StructureDefinition/Narrative
 type Narrative struct {
-	Id        *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	Status    NarrativeStatus `bson:"status" json:"status"`
-	Div       string          `bson:"div" json:"div"`
+	Id            *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement     *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension     []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	Status        NarrativeStatus   `bson:"status" json:"status"`
+	StatusElement *PrimitiveElement `bson:"_status,omitempty" json:"_status,omitempty"`
+	Div           string            `bson:"div" json:"div"`
+	DivElement    *PrimitiveElement `bson:"_div,omitempty" json:"_div,omitempty"`
 }

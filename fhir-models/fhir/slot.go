@@ -21,24 +21,32 @@ import "encoding/json"
 
 // Slot is documented here http://hl7.org/fhir/StructureDefinition/Slot
 type Slot struct {
-	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string           `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	ServiceCategory   []CodeableConcept `bson:"serviceCategory,omitempty" json:"serviceCategory,omitempty"`
-	ServiceType       []CodeableConcept `bson:"serviceType,omitempty" json:"serviceType,omitempty"`
-	Specialty         []CodeableConcept `bson:"specialty,omitempty" json:"specialty,omitempty"`
-	AppointmentType   *CodeableConcept  `bson:"appointmentType,omitempty" json:"appointmentType,omitempty"`
-	Schedule          Reference         `bson:"schedule" json:"schedule"`
-	Status            SlotStatus        `bson:"status" json:"status"`
-	Start             string            `bson:"start" json:"start"`
-	End               string            `bson:"end" json:"end"`
-	Overbooked        *bool             `bson:"overbooked,omitempty" json:"overbooked,omitempty"`
-	Comment           *string           `bson:"comment,omitempty" json:"comment,omitempty"`
+	Id                   *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string           `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	ServiceCategory      []CodeableConcept `bson:"serviceCategory,omitempty" json:"serviceCategory,omitempty"`
+	ServiceType          []CodeableConcept `bson:"serviceType,omitempty" json:"serviceType,omitempty"`
+	Specialty            []CodeableConcept `bson:"specialty,omitempty" json:"specialty,omitempty"`
+	AppointmentType      *CodeableConcept  `bson:"appointmentType,omitempty" json:"appointmentType,omitempty"`
+	Schedule             Reference         `bson:"schedule" json:"schedule"`
+	Status               SlotStatus        `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement `bson:"_status,omitempty" json:"_status,omitempty"`
+	Start                string            `bson:"start" json:"start"`
+	StartElement         *PrimitiveElement `bson:"_start,omitempty" json:"_start,omitempty"`
+	End                  string            `bson:"end" json:"end"`
+	EndElement           *PrimitiveElement `bson:"_end,omitempty" json:"_end,omitempty"`
+	Overbooked           *bool             `bson:"overbooked,omitempty" json:"overbooked,omitempty"`
+	OverbookedElement    *PrimitiveElement `bson:"_overbooked,omitempty" json:"_overbooked,omitempty"`
+	Comment              *string           `bson:"comment,omitempty" json:"comment,omitempty"`
+	CommentElement       *PrimitiveElement `bson:"_comment,omitempty" json:"_comment,omitempty"`
 }
 type OtherSlot Slot
 

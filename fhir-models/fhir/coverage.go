@@ -21,41 +21,54 @@ import "encoding/json"
 
 // Coverage is documented here http://hl7.org/fhir/StructureDefinition/Coverage
 type Coverage struct {
-	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string                      `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string                      `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative                   `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status            FinancialResourceStatusCodes `bson:"status" json:"status"`
-	Type              *CodeableConcept             `bson:"type,omitempty" json:"type,omitempty"`
-	PolicyHolder      *Reference                   `bson:"policyHolder,omitempty" json:"policyHolder,omitempty"`
-	Subscriber        *Reference                   `bson:"subscriber,omitempty" json:"subscriber,omitempty"`
-	SubscriberId      *string                      `bson:"subscriberId,omitempty" json:"subscriberId,omitempty"`
-	Beneficiary       Reference                    `bson:"beneficiary" json:"beneficiary"`
-	Dependent         *string                      `bson:"dependent,omitempty" json:"dependent,omitempty"`
-	Relationship      *CodeableConcept             `bson:"relationship,omitempty" json:"relationship,omitempty"`
-	Period            *Period                      `bson:"period,omitempty" json:"period,omitempty"`
-	Payor             []Reference                  `bson:"payor" json:"payor"`
-	Class             []CoverageClass              `bson:"class,omitempty" json:"class,omitempty"`
-	Order             *int                         `bson:"order,omitempty" json:"order,omitempty"`
-	Network           *string                      `bson:"network,omitempty" json:"network,omitempty"`
-	CostToBeneficiary []CoverageCostToBeneficiary  `bson:"costToBeneficiary,omitempty" json:"costToBeneficiary,omitempty"`
-	Subrogation       *bool                        `bson:"subrogation,omitempty" json:"subrogation,omitempty"`
-	Contract          []Reference                  `bson:"contract,omitempty" json:"contract,omitempty"`
+	Id                   *string                      `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement            *PrimitiveElement            `bson:"_id,omitempty" json:"_id,omitempty"`
+	Meta                 *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules        *string                      `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	ImplicitRulesElement *PrimitiveElement            `bson:"_implicitRules,omitempty" json:"_implicitRules,omitempty"`
+	Language             *string                      `bson:"language,omitempty" json:"language,omitempty"`
+	LanguageElement      *PrimitiveElement            `bson:"_language,omitempty" json:"_language,omitempty"`
+	Text                 *Narrative                   `bson:"text,omitempty" json:"text,omitempty"`
+	Extension            []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension                  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier           []Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status               FinancialResourceStatusCodes `bson:"status" json:"status"`
+	StatusElement        *PrimitiveElement            `bson:"_status,omitempty" json:"_status,omitempty"`
+	Type                 *CodeableConcept             `bson:"type,omitempty" json:"type,omitempty"`
+	PolicyHolder         *Reference                   `bson:"policyHolder,omitempty" json:"policyHolder,omitempty"`
+	Subscriber           *Reference                   `bson:"subscriber,omitempty" json:"subscriber,omitempty"`
+	SubscriberId         *string                      `bson:"subscriberId,omitempty" json:"subscriberId,omitempty"`
+	SubscriberIdElement  *PrimitiveElement            `bson:"_subscriberId,omitempty" json:"_subscriberId,omitempty"`
+	Beneficiary          Reference                    `bson:"beneficiary" json:"beneficiary"`
+	Dependent            *string                      `bson:"dependent,omitempty" json:"dependent,omitempty"`
+	DependentElement     *PrimitiveElement            `bson:"_dependent,omitempty" json:"_dependent,omitempty"`
+	Relationship         *CodeableConcept             `bson:"relationship,omitempty" json:"relationship,omitempty"`
+	Period               *Period                      `bson:"period,omitempty" json:"period,omitempty"`
+	Payor                []Reference                  `bson:"payor" json:"payor"`
+	Class                []CoverageClass              `bson:"class,omitempty" json:"class,omitempty"`
+	Order                *int                         `bson:"order,omitempty" json:"order,omitempty"`
+	OrderElement         *PrimitiveElement            `bson:"_order,omitempty" json:"_order,omitempty"`
+	Network              *string                      `bson:"network,omitempty" json:"network,omitempty"`
+	NetworkElement       *PrimitiveElement            `bson:"_network,omitempty" json:"_network,omitempty"`
+	CostToBeneficiary    []CoverageCostToBeneficiary  `bson:"costToBeneficiary,omitempty" json:"costToBeneficiary,omitempty"`
+	Subrogation          *bool                        `bson:"subrogation,omitempty" json:"subrogation,omitempty"`
+	SubrogationElement   *PrimitiveElement            `bson:"_subrogation,omitempty" json:"_subrogation,omitempty"`
+	Contract             []Reference                  `bson:"contract,omitempty" json:"contract,omitempty"`
 }
 type CoverageClass struct {
-	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Type              CodeableConcept `bson:"type" json:"type"`
-	Value             string          `bson:"value" json:"value"`
-	Name              *string         `bson:"name,omitempty" json:"name,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Type              CodeableConcept   `bson:"type" json:"type"`
+	Value             string            `bson:"value" json:"value"`
+	ValueElement      *PrimitiveElement `bson:"_value,omitempty" json:"_value,omitempty"`
+	Name              *string           `bson:"name,omitempty" json:"name,omitempty"`
+	NameElement       *PrimitiveElement `bson:"_name,omitempty" json:"_name,omitempty"`
 }
 type CoverageCostToBeneficiary struct {
 	Id                *string                              `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement                    `bson:"_id,omitempty" json:"_id,omitempty"`
 	Extension         []Extension                          `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                          `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              *CodeableConcept                     `bson:"type,omitempty" json:"type,omitempty"`
@@ -64,11 +77,12 @@ type CoverageCostToBeneficiary struct {
 	Exception         []CoverageCostToBeneficiaryException `bson:"exception,omitempty" json:"exception,omitempty"`
 }
 type CoverageCostToBeneficiaryException struct {
-	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Type              CodeableConcept `bson:"type" json:"type"`
-	Period            *Period         `bson:"period,omitempty" json:"period,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	IdElement         *PrimitiveElement `bson:"_id,omitempty" json:"_id,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Type              CodeableConcept   `bson:"type" json:"type"`
+	Period            *Period           `bson:"period,omitempty" json:"period,omitempty"`
 }
 type OtherCoverage Coverage
 
