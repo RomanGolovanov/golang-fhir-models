@@ -351,7 +351,7 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 				case 1:
 					var err error
 					i, err = addFieldStatement(resources, requiredTypes, requiredValueSetBindings, file, fields,
-						pathParts[level], parentName, elementDefinitions, i, level, element.Type[0])
+						pathParts[level], parentName, elementDefinitions, i, level, element.Type[0], false)
 
 					if err != nil {
 						return 0, err
@@ -363,7 +363,7 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 
 						var err error
 						i, err = addFieldStatement(resources, requiredTypes, requiredValueSetBindings, file, fields,
-							name, parentName, elementDefinitions, i, level, eleType)
+							name, parentName, elementDefinitions, i, level, eleType, true)
 
 						if err != nil {
 							return 0, err
@@ -390,6 +390,7 @@ func addFieldStatement(
 	elementDefinitions []fhir.ElementDefinition,
 	elementIndex, level int,
 	elementType fhir.ElementDefinitionType,
+	isPolymorphic bool,
 ) (idx int, err error) {
 	fieldName := Title(name)
 	element := elementDefinitions[elementIndex]
@@ -399,7 +400,7 @@ func addFieldStatement(
 	case "code":
 		if *element.Max == "*" {
 			statement.Op("[]")
-		} else if *element.Min == 0 {
+		} else if *element.Min == 0 || isPolymorphic {
 			statement.Op("*")
 		}
 
@@ -437,7 +438,7 @@ func addFieldStatement(
 	default:
 		if *element.Max == "*" {
 			statement.Op("[]")
-		} else if *element.Min == 0 {
+		} else if *element.Min == 0 || isPolymorphic {
 			statement.Op("*")
 		}
 
@@ -471,7 +472,7 @@ func addFieldStatement(
 		}
 	}
 
-	if *element.Min == 0 {
+	if *element.Min == 0 || isPolymorphic {
 		statement.Tag(map[string]string{"json": name + ",omitempty", "bson": name + ",omitempty"})
 	} else {
 		statement.Tag(map[string]string{"json": name, "bson": name})

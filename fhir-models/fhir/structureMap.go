@@ -166,14 +166,14 @@ type StructureMapGroupRuleTarget struct {
 	Parameter         []StructureMapGroupRuleTargetParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
 }
 type StructureMapGroupRuleTargetParameter struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	ValueId           string      `bson:"valueId" json:"valueId"`
-	ValueString       string      `bson:"valueString" json:"valueString"`
-	ValueBoolean      bool        `bson:"valueBoolean" json:"valueBoolean"`
-	ValueInteger      int         `bson:"valueInteger" json:"valueInteger"`
-	ValueDecimal      json.Number `bson:"valueDecimal" json:"valueDecimal"`
+	Id                *string      `bson:"id,omitempty" json:"id,omitempty"`
+	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	ValueId           *string      `bson:"valueId,omitempty" json:"valueId,omitempty"`
+	ValueString       *string      `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueBoolean      *bool        `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueInteger      *int         `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
+	ValueDecimal      *json.Number `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
 }
 type StructureMapGroupRuleDependent struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`

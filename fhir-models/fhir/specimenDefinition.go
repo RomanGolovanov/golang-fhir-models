@@ -63,11 +63,11 @@ type SpecimenDefinitionTypeTestedContainer struct {
 	Preparation           *string                                         `bson:"preparation,omitempty" json:"preparation,omitempty"`
 }
 type SpecimenDefinitionTypeTestedContainerAdditive struct {
-	Id                      *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension               []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension       []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	AdditiveCodeableConcept CodeableConcept `bson:"additiveCodeableConcept" json:"additiveCodeableConcept"`
-	AdditiveReference       Reference       `bson:"additiveReference" json:"additiveReference"`
+	Id                      *string          `bson:"id,omitempty" json:"id,omitempty"`
+	Extension               []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension       []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	AdditiveCodeableConcept *CodeableConcept `bson:"additiveCodeableConcept,omitempty" json:"additiveCodeableConcept,omitempty"`
+	AdditiveReference       *Reference       `bson:"additiveReference,omitempty" json:"additiveReference,omitempty"`
 }
 type SpecimenDefinitionTypeTestedHandling struct {
 	Id                   *string          `bson:"id,omitempty" json:"id,omitempty"`

@@ -37,8 +37,8 @@ type MedicationRequest struct {
 	DoNotPerform              *bool                             `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
 	ReportedBoolean           *bool                             `bson:"reportedBoolean,omitempty" json:"reportedBoolean,omitempty"`
 	ReportedReference         *Reference                        `bson:"reportedReference,omitempty" json:"reportedReference,omitempty"`
-	MedicationCodeableConcept CodeableConcept                   `bson:"medicationCodeableConcept" json:"medicationCodeableConcept"`
-	MedicationReference       Reference                         `bson:"medicationReference" json:"medicationReference"`
+	MedicationCodeableConcept *CodeableConcept                  `bson:"medicationCodeableConcept,omitempty" json:"medicationCodeableConcept,omitempty"`
+	MedicationReference       *Reference                        `bson:"medicationReference,omitempty" json:"medicationReference,omitempty"`
 	Subject                   Reference                         `bson:"subject" json:"subject"`
 	Encounter                 *Reference                        `bson:"encounter,omitempty" json:"encounter,omitempty"`
 	SupportingInformation     []Reference                       `bson:"supportingInformation,omitempty" json:"supportingInformation,omitempty"`
@@ -86,8 +86,8 @@ type MedicationRequestSubstitution struct {
 	Id                     *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension              []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension      []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	AllowedBoolean         bool             `bson:"allowedBoolean" json:"allowedBoolean"`
-	AllowedCodeableConcept CodeableConcept  `bson:"allowedCodeableConcept" json:"allowedCodeableConcept"`
+	AllowedBoolean         *bool            `bson:"allowedBoolean,omitempty" json:"allowedBoolean,omitempty"`
+	AllowedCodeableConcept *CodeableConcept `bson:"allowedCodeableConcept,omitempty" json:"allowedCodeableConcept,omitempty"`
 	Reason                 *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty"`
 }
 type OtherMedicationRequest MedicationRequest
